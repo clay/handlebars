@@ -1,0 +1,33 @@
+{
+  "name": "nymag-handlebars",
+  "version": "0.0.1",
+  "description": "A collection of helpers and partials for handlebars",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nymag/nymag-handlebars.git"
+  },
+  "keywords": [
+    "handlebars"
+  ],
+  "author": "New York Media",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nymag/nymag-handlebars/issues"
+  },
+  "homepage": "https://github.com/nymag/nymag-handlebars#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "glob": "^7.1.1",
+    "handlebars": "^4.0.6"
+  }
+}
