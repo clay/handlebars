@@ -1,6 +1,5 @@
 const operators = {
   '===': (l, r) => l === r,
-  '!=': (l, r) => l != r,
   '!==': (l, r) => l !== r,
   '<': (l, r) => l < r,
   '>': (l, r) => l > r,
@@ -9,6 +8,14 @@ const operators = {
   typeof: (l, r) => typeof l == r
 };
 
+/**
+ * compare two values
+ * @param  {*} left     left value
+ * @param  {string} operator
+ * @param  {*} right    right value
+ * @param  {object} options
+ * @return {string}
+ */
 module.exports = function (left, operator, right, options) {
   let result;
 
