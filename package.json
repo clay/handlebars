@@ -29,6 +29,7 @@
   "dependencies": {
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
-    "handlebars-helpers": "^0.7.5"
+    "handlebars-helpers": "^0.7.5",
+    "striptags": "^2.1.1"
   }
 }
