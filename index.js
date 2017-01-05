@@ -8,8 +8,8 @@ function noTests(filename) {
 }
 
 module.exports = function (env) {
-  const helpers = glob.sync(path.resolve(__dirname, 'helpers', '*.js')).filter(noTests),
-    partials = glob.sync(path.resolve(__dirname, 'partials', '*.js')).filter(noTests);
+  const helpers = glob.sync(path.resolve(__dirname, 'helpers', '**', '*.js')).filter(noTests),
+    partials = glob.sync(path.resolve(__dirname, 'partials', '**', '*.js')).filter(noTests);
 
   if (!env) {
     // instantiate a new handlebars
