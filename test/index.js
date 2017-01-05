@@ -23,10 +23,10 @@ describe('Helpers', function () {
 describe('Partials', function () {
   partialTests.forEach(function (testFile) {
     const name = getName(testFile),
-      fn = require(testFile.replace('.test', ''));
+      template = require(testFile.replace('.test.js', '.hbs'));
 
     // register the partial
-    hbs.registerPartial(name, fn);
+    hbs.registerPartial(name, template);
     // run tests
     require(testFile);
   });
