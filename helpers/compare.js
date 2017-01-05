@@ -13,7 +13,7 @@ const operators = {
  * @param  {*} left     left value
  * @param  {string} operator
  * @param  {*} right    right value
- * @param  {object} options
+ * @param  {object} [options]
  * @return {string}
  */
 module.exports = function (left, operator, right, options) {
