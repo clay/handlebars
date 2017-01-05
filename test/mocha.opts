@@ -1,5 +1,2 @@
 --reporter spec
 --ui bdd
---require ./test/test-helpers.js
---recursive
-**/*.test.js

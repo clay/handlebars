@@ -2,7 +2,7 @@ const glob = require('glob'),
   path = require('path');
 
 module.exports = function (env) {
-  var helpers = glob.sync(path.resolve('.', 'helpers', '*.js')),
+  const helpers = glob.sync(path.resolve('.', 'helpers', '*.js')),
     partials = glob.sync(path.resolve('.', 'partials', '*.js'));
 
   if (!env) {
