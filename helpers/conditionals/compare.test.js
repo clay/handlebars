@@ -5,7 +5,7 @@ function testString(operator) {
     return `{{#compare a "${operator}" b}}yes{{else}}no{{/compare}}`;
   } else {
     return '{{#compare a b}}yes{{else}}no{{/compare}}';
-  };
+  }
 }
 
 describe(name, function () {
