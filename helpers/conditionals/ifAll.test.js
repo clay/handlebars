@@ -11,5 +11,6 @@ describe(name, function () {
     expect(tpl({a: true, b: false})).to.equal('no');
     expect(tpl({a: 'true', b: ''})).to.equal('no');
     expect(tpl({a: 1, b: 0})).to.equal('no');
+    expect(tpl({a: undefined, b: true})).to.equal('no');
   });
 });

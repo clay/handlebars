@@ -8,17 +8,14 @@ const _ = require('lodash');
 module.exports = function () {
   const conditionals = _.initial(arguments),
     options = _.last(arguments),
-    falsyFound = _.find(conditionals, function (conditional) {
-      // see if any of the conditionals are falsy without needing to
-      // iterate through all of them (once we've found it)
-      return !!conditional === false;
-    });
+    taken = _.takeWhile(conditionals, c => !!c === true);
 
-  if (falsyFound !== undefined) {
-    // at least one of the conditionals is falsy
-    // so _.find returns quickly without iterating over all of them
-    return options.inverse(this);
-  } else {
+    // see if any of the conditionals are falsy without needing to
+    // iterate through all of them
+
+  if (taken.length === conditionals.length) {
     return options.fn(this);
+  } else {
+    return options.inverse(this);
   }
 };
