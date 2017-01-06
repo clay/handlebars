@@ -9,7 +9,7 @@ function noTests(filename) {
 
 module.exports = function (env) {
   const helpers = glob.sync(path.resolve(__dirname, 'helpers', '**', '*.js')).filter(noTests),
-    partials = glob.sync(path.resolve(__dirname, 'partials', '**', '*.js')).filter(noTests);
+    partials = glob.sync(path.resolve(__dirname, 'partials', '**', '*.hbs')).filter(noTests);
 
   if (!env) {
     // instantiate a new handlebars
@@ -24,7 +24,7 @@ module.exports = function (env) {
   helpers.forEach(h => env.registerHelper(path.basename(h, '.js'), require(h)));
 
   // add partials
-  partials.forEach(p => env.registerPartial(path.basename(p, '.js'), require(p)));
+  partials.forEach(p => env.registerPartial(path.basename(p, '.hbs'), require(p)));
 
   return env;
 };
