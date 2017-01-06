@@ -66,4 +66,20 @@ describe(name, function () {
     expect(tpl({ a: 'foo', b: 'string' })).to.equal('yes');
     expect(tpl({ a: {}, b: 'string' })).to.equal('no');
   });
+
+  // inline comparison allows you to use this helper as a subexpression, e.g.
+  // {{#ifAll (compare foo bar) (compare foo baz)}}
+  it('compares inline with strict equality by default', function () {
+    const tpl = hbs.compile('{{ compare a b }}');
+
+    expect(tpl({a: true, b: true})).to.equal('true');
+    expect(tpl({a: true, b: false})).to.equal('');
+  });
+
+  it('compares inline with inequality', function () {
+    const tpl = hbs.compile('{{ compare a "!==" b }}');
+
+    expect(tpl({a: true, b: true})).to.equal('');
+    expect(tpl({a: true, b: false})).to.equal('true');
+  });
 });
