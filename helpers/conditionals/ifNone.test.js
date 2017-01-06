@@ -1,5 +1,5 @@
 const name = getName(__filename),
-  tpl = hbs.compile('{{#ifAll a b}}yes{{else}}no{{/ifAll}}');
+  tpl = hbs.compile('{{#ifNone a b}}yes{{else}}no{{/ifNone}}');
 
 describe(name, function () {
   it('is true if all conditionals are falsy', function () {

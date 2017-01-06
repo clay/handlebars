@@ -1,8 +1,8 @@
 const _ = require('lodash');
 
 /**
- * block helper for checking if NO arguments passed in are truthy
- * e.g. {{#ifNone foo bar baz}}all are falsy{{else}}not all are falsy{{/ifNone}}
+ * block helper for checking if ANY arguments passed in are truthy
+ * e.g. {{#ifAny foo bar baz}}at least one is truthy{{else}}none are truthy{{/ifAny}}
  * @return {string}
  */
 module.exports = function () {
@@ -14,11 +14,10 @@ module.exports = function () {
       return !!conditional === true;
     });
 
-  if (truthyFound !== undefined) {
+  if (truthyFound) {
     // at least one of the conditionals is truthy
-    // so _.find returns quickly without iterating over all of them
-    return options.inverse(this);
-  } else {
     return options.fn(this);
+  } else {
+    return options.inverse(this);
   }
 };
