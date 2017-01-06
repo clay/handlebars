@@ -1,7 +1,7 @@
 const stripTags = require('striptags');
 
 /**
- * counts the words
+ * counts the words in a string of text or html
  * @param {string} [html]
  * @returns {string}
  */

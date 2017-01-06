@@ -9,7 +9,8 @@ const operators = {
 };
 
 /**
- * compare two values
+ * compare two values, with an operator
+ * note: if you don't pass an operator, it assumes '==='
  * @param  {*} left     left value
  * @param  {string} operator
  * @param  {*} right    right value

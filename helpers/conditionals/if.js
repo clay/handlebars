@@ -1,6 +1,8 @@
-// overwrite default handlebars if helper
-// adds support for an inline helper, {{if foo bar}}
+// overwrite default handlebars 'if' helper
+// this adds support for an inline helper, {{if foo bar}}
 // (if foo is truthy, print bar)
+// as well as an inline if/else helper, {{if foo bar else=baz}}
+// (if foo is truthy, print bar. otherwise, print baz)
 
 /**
  * if
