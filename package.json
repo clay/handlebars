@@ -37,6 +37,7 @@
     "handlebars-helpers": "^0.7.5",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",
+    "randomstring": "^1.1.5",
     "striptags": "^2.1.1"
   }
 }
