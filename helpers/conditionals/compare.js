@@ -20,7 +20,7 @@ const operators = {
 module.exports = function (left, operator, right, options) {
   let result;
 
-  if (arguments.length < 2) {
+  if (arguments.length < 3) { // options is always passed in
     throw new Error('Handlerbars Helper "compare" needs 2 parameters');
   }
 

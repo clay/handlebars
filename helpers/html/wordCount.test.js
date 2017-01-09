@@ -12,4 +12,8 @@ describe(name, function () {
 
     expect(tpl()).to.equal('0');
   });
+
+  it('returns 0 if falsy HTML is passed in', function () {
+    expect(hbs.compile('{{wordCount a}}')({a: false})).to.equal('0');
+  });
 });

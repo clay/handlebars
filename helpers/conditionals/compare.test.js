@@ -9,6 +9,22 @@ function testString(operator) {
 }
 
 describe(name, function () {
+  it('throws error if not enough arguments are passed in', function () {
+    const result = function () {
+      return hbs.compile('{{ compare a }}')({a: true}); // no b
+    };
+
+    expect(result).to.throw(Error);
+  });
+
+  it('throws error if unrecognized operator is passed in', function () {
+    const result = function () {
+      return hbs.compile(testString('+!+'))({a: true, b: true});
+    };
+
+    expect(result).to.throw(Error);
+  });
+
   it('compares with strict equality by default', function () {
     const tpl = hbs.compile(testString());
 
