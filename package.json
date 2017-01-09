@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint helpers partials test index.js",
+    "test": "npm run lint && mocha"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/nymag/nymag-handlebars#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.13.0",
     "mocha": "^3.2.0"
   },
   "dependencies": {
