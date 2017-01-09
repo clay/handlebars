@@ -18,4 +18,8 @@ describe(name, function () {
   it('converts large numbers', function () {
     expect(tpl({a: 100000})).to.equal('100k');
   });
+
+  it('handles non-interger values', function () {
+    expect(tpl({a: 1234.5})).to.equal('1.2k');
+  });
 });
