@@ -1,6 +1,7 @@
 # nymag-handlebars
 
 [![Build Status](https://travis-ci.org/nymag/nymag-handlebars.svg)](https://travis-ci.org/nymag/nymag-handlebars)
+[![Test Coverage](https://codeclimate.com/github/nymag/nymag-handlebars/badges/coverage.svg)](https://codeclimate.com/github/nymag/nymag-handlebars/coverage)
 [![Code Climate](https://codeclimate.com/github/nymag/nymag-handlebars/badges/gpa.svg)](https://codeclimate.com/github/nymag/nymag-handlebars)
 
 A collection of helpers and partials for handlebars
