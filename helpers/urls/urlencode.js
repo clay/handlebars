@@ -1,6 +1,7 @@
 const _ = require('lodash');
 
 // ported from the nunjucks urlencode filter
+// note: handlebars-helpers' `encodeURI` doesn't handle arrays or objects
 module.exports = function (obj) {
   if (_.isString(obj)) {
     return encodeURIComponent(obj);
