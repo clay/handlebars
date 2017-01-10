@@ -1,3 +1,4 @@
+'use strict';
 const name = getName(__filename),
   tpl = hbs.compile('{{modulo a b c}}'),
   tpl2 = hbs.compile('{{#modulo a b c}}yes{{else}}no{{/modulo}}');

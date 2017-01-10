@@ -1,3 +1,4 @@
+'use strict';
 /**
  * convert number to shorthand
  * e.g. 1000 → 1k

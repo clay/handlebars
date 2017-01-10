@@ -1,6 +1,6 @@
 {
   "parserOptions": {
-    "sourceType": "module",
+    // "sourceType": "module", wait until this is an es6 module
     "ecmaVersion": 6
   },
   "env": {
@@ -50,7 +50,7 @@
     "vars-on-top": 2,
     "wrap-iife": 2,
     // strict mode
-    "strict": [2, "never"],
+    "strict": [2, "global"],
     // variables
     "no-unused-vars": 2,
     // node.js

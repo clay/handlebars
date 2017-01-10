@@ -1,3 +1,4 @@
+'use strict';
 const _ = require('lodash');
 
 // ported from the nunjucks urlencode filter

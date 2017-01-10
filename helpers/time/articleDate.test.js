@@ -1,3 +1,4 @@
+'use strict';
 const name = getName(__filename),
   timeOnly = /^\d+:\d+ [ap]\.m\./,
   timeAgoSecs = /([12]?\d|30) seconds ago/,

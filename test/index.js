@@ -1,3 +1,4 @@
+'use strict';
 const glob = require('glob'),
   path = require('path'),
   helperTests = glob.sync(path.resolve('.', 'helpers', '**', '*.test.js')),

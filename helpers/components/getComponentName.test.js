@@ -1,3 +1,4 @@
+'use strict';
 const name = getName(__filename),
   tpl = hbs.compile('{{ getComponentName a }}');
 

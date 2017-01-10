@@ -1,3 +1,4 @@
+'use strict';
 const operators = {
   '===': (l, r) => l === r,
   '!==': (l, r) => l !== r,

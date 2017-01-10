@@ -1,3 +1,4 @@
+'use strict';
 /**
  * get a component's name from the reference
  * @param  {string} ref

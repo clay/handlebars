@@ -1,3 +1,4 @@
+'use strict';
 // overwrite default handlebars 'if' helper
 // this adds support for an inline helper, {{if foo bar}}
 // (if foo is truthy, print bar)
