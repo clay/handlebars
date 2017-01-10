@@ -1,3 +1,4 @@
+'use strict'; // eslint-disable-line
 const glob = require('glob'),
   path = require('path'),
   hbsHelpers = require('handlebars-helpers'); // 3rd party helpers, well-maintained
