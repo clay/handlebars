@@ -13,4 +13,12 @@ describe(name, function () {
   it('disregards non-string prefixes', function () {
     expect(hbs.compile('{{ randomString a }}')({a: {b: 'c'}}).length).to.equal(8);
   });
+
+  it('allows alternate lengths without a prefix', function () {
+    expect(hbs.compile('{{ randomString characters=1 }}')().length).to.equal(1);
+  });
+
+  it('allows alternate lengths with a prefix', function () {
+    expect(hbs.compile('{{ randomString a characters=1 }}')({a: 'abc-'}).length).to.equal(5);
+  });
 });
