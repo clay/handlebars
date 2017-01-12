@@ -1,3 +1,4 @@
+'use strict';
 const comma = require('comma-it');
 
 /**
