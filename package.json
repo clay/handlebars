@@ -10,8 +10,11 @@
     "lint": "eslint helpers partials test index.js",
     "test-local": "npm run lint && istanbul cover _mocha",
     "test": "npm run lint && istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "generate-readme": "node docs/generate-readme.js"
+    "generate-readme": "node docs/generate-readme.js && git add README.md"
   },
+  "pre-commit": [
+    "generate-readme"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nymag/nymag-handlebars.git"
@@ -32,7 +35,8 @@
     "documentation": "^4.0.0-beta.18",
     "eslint": "^3.13.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "comma-it": "0.0.7",

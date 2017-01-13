@@ -440,7 +440,7 @@ generate a random string<br /> _note:_  by default it generates an 8-character s
 
 ### articleDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
 
-generate article dates and times
+generate article dates and times, based on a relative format
 
 #### Params
 * `datetime` _(Date|string)_ for  `moment.js`  to parse
@@ -459,9 +459,19 @@ generate article dates and times
 
 ### urlencode ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/urls/urlencode.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/urls/urlencode.test.js) )
 
-_No description_
+encode urls (ported from the nunjucks  `urlencode`  filter)<br /> _note:_   `handlebars-helpers`  contains an  `encodeURI`  helper, but it doesn't handle arrays or objects.
 
+#### Params
+* `obj` _(*)_ data to encode
 
+**Returns** _(string)_ urlencoded data
+
+#### Example
+
+```hbs
+{{ urlencode "&" }}
+//=> "%26"
+```
 
 ---
 
