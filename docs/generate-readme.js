@@ -25,6 +25,8 @@ function parseDoc(block) {
     return `_${block.children.map(parseDoc).join(' ')}_`;
   } else if (block.type === 'text') {
     return block.value;
+  } else if (block.type === 'link') {
+    return `[${block.children.map(parseDoc).join(' ')}](${block.url})`;
   } else {
     // you should tell a dev, because we don't know what we're dealing with here
     throw new Error(`Unknown text block type "${block.type}"!`);
