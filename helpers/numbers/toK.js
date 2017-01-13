@@ -1,8 +1,8 @@
 'use strict';
 /**
- * convert number to shorthand
- * e.g. 1000 → 1k
- * @param  {number|string} x
+ * format thousands using `k`
+ * e.g. `1000` → `1k`
+ * @param  {number|string} x number to format
  * @return {string}
  */
 module.exports = function (x) {
@@ -22,4 +22,9 @@ module.exports = function (x) {
     // number is less than 1000, so no conversion necessary
     return x;
   }
+};
+
+module.exports.example = {
+  code: '{{ toK 1234.5 }}',
+  result: '"1.2k"'
 };

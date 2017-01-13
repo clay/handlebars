@@ -1,8 +1,12 @@
 'use strict';
 const _ = require('lodash');
 
-// ported from the nunjucks urlencode filter
-// note: handlebars-helpers' `encodeURI` doesn't handle arrays or objects
+/**
+ * encode urls (ported from the nunjucks `urlencode` filter)
+ * _note:_ `handlebars-helpers` contains an `encodeURI` helper, but it doesn't handle arrays or objects.
+ * @param  {*} obj data to encode
+ * @return {string} urlencoded data
+ */
 module.exports = function (obj) {
   if (_.isString(obj)) {
     return encodeURIComponent(obj);
@@ -23,4 +27,9 @@ module.exports = function (obj) {
 
     return parts.join('&');
   }
+};
+
+module.exports.example = {
+  code: '{{ urlencode "&" }}',
+  result: '"%26"'
 };

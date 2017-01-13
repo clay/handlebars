@@ -2,9 +2,7 @@
 const _ = require('lodash');
 
 /**
- * Turn an object into a comma-delineated list of key names,
- * based on if their values are true/false
- * e.g. { a: true, b: false, c: true } → a, b, c
+ * Turn an object into a comma-delineated list of key names, depending if their values are true/false
  * @param  {object} obj
  * @param  {boolean} shouldCapitalize capitalizes first word in each key
  * @return {string}
@@ -26,4 +24,9 @@ module.exports = function (obj, shouldCapitalize) {
 
     return result;
   }, '');
+};
+
+module.exports.example = {
+  code: '{{ commaSeparated {alpha: true, "bravo charlie": true} true }}',
+  result: '"Alpha, Bravo charlie"'
 };

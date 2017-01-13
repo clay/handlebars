@@ -8,8 +8,8 @@ function ampm(date) {
 }
 
 /**
- * generate article dates and times
- * @param  {Date} datetime
+ * generate article dates and times, based on a relative format
+ * @param  {Date|string} datetime for `moment.js` to parse
  * @return {string}
  */
 module.exports = function (datetime) {
@@ -39,4 +39,9 @@ module.exports = function (datetime) {
   } else {
     return '';
   }
+};
+
+module.exports.example = {
+  code: '{{ articleDate "Fri, 13 Jan 2017 18:22:16 GMT" }}',
+  result: '"Yesterday at 6:22 p.m."'
 };

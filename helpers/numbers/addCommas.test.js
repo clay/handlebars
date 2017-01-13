@@ -29,6 +29,7 @@ describe(name, function () {
   });
 
   it('should add commas to decimals (hundreds place)', function () {
+    expect(tpl({a: '1234.50'})).to.equal('1,234.50');
     expect(tpl({a: 1234.56})).to.equal('1,234.56');
   });
 });

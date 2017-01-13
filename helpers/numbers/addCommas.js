@@ -3,11 +3,9 @@ const comma = require('comma-it');
 
 /**
  * add commas to numbers.
- * note: this overrides handlebars-helpers' addCommas helper
- * because we want to preserve zeroes in decimals (for money)
- * e.g. 1234.50 → 1,234.50 instead of 1,234.5
- * note: decimals are only preserved if passed in as a string
- * (they don't exist in js numbers)
+ * _note:_ this overrides handlebars-helpers' `addCommas` helper because we want to preserve zeroes in decimals (for money)
+ * e.g. `1234.50` → `1,234.50` instead of `1,234.5`
+ * _note:_ decimals are only preserved if passed in as a string (they don't exist in js numbers)
  * @param  {number|string} num
  * @return {string}
  */
@@ -19,5 +17,9 @@ module.exports = function (num) {
   // otherwise set the precision to zero (for intergers)
 
   return comma(str, { precision: precision, thousandSeperator: ',', decimalSeperator: '.' });
+};
 
+module.exports.example = {
+  code: '{{ addCommas "1234.50" }}',
+  result: '"1,234.50"'
 };

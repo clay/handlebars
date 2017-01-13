@@ -1,0 +1,69 @@
+# nymag-handlebars
+
+[![Build Status](https://travis-ci.org/nymag/nymag-handlebars.svg)](https://travis-ci.org/nymag/nymag-handlebars)
+[![Coverage Status](https://coveralls.io/repos/github/nymag/nymag-handlebars/badge.svg?branch=master)](https://coveralls.io/github/nymag/nymag-handlebars?branch=master)
+[![Code Climate](https://codeclimate.com/github/nymag/nymag-handlebars/badges/gpa.svg)](https://codeclimate.com/github/nymag/nymag-handlebars)
+
+A collection of helpers and partials for handlebars
+
+# Installation
+
+```
+npm install --save nymag-handlebars
+```
+
+# Usage
+
+By default, `nymag-handlebars` will export a function that returns a new handlebars instance with all of the helpers and partials added.
+
+```js
+var hbs = require('nymag-handlebars')(),
+  template = hbs.compile('&lt;h1&gt;Hello \{{ place }}!&lt;/h1&gt;'),
+  result = template({ place: 'World' });
+
+// result: &lt;h1&gt;Hello World!&lt;/h1&gt;
+```
+
+## Passing env in
+
+If you want to configure and use your own handlebars environment, you can pass it through
+
+```js
+var Handlebars = require('express-handlebars'),
+  env = new Handlebars({ /* some config */ }),
+  hbs = require('nymag-handlebars')(env),
+  app = require('express')();
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+```
+
+---
+
+# Helpers
+
+Currently **{{default totalHelpers '0'}} helpers** in **{{default categories.length '0'}} categories**:
+
+{{> toc categories}}
+
+---
+
+{{> categorySection categories}}
+
+---
+
+# Partials
+
+Currently **{{partials.length}} partial{{#compare partials.length '>' 1 }}s{{/compare}}**:
+
+{{#each partials}}
+* **{{ name }}** ( [code](https://github.com/nymag/nymag-handlebars/blob/master/partials/{{ name }}.hbs) | {{#if hasTestFile}}[tests](https://github.com/nymag/nymag-handlebars/blob/master/partials/{{ name }}.test.js){{else}}no tests{{/if}} )
+{{/each}}
+
+---
+
+# Contributing
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/nymag/nymag-handlebars/issues/new).
+
+This project is released under the [MIT license](https://github.com/nymag/nymag-handlebars/blob/master/LICENSE).

@@ -10,13 +10,14 @@ const operators = {
 };
 
 /**
- * compare two values, with an operator
- * note: if you don't pass an operator, it assumes '==='
+ * compare two values, with an operator.
+ * _note:_ if you don't pass an operator, it assumes `===`
+ * _note:_ this can be used as a block _or_ inline helper
  * @param  {*} left     left value
- * @param  {string} operator
+ * @param  {string} operator to compare with
  * @param  {*} right    right value
  * @param  {object} [options]
- * @return {string}
+ * @return {string} if inline, otherwise calls block functions
  */
 module.exports = function (left, operator, right, options) {
   let result;
@@ -44,4 +45,9 @@ module.exports = function (left, operator, right, options) {
   } else {
     return options.inverse ? options.inverse(this) : '';
   }
+};
+
+module.exports.example = {
+  code: '{{ compare 10 ">" 5 }}',
+  result: '"true"'
 };

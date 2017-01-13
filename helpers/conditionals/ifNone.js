@@ -3,8 +3,7 @@ const _ = require('lodash');
 
 /**
  * block helper for checking if NO arguments passed in are truthy
- * e.g. {{#ifNone foo bar baz}}all are falsy{{else}}not all are falsy{{/ifNone}}
- * @return {string}
+ * @return {string} calls block functions
  */
 module.exports = function () {
   const conditionals = _.initial(arguments),
@@ -22,4 +21,12 @@ module.exports = function () {
   } else {
     return options.fn(this);
   }
+};
+
+module.exports.example = {
+  code: `{{#ifNone foo bar baz}}
+  all are falsy
+{{else}}
+  not all are falsy
+{{/ifNone}}`
 };
