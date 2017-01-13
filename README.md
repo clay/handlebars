@@ -268,7 +268,7 @@ compare the modulo of two values to a third value
 
 ### striptags ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
 
-straight passthrough to striptags
+straight passthrough to  [striptags](https://www.npmjs.com/package/striptags)
 
 
 
@@ -390,7 +390,7 @@ Turn an object into a comma-delineated list of key names, depending if their val
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
-straight passthrough to  `_.kebabCase`
+straight passthrough to  [`_.kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
 
 
 

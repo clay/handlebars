@@ -1,6 +1,6 @@
 'use strict';
 /**
- * straight passthrough to striptags
+ * straight passthrough to [striptags](https://www.npmjs.com/package/striptags)
  */
 module.exports = require('striptags');
 
