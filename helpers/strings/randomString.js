@@ -3,11 +3,11 @@ const randomstring = require('randomstring'),
   _ = require('lodash');
 
 /**
- * generatea random string
- * e.g. `greatest-hit-` → `greatest-hit-noctz56h`
- * note: allows passing length=x to generate strings of different lengths
- * @param  {string} [prefix]
+ * generate a random string
+ * _note:_ by default it generates an 8-character string
+ * @param  {string} [prefix] string to append random stuff to
  * @param {object} [options]
+ * @param {number} [options.hash.characters] generate string of a custom length
  * @return {string}
  */
 module.exports = function (prefix, options) {
@@ -21,4 +21,9 @@ module.exports = function (prefix, options) {
 
   // default to 8 chars, but allow passing in any length
   return prefix + randomstring.generate(options.hash.characters || 8);
+};
+
+module.exports.example = {
+  code: '{{ randomString "greatest-hit-" characters=3 }}',
+  result: '"greatest-hit-z56"'
 };

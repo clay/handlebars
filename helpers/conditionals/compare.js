@@ -11,8 +11,8 @@ const operators = {
 
 /**
  * compare two values, with an operator.
- * note: if you don't pass an operator, it assumes `===`
- * note: this can be used as a block _or_ inline helper
+ * _note:_ if you don't pass an operator, it assumes `===`
+ * _note:_ this can be used as a block _or_ inline helper
  * @param  {*} left     left value
  * @param  {string} operator to compare with
  * @param  {*} right    right value

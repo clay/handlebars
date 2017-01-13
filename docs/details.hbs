@@ -3,7 +3,7 @@
 
 {{{ default description '_No description_' }}}
 
-{{#if params}}#### Params{{/if}}
+{{#if params.length}}#### Params{{/if}}
 {{#each params}}
 * `{{ if isOptional '[' }}{{ name }}{{ if isOptional ']' }}` {{#if type}}_({{ type }})_ {{/if}}{{{ description }}}
 {{/each}}
@@ -17,6 +17,6 @@
 
 ```hbs
 {{{ code }}}
-{{#if result}}//=> {{ result }}{{/if}}
+{{#if result}}//=> {{{ result }}}{{/if}}
 ```
 {{/ifAny}}

@@ -152,7 +152,7 @@ get a component's name from the reference
 
 ### compare ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
 
-compare two values, with an operator.<br />note: if you don't pass an operator, it assumes  `===` <br />note: this can be used as a block  _or_  inline helper
+compare two values, with an operator.<br /> _note:_  if you don't pass an operator, it assumes  `===` <br /> _note:_  this can be used as a block  _or_  inline helper
 
 #### Params
 * `left` _(*)_ left value
@@ -166,58 +166,118 @@ compare two values, with an operator.<br />note: if you don't pass an operator, 
 
 ```hbs
 {{ compare 10 ">" 5 }}
-//=> &quot;true&quot;
+//=> "true"
 ```
 
 ### if ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
 
-if
+overwrite default handlebars 'if' helper<br />this adds support for an inline helper,  `{{if foo bar}}`   _(if foo is truthy, print bar)_ <br />as well as an inline if/else helper,  `{{if foo bar else=baz}}`   _(if foo is truthy, print bar. otherwise, print baz)_
 
 #### Params
 * `conditional` _(*)_ to check for truthiness
 * `value` _(*)_ to print if conditional is truthy
 * `[options]` _(object)_ 
 
-**Returns** _(string)_ 
+**Returns** _(string)_ if inline, otherwise calls block functions
+
+#### Example
+
+```hbs
+{{ if true "bar" else="baz" }}
+//=> "bar"
+```
 
 ### ifAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
 
-block helper for checking if ALL arguments passed in are truthy<br />e.g. {{#ifAll foo bar baz}}all are truthy{{else}}not all are truthy{{/ifAll}}
+block helper for checking if ALL arguments passed in are truthy
 
-#### Params
 
-**Returns** _(string)_ 
+
+**Returns** _(string)_ calls block functions
+
+#### Example
+
+```hbs
+{{#ifAll foo bar baz}}
+  all are truthy
+{{else}}
+  not all are truthy
+{{/ifAll}}
+
+```
 
 ### ifAny ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
 
-block helper for checking if ANY arguments passed in are truthy<br />e.g. {{#ifAny foo bar baz}}at least one is truthy{{else}}none are truthy{{/ifAny}}
+block helper for checking if ANY arguments passed in are truthy
 
-#### Params
 
-**Returns** _(string)_ 
+
+**Returns** _(string)_ calls block functions
+
+#### Example
+
+```hbs
+{{#ifAny foo bar baz}}
+  at least one is truthy
+{{else}}
+  none are truthy
+{{/ifAny}}
+
+```
 
 ### ifNone ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 
-block helper for checking if NO arguments passed in are truthy<br />e.g. {{#ifNone foo bar baz}}all are falsy{{else}}not all are falsy{{/ifNone}}
+block helper for checking if NO arguments passed in are truthy
 
-#### Params
 
-**Returns** _(string)_ 
+
+**Returns** _(string)_ calls block functions
+
+#### Example
+
+```hbs
+{{#ifNone foo bar baz}}
+  all are falsy
+{{else}}
+  not all are falsy
+{{/ifNone}}
+
+```
 
 ### modulo ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.test.js) )
 
-_No description_
+compare the modulo of two values to a third value
 
+#### Params
+* `dividend` _(number)_ 
+* `divisor` _(number)_ 
+* `remainder` _(number)_ 
+* `[options]` _(object)_ 
 
+**Returns** _(string)_ if inline, otherwise calls block functions
+
+#### Example
+
+```hbs
+{{modulo 3 2 1}}
+//=> true
+```
 
 ## html
 
 
 ### striptags ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
 
-_No description_
+straight passthrough to striptags
 
 
+
+#### Example
+
+```hbs
+{{ striptags "<p><b>Hello</b> <em>World!</em></p>" }}
+//=> Hello World!
+```
 
 ### wordCount ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
 
@@ -226,54 +286,91 @@ counts the words in a string of text or html
 #### Params
 * `[html]` _(string)_ 
 
-**Returns** _(string)_ 
+**Returns** _(number)_ the number of words
+
+#### Example
+
+```hbs
+{{wordCount "<div> This is <b> cool </b> </div>"}}
+//=> 3
+```
 
 ## misc
 
 
 ### indexOf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 
-_No description_
+get the index of something inside something else
 
+#### Params
+* `outside` _(*)_ array, string, etc (anything with  `indexOf` )
+* `inside` _(*)_ anything that can exist inside something else
 
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ indexOf "foo" "o" }}
+//=> 1
+```
 
 ### set ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
 
-set data into current context
+set data into current context<br /> _note:_  doesn't return anything
 
 #### Params
-* `key` _(string)_ _.set() key/path
-* `val` _(*)_ 
+* `key` _(string)_ `_.set()`  key/path
+* `val` _(*)_ value to set
 
-**Returns** _(string)_ doesn't actually print anything
+#### Example
+
+```hbs
+{{ set "a.b.c" "abc" }}{{ a.b.c }}
+//=> "abc"
+```
 
 ## numbers
 
 
 ### addCommas ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 
-add commas to numbers.<br />note: this overrides handlebars-helpers' addCommas helper<br />because we want to preserve zeroes in decimals (for money)<br />e.g. 1234.50 → 1,234.50 instead of 1,234.5<br />note: decimals are only preserved if passed in as a string<br />(they don't exist in js numbers)
+add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCommas`  helper because we want to preserve zeroes in decimals (for money)<br />e.g.  `1234.50`  →  `1,234.50`  instead of  `1,234.5` <br /> _note:_  decimals are only preserved if passed in as a string (they don't exist in js numbers)
 
 #### Params
 * `num` _(number|string)_ 
 
 **Returns** _(string)_ 
 
+#### Example
+
+```hbs
+{{ addCommas "1234.50" }}
+//=> "1,234.50"
+```
+
 ### toK ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
-convert number to shorthand<br />e.g. 1000 → 1k
+format thousands using  `k` <br />e.g.  `1000`  →  `1k`
 
 #### Params
-* `x` _(number|string)_ 
+* `x` _(number|string)_ number to format
 
 **Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ toK 1234.5 }}
+//=> "1.2k"
+```
 
 ## objects
 
 
 ### commaSeparated ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
 
-Turn an object into a comma-delineated list of key names,<br />based on if their values are true/false<br />e.g. { a: true, b: false, c: true } → a, b, c
+Turn an object into a comma-delineated list of key names, depending if their values are true/false
 
 #### Params
 * `obj` _(object)_ 
@@ -281,33 +378,62 @@ Turn an object into a comma-delineated list of key names,<br />based on if their
 
 **Returns** _(string)_ 
 
+#### Example
+
+```hbs
+{{ commaSeparated {alpha: true, "bravo charlie": true} true }}
+//=> "Alpha, Bravo charlie"
+```
+
 ## strings
 
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
-_No description_
+straight passthrough to  `_.kebabCase`
 
 
+
+#### Example
+
+```hbs
+{{ kebabCase "Foo Bar Baz" }}
+//=> "foo-bar-baz"
+```
 
 ### longestWord ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 
-returns the number of characters in the longest word of<br />a string. Punctuation is NOT ignored.
+returns the number of characters in the longest word of a string. Punctuation is NOT ignored.
 
 #### Params
-* `str` _(string)_ 
+* `str` _(string)_ string to search through
 
-**Returns** _(number)_ 
+**Returns** _(number)_ of letters in the longest word
+
+#### Example
+
+```hbs
+{{ longestWord "Foo Ba b" }}
+//=> 3
+```
 
 ### randomString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 
-generatea random string<br />e.g.  `greatest-hit-`  →  `greatest-hit-noctz56h` <br />note: allows passing length=x to generate strings of different lengths
+generate a random string<br /> _note:_  by default it generates an 8-character string
 
 #### Params
-* `[prefix]` _(string)_ 
+* `[prefix]` _(string)_ string to append random stuff to
 * `[options]` _(object)_ 
+* `[options.hash.characters]` _(number)_ generate string of a custom length
 
 **Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ randomString "greatest-hit-" characters=3 }}
+//=> "greatest-hit-z56"
+```
 
 ## time
 
@@ -317,9 +443,16 @@ generatea random string<br />e.g.  `greatest-hit-`  →  `greatest-hit-noctz56h`
 generate article dates and times
 
 #### Params
-* `datetime` _(Date)_ 
+* `datetime` _(Date|string)_ for  `moment.js`  to parse
 
 **Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ articleDate "Fri, 13 Jan 2017 18:22:16 GMT" }}
+//=> "Yesterday at 6:22 p.m."
+```
 
 ## urls
 
