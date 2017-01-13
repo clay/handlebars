@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **21 helpers** in **9 categories**:
+Currently **22 helpers** in **9 categories**:
 
 
 ### components
@@ -78,6 +78,7 @@ Currently **21 helpers** in **9 categories**:
 ### objects
 
 * [**commaSeparated**](https://github.com/nymag/nymag-handlebars#commaSeparated) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
+* [**getProp**](https://github.com/nymag/nymag-handlebars#getProp) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
 
 ### strings
 
@@ -383,6 +384,22 @@ Turn an object into a comma-delineated list of key names, depending if their val
 ```hbs
 {{ commaSeparated {alpha: true, "bravo charlie": true} true }}
 //=> "Alpha, Bravo charlie"
+```
+
+### getProp ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
+
+get property in object<br />this is similar to handlebars-helpers'  [`get`](https://github.com/helpers/handlebars-helpers#get) , but the context is called on a returned function.<br />this allows you to easily convert arrays of objects to arrays of a specific property from each objects
+
+#### Params
+* `prop` _(string)_ key/path, passed to  [`_.get()`](https://lodash.com/docs/4.17.4#get)
+
+**Returns** value of the property from the object
+
+#### Example
+
+```hbs
+{{ join (map [{ a: "1" }, { a: "2" }] (getProp "a"))}}
+//=> "1,2"
 ```
 
 ## strings
