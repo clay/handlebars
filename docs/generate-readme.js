@@ -4,7 +4,8 @@ const hbs = require('../.')(),
   path = require('path'),
   fs = require('fs'),
   chalk = require('chalk'),
-  glob = require('glob');
+  glob = require('glob'),
+  doc = require('documentation');
 
 let tpl, data;
 
@@ -12,13 +13,45 @@ function noTests(filename) {
   return filename.indexOf('.test.js') === -1;
 }
 
+function generateDoc(helper) {
+  const rawDoc = doc.buildSync([helper], { shallow: true })[0];
+
+  if (!_.isEmpty(rawDoc)) {
+    let description = _.get(rawDoc, 'description.children[0].children[0].value'),
+      params = _.map(rawDoc.params, function (param) {
+        return {
+          name: param.name,
+          type: _.get(param, 'type.name'),
+          description: _.get(param, 'description.children[0].children[0].value')
+        };
+      }),
+      returnValue = _.get(rawDoc, 'returns[0].description.children[0].children[0].value');
+
+    return {
+      description,
+      params,
+      returnValue
+    };
+  } else {
+    return {};
+  }
+}
+
+/**
+ * get data for helper
+ * @param  {string} category name
+ * @return {function}
+ */
 function reduceHelpers(category) {
   return function (result, helper) {
-    const info = _.assign({
-      name: path.basename(helper, '.js'),
-      hasTestFile: fs.existsSync(helper.replace('.js', '.test.js')),
-      category: category
-    }, require(helper).info || {});
+    // helperDoc contains description, params, and returnValue
+    // module.exports.example contains code and result
+    const helperDoc = generateDoc(helper),
+      info = _.assign({
+        name: path.basename(helper, '.js'),
+        hasTestFile: fs.existsSync(helper.replace('.js', '.test.js')),
+        category: category
+      }, helperDoc, require(helper).example || {});
 
     result.push(info);
     return result;

@@ -1,16 +1,23 @@
-**{{ name }}** ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.js) | {{#if hasTestFile}}[tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.test.js){{else}}no tests{{/if}} )
+
+### {{ name }} ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.js) | {{#if hasTestFile}}[tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.test.js){{else}}no tests{{/if}} )
 
 {{ default description '_No description_' }}
 
 {{#if params}}#### Params{{/if}}
 {{#each params}}
-* `{{ name }}` **{{ type }}** {{ description }}
+* `{{ name }}` {{#if type}}_({{ type }})_ {{/if}}{{ description }}
 {{/each}}
-{{#if code}}
+{{#if returnValue}}
+
+#### Returns
+{{ returnValue }}
+{{/if}}
+{{#ifAny code result}}
+
 #### Example
 
+```hbs
+{{{ code }}}
+{{#if result}}//=> {{ result }}{{/if}}
 ```
-{{ code }}
-//=> {{ result }}
-```
-{{/if}}
+{{/ifAny}}

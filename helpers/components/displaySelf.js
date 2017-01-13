@@ -1,6 +1,11 @@
 'use strict';
 const _ = require('lodash');
 
+/**
+ * Return the first component (from a list of components) with a truthy displaySelf property. Used by Spaces.
+ * @param  {array} components with displaySelf properties
+ * @return {object} first component with displaySelf: true
+ */
 module.exports = function (components) {
   var limitReached = false;
 
@@ -10,4 +15,8 @@ module.exports = function (components) {
       return item;
     }
   });
+};
+
+module.exports.example = {
+  code: '{{> component-list (displaySelf content) }}'
 };
