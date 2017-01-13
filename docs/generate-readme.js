@@ -13,6 +13,11 @@ function noTests(filename) {
   return filename.indexOf('.test.js') === -1;
 }
 
+/**
+ * parse jsdoc descriptions for code blocks and such
+ * @param  {object} block
+ * @return {string}
+ */
 function parseDoc(block) {
   return block.type === 'inlineCode' ? '`' + block.value + '`' : block.value;
 }
@@ -24,7 +29,7 @@ function generateDoc(helper) {
     let desc = _.get(rawDoc, 'description.children[0].children') || [],
       ret = _.get(rawDoc, 'returns[0].description.children[0].children') || [],
       returnType = _.get(rawDoc, 'returns[0].type.name'),
-      description = desc.map(parseDoc).join(' '),
+      description = desc.map(parseDoc).join(' ').replace('\n', '<br />'),
       params = _.map(rawDoc.params, function (param) {
         let desc = _.get(param, 'description.children[0].children') || [];
 

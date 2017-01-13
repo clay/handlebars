@@ -7,10 +7,10 @@
 {{#each params}}
 * `{{ name }}` {{#if type}}_({{ type }})_ {{/if}}{{{ description }}}
 {{/each}}
-{{#if returnValue}}
+{{#ifAny returnValue returnType}}
 
 **Returns** {{#if returnType}}_({{ returnType }})_ {{/if}}{{{ returnValue }}}
-{{/if}}
+{{/ifAny}}
 {{#ifAny code result}}
 
 #### Example
