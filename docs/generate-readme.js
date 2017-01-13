@@ -13,24 +13,34 @@ function noTests(filename) {
   return filename.indexOf('.test.js') === -1;
 }
 
+function parseDoc(block) {
+  return block.type === 'inlineCode' ? '`' + block.value + '`' : block.value;
+}
+
 function generateDoc(helper) {
   const rawDoc = doc.buildSync([helper], { shallow: true })[0];
 
   if (!_.isEmpty(rawDoc)) {
-    let description = _.get(rawDoc, 'description.children[0].children[0].value'),
+    let desc = _.get(rawDoc, 'description.children[0].children') || [],
+      ret = _.get(rawDoc, 'returns[0].description.children[0].children') || [],
+      returnType = _.get(rawDoc, 'returns[0].type.name'),
+      description = desc.map(parseDoc).join(' '),
       params = _.map(rawDoc.params, function (param) {
+        let desc = _.get(param, 'description.children[0].children') || [];
+
         return {
           name: param.name,
           type: _.get(param, 'type.name'),
-          description: _.get(param, 'description.children[0].children[0].value')
+          description: desc.map(parseDoc).join(' ')
         };
       }),
-      returnValue = _.get(rawDoc, 'returns[0].description.children[0].children[0].value');
+      returnValue = ret.map(parseDoc).join(' ');
 
     return {
       description,
       params,
-      returnValue
+      returnValue,
+      returnType
     };
   } else {
     return {};

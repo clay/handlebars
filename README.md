@@ -101,13 +101,12 @@ Currently **21 helpers** in **9 categories**:
 
 ### displaySelf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
 
-Return the first component (from a list of components) with a truthy displaySelf property. Used by Spaces.
+Return the first component (from a list of components) with a truthy  `displaySelf`  property. Used by Spaces.
 
 #### Params
-* `components` _(array)_ with displaySelf properties
+* `components` _(array)_ with  `displaySelf`  properties
 
-#### Returns
-first component with displaySelf: true
+**Returns** _(object)_ first component with  `displaySelf: true`
 
 #### Example
 
@@ -116,18 +115,34 @@ first component with displaySelf: true
 
 ```
 
+---
+
 ### displaySelfAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
 
-_No description_
+Return all components (from a list of components) with a truthy  `displaySelf`  property. Used by Spaces.
 
+#### Params
+* `components` _(array)_ with  `displaySelf`  properties
 
+**Returns** _(array)_ all components with  `displaySelf: true`
+
+#### Example
+
+```hbs
+{{> component-list (displaySelfAll content) }}
+
+```
+
+---
 
 ### getComponentName ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
 
-get a component&#x27;s name from the reference
+get a component's name from the reference
 
 #### Params
 * `ref` _(string)_ 
+
+---
 
 ## conditionals
 
@@ -135,13 +150,15 @@ get a component&#x27;s name from the reference
 ### compare ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
 
 compare two values, with an operator
-note: if you don&#x27;t pass an operator, it assumes &#x27;&#x3D;&#x3D;&#x3D;&#x27;
+note: if you don't pass an operator, it assumes '==='
 
 #### Params
 * `left` left value
 * `operator` _(string)_ 
 * `right` right value
 * `options` 
+
+---
 
 ### if ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
 
@@ -152,12 +169,16 @@ if
 * `value` to print if conditional is truthy
 * `options` 
 
+---
+
 ### ifAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
 
 block helper for checking if ALL arguments passed in are truthy
 e.g. {{#ifAll foo bar baz}}all are truthy{{else}}not all are truthy{{/ifAll}}
 
 #### Params
+
+---
 
 ### ifAny ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
 
@@ -166,6 +187,8 @@ e.g. {{#ifAny foo bar baz}}at least one is truthy{{else}}none are truthy{{/ifAny
 
 #### Params
 
+---
+
 ### ifNone ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 
 block helper for checking if NO arguments passed in are truthy
@@ -173,11 +196,15 @@ e.g. {{#ifNone foo bar baz}}all are falsy{{else}}not all are falsy{{/ifNone}}
 
 #### Params
 
+---
+
 ### modulo ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.test.js) )
 
 _No description_
 
 
+
+---
 
 ## html
 
@@ -188,12 +215,16 @@ _No description_
 
 
 
+---
+
 ### wordCount ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
 
 counts the words in a string of text or html
 
 #### Params
 * `html` 
+
+---
 
 ## misc
 
@@ -204,6 +235,8 @@ _No description_
 
 
 
+---
+
 ### set ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
 
 set data into current context
@@ -212,8 +245,9 @@ set data into current context
 * `key` _(string)_ _.set() key/path
 * `val` 
 
-#### Returns
-doesn&#x27;t actually print anything
+**Returns** _(string)_ doesn't actually print anything
+
+---
 
 ## numbers
 
@@ -221,14 +255,16 @@ doesn&#x27;t actually print anything
 ### addCommas ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 
 add commas to numbers.
-note: this overrides handlebars-helpers&#x27; addCommas helper
+note: this overrides handlebars-helpers' addCommas helper
 because we want to preserve zeroes in decimals (for money)
 e.g. 1234.50 → 1,234.50 instead of 1,234.5
 note: decimals are only preserved if passed in as a string
-(they don&#x27;t exist in js numbers)
+(they don't exist in js numbers)
 
 #### Params
 * `num` 
+
+---
 
 ### toK ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
@@ -237,6 +273,8 @@ e.g. 1000 → 1k
 
 #### Params
 * `x` 
+
+---
 
 ## objects
 
@@ -251,6 +289,8 @@ e.g. { a: true, b: false, c: true } → a, b, c
 * `obj` _(object)_ 
 * `shouldCapitalize` _(boolean)_ capitalizes first word in each key
 
+---
+
 ## strings
 
 
@@ -260,6 +300,8 @@ _No description_
 
 
 
+---
+
 ### longestWord ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 
 returns the number of characters in the longest word of
@@ -268,14 +310,19 @@ a string. Punctuation is NOT ignored.
 #### Params
 * `str` _(string)_ 
 
+---
+
 ### randomString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 
 generatea random string
-e.g. 
+e.g.  `greatest-hit-`  →  `greatest-hit-noctz56h` 
+note: allows passing length=x to generate strings of different lengths
 
 #### Params
 * `prefix` 
 * `options` 
+
+---
 
 ## time
 
@@ -287,6 +334,8 @@ generate article dates and times
 #### Params
 * `datetime` _(Date)_ 
 
+---
+
 ## urls
 
 
@@ -295,6 +344,8 @@ generate article dates and times
 _No description_
 
 
+
+---
 
 ---
 
