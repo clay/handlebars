@@ -5,7 +5,7 @@
 
 {{#if params}}#### Params{{/if}}
 {{#each params}}
-* `{{ name }}` {{#if type}}_({{ type }})_ {{/if}}{{{ description }}}
+* `{{ if isOptional '[' }}{{ name }}{{ if isOptional ']' }}` {{#if type}}_({{ type }})_ {{/if}}{{{ description }}}
 {{/each}}
 {{#ifAny returnValue returnType}}
 

@@ -152,24 +152,24 @@ get a component's name from the reference
 
 ### compare ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
 
-compare two values, with an operator.<br />note: if you don't pass an operator, it assumes '==='
+compare two values, with an operator.<br />note: if you don't pass an operator, it assumes  `===`
 
 #### Params
-* `left` left value
-* `operator` _(string)_ 
-* `right` right value
-* `options` 
+* `left` _(*)_ left value
+* `operator` _(string)_ to compare with
+* `right` _(*)_ right value
+* `[options]` _(object)_ 
 
-**Returns** _(string)_ 
+**Returns** _(string)_ if inline, otherwise calls block functions
 
 ### if ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
 
 if
 
 #### Params
-* `conditional` to check for truthiness
-* `value` to print if conditional is truthy
-* `options` 
+* `conditional` _(*)_ to check for truthiness
+* `value` _(*)_ to print if conditional is truthy
+* `[options]` _(object)_ 
 
 **Returns** _(string)_ 
 
@@ -217,7 +217,7 @@ _No description_
 counts the words in a string of text or html
 
 #### Params
-* `html` 
+* `[html]` _(string)_ 
 
 **Returns** _(string)_ 
 
@@ -236,7 +236,7 @@ set data into current context
 
 #### Params
 * `key` _(string)_ _.set() key/path
-* `val` 
+* `val` _(*)_ 
 
 **Returns** _(string)_ doesn't actually print anything
 
@@ -252,7 +252,7 @@ note: decimals are only preserved if passed in as a string
 (they don't exist in js numbers)
 
 #### Params
-* `num` 
+* `num` _(number|string)_ 
 
 **Returns** _(string)_ 
 
@@ -261,7 +261,7 @@ note: decimals are only preserved if passed in as a string
 convert number to shorthand<br />e.g. 1000 → 1k
 
 #### Params
-* `x` 
+* `x` _(number|string)_ 
 
 **Returns** _(string)_ 
 
@@ -303,8 +303,8 @@ generatea random string<br />e.g.  `greatest-hit-`  →  `greatest-hit-noctz56h`
 note: allows passing length=x to generate strings of different lengths
 
 #### Params
-* `prefix` 
-* `options` 
+* `[prefix]` _(string)_ 
+* `[options]` _(object)_ 
 
 **Returns** _(string)_ 
 

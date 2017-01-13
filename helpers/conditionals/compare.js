@@ -11,12 +11,12 @@ const operators = {
 
 /**
  * compare two values, with an operator.
- * note: if you don't pass an operator, it assumes '==='
+ * note: if you don't pass an operator, it assumes `===`
  * @param  {*} left     left value
- * @param  {string} operator
+ * @param  {string} operator to compare with
  * @param  {*} right    right value
  * @param  {object} [options]
- * @return {string}
+ * @return {string} if inline, otherwise calls block functions
  */
 module.exports = function (left, operator, right, options) {
   let result;

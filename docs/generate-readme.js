@@ -22,6 +22,30 @@ function parseDoc(block) {
   return block.type === 'inlineCode' ? '`' + block.value + '`' : block.value;
 }
 
+/**
+ * parse JSDoc types
+ * @param  {object} obj
+ * @return {string}
+ */
+function parseType(obj) {
+  if (obj.type === 'NameExpression') {
+    // {array}, {string}, {object}, etc
+    return obj.name;
+  } else if (obj.type === 'AllLiteral') {
+    // {*}
+    return '*';
+  } else if (obj.type === 'OptionalType') {
+    // we don't care if something is optional (in this function)
+    return parseType(obj.expression);
+  } else if (obj.type === 'UnionType') {
+    // {string|array}, etc
+    return _.map(obj.elements, (el) => parseType(el)).join('|');
+  } else {
+    // you should tell a dev, because we don't know what we're dealing with here
+    throw new Error(`Unknown type "${obj.type}"!`);
+  }
+}
+
 function generateDoc(helper) {
   const rawDoc = doc.buildSync([helper], { shallow: true })[0];
 
@@ -35,7 +59,8 @@ function generateDoc(helper) {
 
         return {
           name: param.name,
-          type: _.get(param, 'type.name'),
+          type: parseType(param.type),
+          isOptional: _.get(param, 'type.type') === 'OptionalType',
           description: desc.map(parseDoc).join(' ')
         };
       }),
