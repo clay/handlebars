@@ -18,10 +18,10 @@ By default, `nymag-handlebars` will export a function that returns a new handleb
 
 ```js
 var hbs = require('nymag-handlebars')(),
-  template = hbs.compile('&lt;h1&gt;Hello {{ place }}!&lt;/h1&gt;'),
+  template = hbs.compile('<h1>Hello {{ place }}!</h1>'),
   result = template({ place: 'World' });
 
-// result: &lt;h1&gt;Hello World!&lt;/h1&gt;
+// result: <h1>Hello World!</h1>
 ```
 
 ## Passing env in
