@@ -152,7 +152,7 @@ get a component's name from the reference
 
 ### compare ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
 
-compare two values, with an operator.<br />note: if you don't pass an operator, it assumes  `===`
+compare two values, with an operator.<br />note: if you don't pass an operator, it assumes  `===` <br />note: this can be used as a block  _or_  inline helper
 
 #### Params
 * `left` _(*)_ left value
@@ -161,6 +161,13 @@ compare two values, with an operator.<br />note: if you don't pass an operator, 
 * `[options]` _(object)_ 
 
 **Returns** _(string)_ if inline, otherwise calls block functions
+
+#### Example
+
+```hbs
+{{ compare 10 ">" 5 }}
+//=> &quot;true&quot;
+```
 
 ### if ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
 
@@ -245,11 +252,7 @@ set data into current context
 
 ### addCommas ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 
-add commas to numbers.<br />note: this overrides handlebars-helpers' addCommas helper
-because we want to preserve zeroes in decimals (for money)
-e.g. 1234.50 → 1,234.50 instead of 1,234.5
-note: decimals are only preserved if passed in as a string
-(they don't exist in js numbers)
+add commas to numbers.<br />note: this overrides handlebars-helpers' addCommas helper<br />because we want to preserve zeroes in decimals (for money)<br />e.g. 1234.50 → 1,234.50 instead of 1,234.5<br />note: decimals are only preserved if passed in as a string<br />(they don't exist in js numbers)
 
 #### Params
 * `num` _(number|string)_ 
@@ -270,8 +273,7 @@ convert number to shorthand<br />e.g. 1000 → 1k
 
 ### commaSeparated ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
 
-Turn an object into a comma-delineated list of key names,<br />based on if their values are true/false
-e.g. { a: true, b: false, c: true } → a, b, c
+Turn an object into a comma-delineated list of key names,<br />based on if their values are true/false<br />e.g. { a: true, b: false, c: true } → a, b, c
 
 #### Params
 * `obj` _(object)_ 
@@ -299,8 +301,7 @@ returns the number of characters in the longest word of<br />a string. Punctuati
 
 ### randomString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 
-generatea random string<br />e.g.  `greatest-hit-`  →  `greatest-hit-noctz56h` 
-note: allows passing length=x to generate strings of different lengths
+generatea random string<br />e.g.  `greatest-hit-`  →  `greatest-hit-noctz56h` <br />note: allows passing length=x to generate strings of different lengths
 
 #### Params
 * `[prefix]` _(string)_ 

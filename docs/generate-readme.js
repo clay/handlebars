@@ -19,7 +19,16 @@ function noTests(filename) {
  * @return {string}
  */
 function parseDoc(block) {
-  return block.type === 'inlineCode' ? '`' + block.value + '`' : block.value;
+  if (block.type === 'inlineCode') {
+    return '`' + block.value + '`';
+  } else if (block.type === 'emphasis') {
+    return `_${block.children.map(parseDoc).join(' ')}_`;
+  } else if (block.type === 'text') {
+    return block.value;
+  } else {
+    // you should tell a dev, because we don't know what we're dealing with here
+    throw new Error(`Unknown text block type "${block.type}"!`);
+  }
 }
 
 /**
@@ -42,7 +51,7 @@ function parseType(obj) {
     return _.map(obj.elements, (el) => parseType(el)).join('|');
   } else {
     // you should tell a dev, because we don't know what we're dealing with here
-    throw new Error(`Unknown type "${obj.type}"!`);
+    throw new Error(`Unknown param type "${obj.type}"!`);
   }
 }
 
@@ -53,7 +62,7 @@ function generateDoc(helper) {
     let desc = _.get(rawDoc, 'description.children[0].children') || [],
       ret = _.get(rawDoc, 'returns[0].description.children[0].children') || [],
       returnType = _.get(rawDoc, 'returns[0].type.name'),
-      description = desc.map(parseDoc).join(' ').replace('\n', '<br />'),
+      description = desc.map(parseDoc).join(' ').replace(/\n/g, '<br />'),
       params = _.map(rawDoc.params, function (param) {
         let desc = _.get(param, 'description.children[0].children') || [];
 
