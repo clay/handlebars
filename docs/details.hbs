@@ -1,0 +1,16 @@
+**{{ name }}** ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.js) | {{#if hasTestFile}}[tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.test.js){{else}}no tests{{/if}} )
+
+{{ default description '_No description_' }}
+
+{{#if params}}#### Params{{/if}}
+{{#each params}}
+* `{{ name }}` **{{ type }}** {{ description }}
+{{/each}}
+{{#if code}}
+#### Example
+
+```
+{{ code }}
+//=> {{ result }}
+```
+{{/if}}
