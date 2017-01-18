@@ -43,6 +43,7 @@
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
     "handlebars-helpers": "^0.7.5",
+    "helper-yaml": "^0.1.0",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",
     "randomstring": "^1.1.5",

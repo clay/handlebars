@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **22 helpers** in **9 categories**:
+Currently **23 helpers** in **9 categories**:
 
 
 ### components
@@ -82,6 +82,7 @@ Currently **22 helpers** in **9 categories**:
 
 ### strings
 
+* [**concat**](https://github.com/nymag/nymag-handlebars#concat) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
 * [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabCase) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestWord) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomString) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
@@ -403,6 +404,12 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 ```
 
 ## strings
+
+
+### concat ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
+
+_No description_
+
 
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
