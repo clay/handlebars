@@ -1,7 +1,9 @@
 'use strict';
 const glob = require('glob'),
   path = require('path'),
-  hbsHelpers = require('handlebars-helpers'); // 3rd party helpers, well-maintained
+  // 3rd party helpers, well-maintained
+  hbsHelpers = require('handlebars-helpers'),
+  yaml = require('helper-yaml');
 
 // filter out tests from globbed files
 function noTests(filename) {
@@ -20,6 +22,7 @@ module.exports = function (env) {
   // add 3rd party helpers first (in case we need to overwrite any)
   // docs are here: http://assemble.io/helpers/
   hbsHelpers({ handlebars: env });
+  env.registerHelper('yaml', yaml.sync);
 
   // add helpers
   helpers.forEach(h => env.registerHelper(path.basename(h, '.js'), require(h)));
