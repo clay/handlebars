@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **24 helpers** in **9 categories**:
+Currently **25 helpers** in **9 categories**:
 
 
 ### components
@@ -68,6 +68,7 @@ Currently **24 helpers** in **9 categories**:
 
 ### misc
 
+* [**default**](https://github.com/nymag/nymag-handlebars#default--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
 * [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
 
@@ -318,6 +319,21 @@ counts the words in a string of text or html
 
 ## misc
 
+
+### default ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
+
+return the first value if it's not empty, otherwise return the second value<br /> _note:_  this overrides handlebar-helper's  [default](https://github.com/helpers/handlebars-helpers#default)  helper, since that only checks for null values (not all falsy/empty values)
+
+#### Params
+* `value` _(*)_ to check
+* `defaultValue` _(*)_ value to return if first value is falsy
+
+#### Example
+
+```hbs
+{{ default "" "foo" }}
+//=> foo
+```
 
 ### indexOf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 
