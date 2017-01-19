@@ -3,6 +3,6 @@
 ### {{ name }}
 
 {{#each helpers}}
-* [**{{ name }}**](https://github.com/nymag/nymag-handlebars#{{ name }}--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.js) | {{#if hasTestFile}}[tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.test.js){{else}}no tests{{/if}} )
+* [**{{ name }}**](https://github.com/nymag/nymag-handlebars#{{ lowercase name }}--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.js) | {{#if hasTestFile}}[tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/{{ category }}/{{ name }}.test.js){{else}}no tests{{/if}} )
 {{/each}}
 {{/each}}

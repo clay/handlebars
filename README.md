@@ -47,50 +47,50 @@ Currently **24 helpers** in **9 categories**:
 
 ### components
 
-* [**displaySelf**](https://github.com/nymag/nymag-handlebars#displaySelf--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
-* [**displaySelfAll**](https://github.com/nymag/nymag-handlebars#displaySelfAll--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
-* [**getComponentName**](https://github.com/nymag/nymag-handlebars#getComponentName--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
+* [**displaySelf**](https://github.com/nymag/nymag-handlebars#displayself--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
+* [**displaySelfAll**](https://github.com/nymag/nymag-handlebars#displayselfall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
+* [**getComponentName**](https://github.com/nymag/nymag-handlebars#getcomponentname--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
 
 ### conditionals
 
 * [**compare**](https://github.com/nymag/nymag-handlebars#compare--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
 * [**if**](https://github.com/nymag/nymag-handlebars#if--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
-* [**ifAll**](https://github.com/nymag/nymag-handlebars#ifAll--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
-* [**ifAny**](https://github.com/nymag/nymag-handlebars#ifAny--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
-* [**ifNone**](https://github.com/nymag/nymag-handlebars#ifNone--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
+* [**ifAll**](https://github.com/nymag/nymag-handlebars#ifall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
+* [**ifAny**](https://github.com/nymag/nymag-handlebars#ifany--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
+* [**ifNone**](https://github.com/nymag/nymag-handlebars#ifnone--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 * [**modulo**](https://github.com/nymag/nymag-handlebars#modulo--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.test.js) )
 
 ### html
 
-* [**perWordClasses**](https://github.com/nymag/nymag-handlebars#perWordClasses--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
+* [**perWordClasses**](https://github.com/nymag/nymag-handlebars#perwordclasses--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
 * [**striptags**](https://github.com/nymag/nymag-handlebars#striptags--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
-* [**wordCount**](https://github.com/nymag/nymag-handlebars#wordCount--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
+* [**wordCount**](https://github.com/nymag/nymag-handlebars#wordcount--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
 
 ### misc
 
-* [**indexOf**](https://github.com/nymag/nymag-handlebars#indexOf--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
+* [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
 
 ### numbers
 
-* [**addCommas**](https://github.com/nymag/nymag-handlebars#addCommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
-* [**toK**](https://github.com/nymag/nymag-handlebars#toK--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
+* [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
+* [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 ### objects
 
-* [**commaSeparated**](https://github.com/nymag/nymag-handlebars#commaSeparated--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
-* [**getProp**](https://github.com/nymag/nymag-handlebars#getProp--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
+* [**commaSeparated**](https://github.com/nymag/nymag-handlebars#commaseparated--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
+* [**getProp**](https://github.com/nymag/nymag-handlebars#getprop--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
 
 ### strings
 
 * [**concat**](https://github.com/nymag/nymag-handlebars#concat--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
-* [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabCase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
-* [**longestWord**](https://github.com/nymag/nymag-handlebars#longestWord--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
-* [**randomString**](https://github.com/nymag/nymag-handlebars#randomString--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
+* [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabcase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
+* [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
+* [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 
 ### time
 
-* [**articleDate**](https://github.com/nymag/nymag-handlebars#articleDate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
+* [**articleDate**](https://github.com/nymag/nymag-handlebars#articledate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
 
 ### urls
 
