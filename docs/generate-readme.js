@@ -58,7 +58,13 @@ function parseType(obj) {
 }
 
 function generateDoc(helper) {
-  const rawDoc = doc.buildSync([helper], { shallow: true })[0];
+  const rawDoc = _.find(doc.buildSync([helper], { shallow: true }), function (section) {
+    // grab the jsdoc for the exported function
+    // note: you must do `module.exports = function () {}`,
+    // rather than declaring a named function above and referencing it
+    // from module.exports
+    return section.namespace === path.basename(helper, '.js');
+  });
 
   if (!_.isEmpty(rawDoc)) {
     let desc = _.get(rawDoc, 'description.children[0].children') || [],

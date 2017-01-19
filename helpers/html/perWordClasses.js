@@ -79,14 +79,13 @@ function wrapWord(word, index, array, hasLetterClasses) {
 }
 
 /**
- * wraps each word in spans with classes
- * allowing designers and devs to target individual words with css
- * @param {string} html
+ * wraps each word in spans with classes allowing designers and devs to target individual words with css
+ * @param {string} html to add classes to
  * @param {object} options
  * @param {boolean} [options.hash.perLetter] if you want an extra span wrapping each letter. defaults to true
  * @returns {string} words wrapped in classes
  */
-function helper(html, options) {
+module.exports = function (html, options) {
   let words, hasLetterClasses;
 
   if (_.isEmpty(html) || !_.isString(html)) {
@@ -103,13 +102,12 @@ function helper(html, options) {
   // replace nonbreaking spaces before splitting the text
   words = html.split(' ');
   return _.map(words, (word, index, array) => wrapWord(word, index, array, hasLetterClasses)).join('');
-}
+};
 
-module.exports = helper;
 // for testing
 module.exports.toSlug = toSlug;
 
 module.exports.example = {
-  code: '{{{ perWordClasses "One two three" }}}',
+  code: '{{{ perWordClasses "One two three" perLetter=false }}}',
   result: '<span class="_one">One</span> <span class="_two">two</span> <span class="_three">three</span>'
 };

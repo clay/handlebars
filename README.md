@@ -271,17 +271,19 @@ compare the modulo of two values to a third value
 
 ### perWordClasses ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
 
-Removes all unicode from string<br />mostly used for stripping various curly quotes
+wraps each word in spans with classes allowing designers and devs to target individual words with css
 
 #### Params
-* `str` _(string)_ 
+* `html` _(string)_ to add classes to
+* `options` _(object)_ 
+* `[options.hash.perLetter]` _(boolean)_ if you want an extra span wrapping each letter. defaults to true
 
-**Returns** _(string)_ 
+**Returns** _(string)_ words wrapped in classes
 
 #### Example
 
 ```hbs
-{{{ perWordClasses "One two three" }}}
+{{{ perWordClasses "One two three" perLetter=false }}}
 //=> <span class="_one">One</span> <span class="_two">two</span> <span class="_three">three</span>
 ```
 
