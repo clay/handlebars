@@ -43,10 +43,12 @@
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
     "handlebars-helpers": "^0.7.5",
+    "he": "^1.1.0",
     "helper-yaml": "^0.1.0",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",
     "randomstring": "^1.1.5",
+    "speakingurl": "^11.0.0",
     "striptags": "^2.1.1"
   }
 }

@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **23 helpers** in **9 categories**:
+Currently **24 helpers** in **9 categories**:
 
 
 ### components
@@ -62,6 +62,7 @@ Currently **23 helpers** in **9 categories**:
 
 ### html
 
+* [**perWordClasses**](https://github.com/nymag/nymag-handlebars#perWordClasses) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
 * [**striptags**](https://github.com/nymag/nymag-handlebars#striptags) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
 * [**wordCount**](https://github.com/nymag/nymag-handlebars#wordCount) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
 
@@ -267,6 +268,22 @@ compare the modulo of two values to a third value
 
 ## html
 
+
+### perWordClasses ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
+
+Removes all unicode from string<br />mostly used for stripping various curly quotes
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{{ perWordClasses "One two three" }}}
+//=> <span class="_one">One</span> <span class="_two">two</span> <span class="_three">three</span>
+```
 
 ### striptags ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
 
