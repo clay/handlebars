@@ -6,11 +6,9 @@ const stripTags = require('striptags');
  * @param {string} [html]
  * @returns {number} the number of words
  */
-function htmlToWordCount(html) {
+module.exports = function (html) {
   return stripTags(html || '').split(' ').filter(word => word.trim()).length;
-}
-
-module.exports = htmlToWordCount;
+};
 
 module.exports.example = {
   code: '{{wordCount "<div> This is <b> cool </b> </div>"}}',
