@@ -42,8 +42,12 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **25 helpers** in **9 categories**:
+Currently **26 helpers** in **10 categories**:
 
+
+### arrays
+
+* [**range**](https://github.com/nymag/nymag-handlebars#range--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
 
 ### components
 
@@ -99,6 +103,27 @@ Currently **25 helpers** in **9 categories**:
 
 ---
 
+
+## arrays
+
+
+### range ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
+
+return an array of numbers, in order<br /> _note:_  can be used inline or as a block helper (will iterate through all numbers)
+
+#### Params
+* `[start]` _(number)_ on this number (defaults to 0)
+* `end` _(number)_ on this number
+* `[options]` _(object)_ 
+
+**Returns** _(array)_ 
+
+#### Example
+
+```hbs
+{{#range 1 5}}{{ this }}{{/range}}
+//=> 12345
+```
 
 ## components
 
