@@ -122,7 +122,7 @@ return an array of numbers, in order<br /> _note:_  can be used inline or as a b
 
 ```hbs
 {{#range 1 5}}{{ this }}{{/range}}
-//=> 12345
+//=> 1234
 ```
 
 ## components

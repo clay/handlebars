@@ -20,7 +20,6 @@ module.exports = function (start, end, options) {
   }
 
   range = _.range(start, end);
-  range.push(end); // _.range doesn't include last number
 
   if (options && options.fn) {
     // block-level, iterate through the range!
@@ -33,5 +32,5 @@ module.exports = function (start, end, options) {
 
 module.exports.example = {
   code: '{{#range 1 5}}{{ this }}{{/range}}',
-  result: '12345'
+  result: '1234'
 };
