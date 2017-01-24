@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **26 helpers** in **10 categories**:
+Currently **27 helpers** in **10 categories**:
 
 
 ### arrays
@@ -79,6 +79,7 @@ Currently **26 helpers** in **10 categories**:
 ### numbers
 
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
+* [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
 * [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 ### objects
@@ -409,6 +410,22 @@ add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCo
 ```hbs
 {{ addCommas "1234.50" }}
 //=> "1,234.50"
+```
+
+### num ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
+
+converts things (usually strings) into numbers<br /> _note:_  this is useful if you need to parse user input
+
+#### Params
+* `x` _(number|string)_ thing to convert into a number
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ num "123" }}
+//=> 123
 ```
 
 ### toK ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
