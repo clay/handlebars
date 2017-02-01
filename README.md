@@ -42,12 +42,13 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **31 helpers** in **10 categories**:
+Currently **32 helpers** in **10 categories**:
 
 
 ### arrays
 
 * [**join**](https://github.com/nymag/nymag-handlebars#join--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
+* [**map**](https://github.com/nymag/nymag-handlebars#map--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.test.js) )
 * [**range**](https://github.com/nymag/nymag-handlebars#range--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
 
 ### components
@@ -127,6 +128,23 @@ join all elements of array into a string, optionally using a given separator
 ```hbs
 {{ join ["a", "b", "c"] "-" }}
 //=> "a-b-c"
+```
+
+### map ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.test.js) )
+
+map through array, call function on each item
+
+#### Params
+* `array` _(array|string)_ of items to iterate through
+* `fn` _(function)_ to run on each item
+
+**Returns** _(array)_ 
+
+#### Example
+
+```hbs
+{{ join (map [{ a: "1" }, { a: "2" }] (getProp "a")) }}
+//=> "1, 2"
 ```
 
 ### range ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
@@ -515,7 +533,7 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 
 ```hbs
 {{ join (map [{ a: "1" }, { a: "2" }] (getProp "a"))}}
-//=> "1,2"
+//=> "1, 2"
 ```
 
 ## strings
