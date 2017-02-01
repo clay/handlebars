@@ -25,10 +25,5 @@ module.exports = {
       test: /\.hbs$/,
       loader: 'handlebars-template-loader'
     }]
-  },
-  resolve: {
-    alias: {
-      handlebars: 'handlebars/dist/handlebars.runtime.min.js' // override handlebars-helpers' require(handlebars)
-    }
   }
 };
