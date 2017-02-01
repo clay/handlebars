@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **28 helpers** in **10 categories**:
+Currently **29 helpers** in **10 categories**:
 
 
 ### arrays
@@ -80,6 +80,7 @@ Currently **28 helpers** in **10 categories**:
 
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 * [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
+* [**subtract**](https://github.com/nymag/nymag-handlebars#subtract--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
 * [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 ### objects
@@ -429,6 +430,23 @@ converts things (usually strings) into numbers<br /> _note:_  this is useful if 
 //=> 123
 ```
 
+### subtract ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
+
+Return the product of  `a`  minus  `b`
+
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
+
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ subtract 3 2 }}
+//=> 1
+```
+
 ### toK ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 format thousands using  `k` <br />e.g.  `1000`  →  `1k`
@@ -527,6 +545,13 @@ lower cases a string<br /> _note:_  non-strings will return emptystring
 * `str` _(string)_ 
 
 **Returns** _(string)_ lower cased
+
+#### Example
+
+```hbs
+{{ lowercase "Foo" }}
+//=> "foo"
+```
 
 ### randomString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 

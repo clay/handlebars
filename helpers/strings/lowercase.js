@@ -10,3 +10,8 @@ const _ = require('lodash');
 module.exports = function (str) {
   return _.isString(str) ? str.toLowerCase() : '';
 };
+
+module.exports.example = {
+  code: '{{ lowercase "Foo" }}',
+  result: '"foo"'
+};
