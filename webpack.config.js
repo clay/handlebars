@@ -24,6 +24,17 @@ module.exports = {
       // allows us to require() partials
       test: /\.hbs$/,
       loader: 'handlebars-template-loader'
+    }, {
+      test: /\.js$/,
+      loader: 'unlazy-loader'
     }]
+  },
+  resolve: {
+    alias: {
+      handlebars: 'handlebars/dist/handlebars.runtime.min.js' // override handlebars-helpers' require(handlebars)
+    }
+  },
+  node: {
+    fs: 'empty'
   }
 };

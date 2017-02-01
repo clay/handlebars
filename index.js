@@ -1,10 +1,8 @@
 'use strict';
 const glob = require('glob'),
   path = require('path'),
-  // 3rd party helpers, well-maintained
-  hbsHelpers = require('handlebars-helpers'),
-  yaml = require('helper-yaml'),
-  outdent = require('outdent');
+  outdent = require('outdent'),
+  fs = require('fs');
 
 // filter out tests from globbed files
 function noTests(filename) {
@@ -21,9 +19,13 @@ module.exports = function (env) {
   }
 
   // add 3rd party helpers first (in case we need to overwrite any)
-  // docs are here: http://assemble.io/helpers/
-  hbsHelpers({ handlebars: env });
-  env.registerHelper('yaml', yaml.sync);
+  require('./third-party-helpers')(env);
+
+  // support `read` helper on the server-side ONLY
+  // todo: deprecate this when we figure out how to precompile these assets
+  env.registerHelper('read', function (filename) {
+    return fs.readFileSync(filename, 'utf-8');
+  });
 
   // add helpers
   helpers.forEach(h => env.registerHelper(path.basename(h, '.js'), require(h)));

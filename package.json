@@ -45,13 +45,13 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "pre-commit": "^1.2.2",
+    "unlazy-loader": "^0.1.2",
     "webpack": "^2.2.1"
   },
   "dependencies": {
     "comma-it": "0.0.7",
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
-    "handlebars-helpers": "^0.7.5",
     "he": "^1.1.0",
     "helper-yaml": "^0.1.0",
     "lodash": "^4.17.4",
