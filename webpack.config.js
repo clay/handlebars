@@ -24,9 +24,6 @@ module.exports = {
       // allows us to require() partials
       test: /\.hbs$/,
       loader: 'handlebars-template-loader'
-    }, {
-      test: /\.js$/,
-      loader: 'unlazy-loader'
     }]
   },
   resolve: {
