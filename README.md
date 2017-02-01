@@ -42,11 +42,12 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **30 helpers** in **10 categories**:
+Currently **31 helpers** in **10 categories**:
 
 
 ### arrays
 
+* [**join**](https://github.com/nymag/nymag-handlebars#join--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
 * [**range**](https://github.com/nymag/nymag-handlebars#range--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
 
 ### components
@@ -110,6 +111,23 @@ Currently **30 helpers** in **10 categories**:
 
 ## arrays
 
+
+### join ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
+
+join all elements of array into a string, optionally using a given separator
+
+#### Params
+* `array` _(array)_ 
+* `[sep]` _(string)_ the separator to use (defaults to ', ')
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ join ["a", "b", "c"] "-" }}
+//=> "a-b-c"
+```
 
 ### range ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
 
