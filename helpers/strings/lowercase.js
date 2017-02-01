@@ -1,5 +1,4 @@
 'use strict';
-const _ = require('lodash');
 
 /**
  * lower cases a string
@@ -8,7 +7,9 @@ const _ = require('lodash');
  * @return {string} lower cased
  */
 module.exports = function (str) {
-  return _.isString(str) ? str.toLowerCase() : '';
+  if (typeof str === 'string') {
+    return str.toLowerCase();
+  }
 };
 
 module.exports.example = {

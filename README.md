@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **29 helpers** in **10 categories**:
+Currently **30 helpers** in **10 categories**:
 
 
 ### arrays
@@ -95,6 +95,7 @@ Currently **29 helpers** in **10 categories**:
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 * [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
+* [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
 
 ### time
 
@@ -504,9 +505,18 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 
 ### concat ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
 
-_No description_
+concatenate any number of strings
 
 
+
+**Returns** _(string)_ concatenated string
+
+#### Example
+
+```hbs
+{{ concat "Foo" "Bar" "Baz" }}
+//=> "FooBarBaz"
+```
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
@@ -569,6 +579,24 @@ generate a random string<br /> _note:_  by default it generates an 8-character s
 ```hbs
 {{ randomString "greatest-hit-" characters=3 }}
 //=> "greatest-hit-z56"
+```
+
+### replace ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
+
+replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple string replacement, not regex
+
+#### Params
+* `str` _(string)_ to replace inside
+* `a` _(string)_ to replace
+* `b` _(string)_ the replacement
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ replace "Foo Bar" "Bar" "Baz" }}
+//=> "Foo Baz"
 ```
 
 ## time
