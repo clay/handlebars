@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **36 helpers** in **10 categories**:
+Currently **37 helpers** in **10 categories**:
 
 
 ### arrays
@@ -90,6 +90,7 @@ Currently **36 helpers** in **10 categories**:
 
 * [**commaSeparated**](https://github.com/nymag/nymag-handlebars#commaseparated--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
 * [**getProp**](https://github.com/nymag/nymag-handlebars#getprop--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
+* [**stringify**](https://github.com/nymag/nymag-handlebars#stringify--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.test.js) )
 
 ### strings
 
@@ -555,6 +556,22 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 ```hbs
 {{ join (map [{ a: "1" }, { a: "2" }] (getProp "a"))}}
 //=> "1, 2"
+```
+
+### stringify ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.test.js) )
+
+stringify JSON
+
+#### Params
+* `obj` _(object)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{{ stringify { a: "b" } }}}
+//=> "{"a":"b"}"
 ```
 
 ## strings
