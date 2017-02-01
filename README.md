@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **32 helpers** in **10 categories**:
+Currently **33 helpers** in **10 categories**:
 
 
 ### arrays
@@ -98,6 +98,7 @@ Currently **32 helpers** in **10 categories**:
 * [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
+* [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
 
 ### time
 
@@ -633,6 +634,22 @@ replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple stri
 ```hbs
 {{ replace "Foo Bar" "Bar" "Baz" }}
 //=> "Foo Baz"
+```
+
+### trim ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
+
+trim leading and trailing whitespace from a string
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ trim "   Foo   " }}
+//=> "Foo"
 ```
 
 ## time
