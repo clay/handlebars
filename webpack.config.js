@@ -30,8 +30,5 @@ module.exports = {
     alias: {
       handlebars: 'handlebars/dist/handlebars.runtime.min.js' // override handlebars-helpers' require(handlebars)
     }
-  },
-  node: {
-    fs: 'empty'
   }
 };
