@@ -3,7 +3,8 @@ const glob = require('glob'),
   path = require('path'),
   // 3rd party helpers, well-maintained
   hbsHelpers = require('handlebars-helpers'),
-  yaml = require('helper-yaml');
+  yaml = require('helper-yaml'),
+  outdent = require('outdent');
 
 // filter out tests from globbed files
 function noTests(filename) {
@@ -31,4 +32,19 @@ module.exports = function (env) {
   partials.forEach(p => env.registerPartial(path.basename(p, '.hbs'), require(p)));
 
   return env;
+};
+
+/**
+ * only render component partials if their _ref or _self exists
+ * @param  {string} name of component
+ * @param  {string} code contents of the template
+ * @return {string}      wrapped template string
+ */
+module.exports.wrapPartial = function (name, code) {
+  return outdent`
+    {{#ifAny _ref _self}}
+      ${code}
+    {{else}}
+      <!-- unable to render partial ${name} without a supplied context -->
+    {{/ifAny}}`;
 };
