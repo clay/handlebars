@@ -42,11 +42,13 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **27 helpers** in **10 categories**:
+Currently **36 helpers** in **10 categories**:
 
 
 ### arrays
 
+* [**join**](https://github.com/nymag/nymag-handlebars#join--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
+* [**map**](https://github.com/nymag/nymag-handlebars#map--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.test.js) )
 * [**range**](https://github.com/nymag/nymag-handlebars#range--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
 
 ### components
@@ -78,8 +80,10 @@ Currently **27 helpers** in **10 categories**:
 
 ### numbers
 
+* [**add**](https://github.com/nymag/nymag-handlebars#add--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 * [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
+* [**subtract**](https://github.com/nymag/nymag-handlebars#subtract--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
 * [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 ### objects
@@ -89,10 +93,15 @@ Currently **27 helpers** in **10 categories**:
 
 ### strings
 
+* [**capitalize**](https://github.com/nymag/nymag-handlebars#capitalize--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
+* [**capitalizeAll**](https://github.com/nymag/nymag-handlebars#capitalizeall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
 * [**concat**](https://github.com/nymag/nymag-handlebars#concat--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
 * [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabcase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
+* [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
+* [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
+* [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
 
 ### time
 
@@ -107,6 +116,40 @@ Currently **27 helpers** in **10 categories**:
 
 ## arrays
 
+
+### join ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
+
+join all elements of array into a string, optionally using a given separator
+
+#### Params
+* `array` _(array)_ 
+* `[sep]` _(string)_ the separator to use (defaults to ', ')
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ join ["a", "b", "c"] "-" }}
+//=> "a-b-c"
+```
+
+### map ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.test.js) )
+
+map through array, call function on each item
+
+#### Params
+* `array` _(array|string)_ of items to iterate through
+* `fn` _(function)_ to run on each item
+
+**Returns** _(array)_ 
+
+#### Example
+
+```hbs
+{{ join (map [{ a: "1" }, { a: "2" }] (getProp "a")) }}
+//=> "1, 2"
+```
 
 ### range ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
 
@@ -396,6 +439,23 @@ set data into current context<br /> _note:_  doesn't return anything
 ## numbers
 
 
+### add ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
+
+Return the product of  `a`  plus  `b`
+
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
+
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ add 3 2 }}
+//=> 5
+```
+
 ### addCommas ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 
 add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCommas`  helper because we want to preserve zeroes in decimals (for money)<br />e.g.  `1234.50`  →  `1,234.50`  instead of  `1,234.5` <br /> _note:_  decimals are only preserved if passed in as a string (they don't exist in js numbers)
@@ -426,6 +486,23 @@ converts things (usually strings) into numbers<br /> _note:_  this is useful if 
 ```hbs
 {{ num "123" }}
 //=> 123
+```
+
+### subtract ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
+
+Return the product of  `a`  minus  `b`
+
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
+
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ subtract 3 2 }}
+//=> 1
 ```
 
 ### toK ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
@@ -477,17 +554,58 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 
 ```hbs
 {{ join (map [{ a: "1" }, { a: "2" }] (getProp "a"))}}
-//=> "1,2"
+//=> "1, 2"
 ```
 
 ## strings
 
 
+### capitalize ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
+
+capitalize the first character in a string
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ capitalize "foo bar" }}
+//=> "Foo bar"
+```
+
+### capitalizeAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
+
+capitalize every word in a string
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ capitalizeAll "foo bar" }}
+//=> "Foo Bar"
+```
+
 ### concat ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
 
-_No description_
+concatenate any number of strings
 
 
+
+**Returns** _(string)_ concatenated string
+
+#### Example
+
+```hbs
+{{ concat "Foo" "Bar" "Baz" }}
+//=> "FooBarBaz"
+```
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
@@ -518,6 +636,22 @@ returns the number of characters in the longest word of a string. Punctuation is
 //=> 3
 ```
 
+### lowercase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
+
+lower cases a string<br /> _note:_  non-strings will return emptystring
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ lower cased
+
+#### Example
+
+```hbs
+{{ lowercase "Foo" }}
+//=> "foo"
+```
+
 ### randomString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 
 generate a random string<br /> _note:_  by default it generates an 8-character string
@@ -534,6 +668,40 @@ generate a random string<br /> _note:_  by default it generates an 8-character s
 ```hbs
 {{ randomString "greatest-hit-" characters=3 }}
 //=> "greatest-hit-z56"
+```
+
+### replace ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
+
+replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple string replacement, not regex
+
+#### Params
+* `str` _(string)_ to replace inside
+* `a` _(string)_ to replace
+* `b` _(string)_ the replacement
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ replace "Foo Bar" "Bar" "Baz" }}
+//=> "Foo Baz"
+```
+
+### trim ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
+
+trim leading and trailing whitespace from a string
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ trim "   Foo   " }}
+//=> "Foo"
 ```
 
 ## time

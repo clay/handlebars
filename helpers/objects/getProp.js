@@ -14,5 +14,5 @@ module.exports = function (prop) {
 
 module.exports.example = {
   code: '{{ join (map [{ a: "1" }, { a: "2" }] (getProp "a"))}}',
-  result: '"1,2"'
+  result: '"1, 2"'
 };

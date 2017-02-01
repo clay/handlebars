@@ -1,9 +1,8 @@
 'use strict';
 const glob = require('glob'),
   path = require('path'),
-  // 3rd party helpers, well-maintained
-  hbsHelpers = require('handlebars-helpers'),
-  yaml = require('helper-yaml');
+  outdent = require('outdent'),
+  fs = require('fs');
 
 // filter out tests from globbed files
 function noTests(filename) {
@@ -20,9 +19,13 @@ module.exports = function (env) {
   }
 
   // add 3rd party helpers first (in case we need to overwrite any)
-  // docs are here: http://assemble.io/helpers/
-  hbsHelpers({ handlebars: env });
-  env.registerHelper('yaml', yaml.sync);
+  require('./third-party-helpers')(env);
+
+  // support `read` helper on the server-side ONLY
+  // todo: deprecate this when we figure out how to precompile these assets
+  env.registerHelper('read', function (filename) {
+    return fs.readFileSync(filename, 'utf-8');
+  });
 
   // add helpers
   helpers.forEach(h => env.registerHelper(path.basename(h, '.js'), require(h)));
@@ -31,4 +34,19 @@ module.exports = function (env) {
   partials.forEach(p => env.registerPartial(path.basename(p, '.hbs'), require(p)));
 
   return env;
+};
+
+/**
+ * only render component partials if their _ref or _self exists
+ * @param  {string} name of component
+ * @param  {string} code contents of the template
+ * @return {string}      wrapped template string
+ */
+module.exports.wrapPartial = function (name, code) {
+  return outdent`
+    {{#ifAny _ref _self}}
+      ${code}
+    {{else}}
+      <!-- unable to render partial ${name} without a supplied context -->
+    {{/ifAny}}`;
 };

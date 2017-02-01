@@ -14,11 +14,12 @@ describe('Helpers', function () {
     const name = getName(testFile),
       fn = require(testFile.replace('.test', ''));
 
-    // register the helper
+    // register the helpers first
     hbs.registerHelper(name, fn);
-    // run tests
-    require(testFile);
   });
+
+  // then run tests
+  helperTests.forEach(testFile => require(testFile));
 });
 
 describe('Partials', function () {
