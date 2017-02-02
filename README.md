@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **37 helpers** in **10 categories**:
+Currently **38 helpers** in **10 categories**:
 
 
 ### arrays
@@ -83,6 +83,7 @@ Currently **37 helpers** in **10 categories**:
 * [**add**](https://github.com/nymag/nymag-handlebars#add--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 * [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
+* [**random**](https://github.com/nymag/nymag-handlebars#random--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
 * [**subtract**](https://github.com/nymag/nymag-handlebars#subtract--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
 * [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
@@ -488,6 +489,16 @@ converts things (usually strings) into numbers<br /> _note:_  this is useful if 
 {{ num "123" }}
 //=> 123
 ```
+
+### random ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
+
+Returns a number within a specified range
+
+#### Params
+* `min` _(Number)_ 
+* `max` _(Number)_ 
+
+**Returns** _(Number)_ 
 
 ### subtract ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
 
