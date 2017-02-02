@@ -7,6 +7,13 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "dist",
+    "helpers",
+    "partials",
+    "index.js",
+    "third-party-helpers.js"
+  ],
   "scripts": {
     "lint": "eslint helpers partials test index.js",
     "test-local": "npm run lint && istanbul cover _mocha",
