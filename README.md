@@ -492,7 +492,7 @@ converts things (usually strings) into numbers<br /> _note:_  this is useful if 
 
 ### random ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
 
-Returns a number within a specified range
+Returns a number within a specified range.
 
 #### Params
 * `min` _(Number)_ 
