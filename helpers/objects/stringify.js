@@ -8,7 +8,7 @@ const stringify = require('json-stringify-safe');
  * @returns {string}
  */
 module.exports = function (obj) {
-  return stringify(obj, null, 2);
+  return stringify(obj, null, 0);
 };
 
 module.exports.example = {
