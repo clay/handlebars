@@ -571,7 +571,7 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 
 ### stringify ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.test.js) )
 
-stringify JSON
+stringify JSON<br /> _note:_  doesn't blow up on circular references
 
 #### Params
 * `obj` _(object)_ 

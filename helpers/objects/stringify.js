@@ -1,12 +1,14 @@
 'use strict';
+const stringify = require('json-stringify-safe');
 
 /**
  * stringify JSON
+ * _note:_ doesn't blow up on circular references
  * @param  {object} obj
  * @returns {string}
  */
 module.exports = function (obj) {
-  return JSON.stringify(obj);
+  return stringify(obj, null, 2);
 };
 
 module.exports.example = {
