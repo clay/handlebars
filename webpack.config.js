@@ -1,5 +1,7 @@
 'use strict';
-const path = require('path');
+const path = require('path'),
+  webpack = require('webpack'),
+  LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   target: 'web',
@@ -18,6 +20,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
+        plugins: ['lodash'],
         presets: ['es2015'],
       }
     }, {
@@ -25,5 +28,11 @@ module.exports = {
       test: /\.hbs$/,
       loader: 'handlebars-template-loader'
     }]
-  }
+  },
+  plugins: [
+    new LodashModuleReplacementPlugin,
+    new webpack.optimize.OccurrenceOrderPlugin,
+    new webpack.optimize.UglifyJsPlugin,
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+  ]
 };
