@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **38 helpers** in **10 categories**:
+Currently **39 helpers** in **10 categories**:
 
 
 ### arrays
@@ -84,6 +84,7 @@ Currently **38 helpers** in **10 categories**:
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 * [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
 * [**random**](https://github.com/nymag/nymag-handlebars#random--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
+* [**round**](https://github.com/nymag/nymag-handlebars#round--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.test.js) )
 * [**subtract**](https://github.com/nymag/nymag-handlebars#subtract--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
 * [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
 
@@ -499,6 +500,22 @@ Returns a number within a specified range.
 * `max` _(Number)_ 
 
 **Returns** _(Number)_ 
+
+### round ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.test.js) )
+
+Return the rounded value of  `x`
+
+#### Params
+* `x` _(number|string)_ 
+
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ round 1.5 }}
+//=> 2
+```
 
 ### subtract ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
 
