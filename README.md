@@ -503,18 +503,19 @@ Returns a number within a specified range.
 
 ### round ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.test.js) )
 
-Return the rounded value of  `x`
+Return the rounded value of  `x` , optionally always rounding up or down
 
 #### Params
 * `x` _(number|string)_ 
+* `[direction]` _(string)_ always round  `x`  up or down, expects values 'up' or 'down', otherwise just round
 
 **Returns** _(number)_ 
 
 #### Example
 
 ```hbs
-{{ round 1.5 }}
-//=> 2
+{{ round 1.5 "down" }}
+//=> 1
 ```
 
 ### subtract ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
