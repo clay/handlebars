@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **39 helpers** in **10 categories**:
+Currently **41 helpers** in **10 categories**:
 
 
 ### arrays
@@ -82,6 +82,8 @@ Currently **39 helpers** in **10 categories**:
 
 * [**add**](https://github.com/nymag/nymag-handlebars#add--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
+* [**divide**](https://github.com/nymag/nymag-handlebars#divide--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.test.js) )
+* [**multiply**](https://github.com/nymag/nymag-handlebars#multiply--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.test.js) )
 * [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
 * [**random**](https://github.com/nymag/nymag-handlebars#random--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
 * [**round**](https://github.com/nymag/nymag-handlebars#round--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.test.js) )
@@ -473,6 +475,40 @@ add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCo
 ```hbs
 {{ addCommas "1234.50" }}
 //=> "1,234.50"
+```
+
+### divide ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.test.js) )
+
+Return the result of  `a`  divided by  `b`
+
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
+
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ divide 100 4 }}
+//=> 25
+```
+
+### multiply ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.test.js) )
+
+Return the product of  `a`  multiplied by  `b`
+
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
+
+**Returns** _(number)_ 
+
+#### Example
+
+```hbs
+{{ multiply 10 10 }}
+//=> 100
 ```
 
 ### num ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
