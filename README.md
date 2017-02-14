@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **41 helpers** in **10 categories**:
+Currently **42 helpers** in **10 categories**:
 
 
 ### arrays
@@ -77,6 +77,7 @@ Currently **41 helpers** in **10 categories**:
 * [**default**](https://github.com/nymag/nymag-handlebars#default--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
 * [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
+* [**setObject**](https://github.com/nymag/nymag-handlebars#setobject--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/setObject.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/setObject.test.js) )
 
 ### numbers
 
@@ -439,6 +440,22 @@ set data into current context<br /> _note:_  doesn't return anything
 ```hbs
 {{ set "a.b.c" "abc" }}{{ a.b.c }}
 //=> "abc"
+```
+
+### setObject ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/setObject.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/setObject.test.js) )
+
+set data into an object for manipulation across contexts<br /> _note:_  doesn't return anything
+
+#### Params
+* `obj` _(object)_ host object
+* `key` _(string)_ `_.set()`  key/path
+* `val` _(*)_ value to set
+
+#### Example
+
+```hbs
+{{ set someObj "foo" "bar" }}{{ someObj.foo }}
+//=> "bar"
 ```
 
 ## numbers
