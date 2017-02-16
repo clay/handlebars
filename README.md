@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **41 helpers** in **10 categories**:
+Currently **42 helpers** in **10 categories**:
 
 
 ### arrays
@@ -101,6 +101,7 @@ Currently **41 helpers** in **10 categories**:
 * [**capitalize**](https://github.com/nymag/nymag-handlebars#capitalize--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
 * [**capitalizeAll**](https://github.com/nymag/nymag-handlebars#capitalizeall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
 * [**concat**](https://github.com/nymag/nymag-handlebars#concat--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
+* [**ellipsis**](https://github.com/nymag/nymag-handlebars#ellipsis--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.test.js) )
 * [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabcase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 * [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
@@ -687,6 +688,23 @@ concatenate any number of strings
 ```hbs
 {{ concat "Foo" "Bar" "Baz" }}
 //=> "FooBarBaz"
+```
+
+### ellipsis ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.test.js) )
+
+If a string is over a given length, truncate and append an ellipsis character to the end.
+
+#### Params
+* `str` _(string)_ to shorten
+* `len` _(number)_ desired length
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ ellipsis "Foo Bar" 4 }}
+//=> "Foo…"
 ```
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
