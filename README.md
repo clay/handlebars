@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **41 helpers** in **10 categories**:
+Currently **42 helpers** in **10 categories**:
 
 
 ### arrays
@@ -107,6 +107,7 @@ Currently **41 helpers** in **10 categories**:
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
 * [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
+* [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
 
 ### time
 
@@ -784,6 +785,25 @@ trim leading and trailing whitespace from a string
 ```hbs
 {{ trim "   Foo   " }}
 //=> "Foo"
+```
+
+### truncate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
+
+If a string is over a given length, truncate and append an ellipsis character to the end.
+
+#### Params
+* `str` _(string)_ to shorten
+* `len` _(number)_ desired length
+* `options` _(object)_ 
+* `[options.hash.suffix]` _(string)_ to append to truncated string, defaulting to an ellipsis
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ truncate "Foo Bar" 4 }}
+//=> "Foo…"
 ```
 
 ## time
