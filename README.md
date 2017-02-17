@@ -101,13 +101,13 @@ Currently **42 helpers** in **10 categories**:
 * [**capitalize**](https://github.com/nymag/nymag-handlebars#capitalize--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
 * [**capitalizeAll**](https://github.com/nymag/nymag-handlebars#capitalizeall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
 * [**concat**](https://github.com/nymag/nymag-handlebars#concat--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
-* [**ellipsis**](https://github.com/nymag/nymag-handlebars#ellipsis--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.test.js) )
 * [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabcase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 * [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
 * [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
+* [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
 
 ### time
 
@@ -690,23 +690,6 @@ concatenate any number of strings
 //=> "FooBarBaz"
 ```
 
-### ellipsis ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/ellipsis.test.js) )
-
-If a string is over a given length, truncate and append an ellipsis character to the end.
-
-#### Params
-* `str` _(string)_ to shorten
-* `len` _(number)_ desired length
-
-**Returns** _(string)_ 
-
-#### Example
-
-```hbs
-{{ ellipsis "Foo Bar" 4 }}
-//=> "Foo…"
-```
-
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
 straight passthrough to  [`_.kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
@@ -802,6 +785,25 @@ trim leading and trailing whitespace from a string
 ```hbs
 {{ trim "   Foo   " }}
 //=> "Foo"
+```
+
+### truncate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
+
+If a string is over a given length, truncate and append an ellipsis character to the end.
+
+#### Params
+* `str` _(string)_ to shorten
+* `len` _(number)_ desired length
+* `options` _(object)_ 
+* `[options.hash.suffix]` _(string)_ to append to truncated string, defaulting to an ellipsis
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ truncate "Foo Bar" 4 }}
+//=> "Foo…"
 ```
 
 ## time

@@ -1,6 +1,7 @@
 'use strict';
 const name = getName(__filename),
-  tpl = hbs.compile('{{ ellipsis str len }}');
+  tpl = hbs.compile('{{ truncate str len }}'),
+  tplSuffix = hbs.compile('{{ truncate str len suffix=" TBC" }}');
 
 describe(name, function () {
   it('returns emptystring if undefined', function () {
@@ -34,5 +35,9 @@ describe(name, function () {
 
   it('trims whitespace after truncating', function () {
     expect(tpl({str: 'foo bar bar', len: 4})).to.equal('foo…');
+  });
+
+  it('accepts a suffix to append', function () {
+    expect(tplSuffix({str: 'foo bar bar', len: 5})).to.equal('foo b TBC');
   });
 });
