@@ -429,9 +429,10 @@ get the index of something inside something else
 
 ### set ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
 
-set data into current context<br /> _note:_  doesn't return anything
+set data into current context or other optional context/object<br /> _note:_  doesn't return anything
 
 #### Params
+* `[obj]` _(object)_ context or object for storing data beyond current context
 * `key` _(string)_ `_.set()`  key/path
 * `val` _(*)_ value to set
 

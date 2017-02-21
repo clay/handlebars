@@ -14,4 +14,8 @@ describe(name, function () {
   it('allows deep path setting', function () {
     expect(hbs.compile('{{ set "a.b.c" "abc" }}{{ a.b.c }}')({})).to.equal('abc');
   });
+
+  it('accepts an optional context', function () {
+    expect(hbs.compile('{{ set this "id" "xyz" }}{{ id }}')({})).to.equal('xyz');
+  });
 });
