@@ -3,6 +3,7 @@ const _ = require('lodash');
 
 /**
  * block helper for checking that NOT ALL arguments passed in are truthy
+ * _note:_ this is the inverse of the ifAll helper
  * @return {string} calls block functions
  */
 module.exports = function () {

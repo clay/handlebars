@@ -345,7 +345,7 @@ compare the modulo of two values to a third value
 
 ### unlessAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
 
-block helper for checking that NOT ALL arguments passed in are truthy
+block helper for checking that NOT ALL arguments passed in are truthy<br /> _note:_  this is the inverse of the ifAll helper
 
 
 
