@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **42 helpers** in **10 categories**:
+Currently **43 helpers** in **10 categories**:
 
 
 ### arrays
@@ -65,6 +65,7 @@ Currently **42 helpers** in **10 categories**:
 * [**ifAny**](https://github.com/nymag/nymag-handlebars#ifany--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
 * [**ifNone**](https://github.com/nymag/nymag-handlebars#ifnone--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 * [**modulo**](https://github.com/nymag/nymag-handlebars#modulo--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.test.js) )
+* [**unlessAll**](https://github.com/nymag/nymag-handlebars#unlessall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
 
 ### html
 
@@ -340,6 +341,25 @@ compare the modulo of two values to a third value
 ```hbs
 {{modulo 3 2 1}}
 //=> true
+```
+
+### unlessAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
+
+block helper for checking that NOT ALL arguments passed in are truthy
+
+
+
+**Returns** _(string)_ calls block functions
+
+#### Example
+
+```hbs
+{{#unlessAll foo bar baz}}
+  not all are truthy
+{{else}}
+  all are truthy
+{{/ifAll}}
+
 ```
 
 ## html
