@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **43 helpers** in **10 categories**:
+Currently **44 helpers** in **10 categories**:
 
 
 ### arrays
@@ -109,6 +109,7 @@ Currently **43 helpers** in **10 categories**:
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
 * [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
 * [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
+* [**uriToId**](https://github.com/nymag/nymag-handlebars#uritoid--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/uriToId.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/uriToId.test.js) )
 
 ### time
 
@@ -825,6 +826,22 @@ If a string is over a given length, truncate and append an ellipsis character to
 ```hbs
 {{ truncate "Foo Bar" 4 }}
 //=> "Foo…"
+```
+
+### uriToId ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/uriToId.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/uriToId.test.js) )
+
+returns the last part of a URI
+
+#### Params
+* `uri` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ uriToId "/components/a/b" }}
+//=> b
 ```
 
 ## time
