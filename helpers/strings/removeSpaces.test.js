@@ -3,7 +3,7 @@ const name = getName(__filename),
   tpl = hbs.compile('{{ removeSpaces a }}');
 
 describe(name, function () {
-  it('returns emptystring if undefined', function () {
+  it('returns empty string if undefined', function () {
     expect(tpl()).to.equal('');
   });
 
