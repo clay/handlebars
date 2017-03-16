@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **43 helpers** in **10 categories**:
+Currently **44 helpers** in **10 categories**:
 
 
 ### arrays
@@ -106,6 +106,7 @@ Currently **43 helpers** in **10 categories**:
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 * [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
+* [**removeSpaces**](https://github.com/nymag/nymag-handlebars#removespaces--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
 * [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
 * [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
@@ -772,6 +773,22 @@ generate a random string<br /> _note:_  by default it generates an 8-character s
 ```hbs
 {{ randomString "greatest-hit-" characters=3 }}
 //=> "greatest-hit-z56"
+```
+
+### removeSpaces ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
+
+remove spaces, used by in-page  `id`  attributes so we can do in-page links<br />(per the HTML spec IDs cannot have spaces)
+
+#### Params
+* `str` _(string)_ 
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ removeSpaces "Foo Bar" }}
+//=> "FooBar"
 ```
 
 ### replace ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
