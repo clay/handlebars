@@ -1,6 +1,8 @@
 'use strict';
 const name = getName(__filename),
-  filter = require('./' + name);
+  tpl = hbs.compile('{{#each (addOrderedIds content "mock-prefix-")}}{{orderedId}}{{/each}}'),
+  tplWithOffset = hbs.compile('{{#each (addOrderedIds content "mock-prefix-" 5)}}{{orderedId}}{{/each}}'),
+  tplWithoutPrefix = hbs.compile('{{#each (addOrderedIds content)}}{{orderedId}}{{/each}}');
 
 describe(name, function () {
   const content = [{
@@ -15,38 +17,26 @@ describe(name, function () {
   }];
 
   it('adds an orderedId property to all components in the list', function () {
-    expect(filter(content, 'mock-prefix-')).to.deep.equal([{
-      _ref: 'localhost/components/fake/instances/1',
-      text: 'hello',
-      orderedId: 'mock-prefix-1'
-    },{
-      _ref: 'localhost/components/fake/instances/2',
-      text: 'hola',
-      orderedId: 'mock-prefix-2'
-    },{
-      _ref: 'localhost/components/fake/instances/3',
-      text: 'bonjour',
-      orderedId: 'mock-prefix-3'
-    }]);
+    expect(tpl({content: content})).to.equal('mock-prefix-1mock-prefix-2mock-prefix-3');
   });
 
   it('adds an orderedId starting at an offset', function () {
-    expect(filter(content, 'mock-prefix-', 10)).to.deep.equal([{
-      _ref: 'localhost/components/fake/instances/1',
-      text: 'hello',
-      orderedId: 'mock-prefix-10'
-    },{
-      _ref: 'localhost/components/fake/instances/2',
-      text: 'hola',
-      orderedId: 'mock-prefix-11'
-    },{
-      _ref: 'localhost/components/fake/instances/3',
-      text: 'bonjour',
-      orderedId: 'mock-prefix-12'
-    }]);
+    expect(tplWithOffset({content: content})).to.equal('mock-prefix-5mock-prefix-6mock-prefix-7');
   });
 
-  it('always returns an array', function () {
-    expect(filter(null)).to.deep.equal([]);
+  it('throws an error if no prefix is passed in', function () {
+    const resultWithoutPrefix = function () {
+      return tplWithoutPrefix();
+    };
+
+    expect(resultWithoutPrefix).to.throw(Error);
+  });
+
+  it('throws an error if no content is passed in', function () {
+    const result = function () {
+      return tpl();
+    };
+
+    expect(result).to.throw(Error);
   });
 });

@@ -9,12 +9,12 @@ const _ = require('lodash');
  * @return {Array} content
  */
 module.exports = function (content, prefix, offset) {
-  if (offset && typeof offset === 'number') {
-    offset = offset;
+  offset = typeof offset === 'number' ? offset : 1;
+  if (content && prefix) {
+  	return (content || []).map((component, index) => _.set(component, 'orderedId', prefix + (index + offset)));
   } else {
-    offset = 1;
+  	throw new Error('Handlebars Helper "addOrderedIds" needs content and a prefix');
   }
-  return (content || []).map((component, index) => _.set(component, 'orderedId', prefix + (index + offset)));
 };
 
 module.exports.example = {
