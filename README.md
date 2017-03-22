@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **44 helpers** in **10 categories**:
+Currently **45 helpers** in **10 categories**:
 
 
 ### arrays
@@ -53,6 +53,7 @@ Currently **44 helpers** in **10 categories**:
 
 ### components
 
+* [**addOrderedIds**](https://github.com/nymag/nymag-handlebars#addorderedids--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
 * [**displaySelf**](https://github.com/nymag/nymag-handlebars#displayself--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
 * [**displaySelfAll**](https://github.com/nymag/nymag-handlebars#displayselfall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
 * [**getComponentName**](https://github.com/nymag/nymag-handlebars#getcomponentname--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
@@ -179,6 +180,24 @@ return an array of numbers, in order<br /> _note:_  can be used inline or as a b
 
 ## components
 
+
+### addOrderedIds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
+
+Add ordered ids to components within a componentlist
+
+#### Params
+* `content` _(Array)_ list of components
+* `prefix` _(string)_ prefix for the ids
+* `[offset]` _(number)_ index to start at, defaults to 1
+
+**Returns** _(Array)_ content
+
+#### Example
+
+```hbs
+{{> component-list (addOrderedIds content "annotation-") }}
+
+```
 
 ### displaySelf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
 
