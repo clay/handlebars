@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **45 helpers** in **10 categories**:
+Currently **46 helpers** in **10 categories**:
 
 
 ### arrays
@@ -79,6 +79,7 @@ Currently **45 helpers** in **10 categories**:
 * [**default**](https://github.com/nymag/nymag-handlebars#default--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
 * [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
+* [**slugToSiteName**](https://github.com/nymag/nymag-handlebars#slugtositename--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.js) | no tests )
 
 ### numbers
 
@@ -482,6 +483,12 @@ set data into current context or other optional context/object<br /> _note:_  do
 {{ set "a.b.c" "abc" }}{{ a.b.c }}
 //=> "abc"
 ```
+
+### slugToSiteName ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.js) | no tests )
+
+_No description_
+
+
 
 ## numbers
 
