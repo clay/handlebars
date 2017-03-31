@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **45 helpers** in **10 categories**:
+Currently **49 helpers** in **10 categories**:
 
 
 ### arrays
@@ -53,6 +53,8 @@ Currently **45 helpers** in **10 categories**:
 
 ### components
 
+* [**addAnnotatedTextAria**](https://github.com/nymag/nymag-handlebars#addannotatedtextaria--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
+* [**addInArticleAds**](https://github.com/nymag/nymag-handlebars#addinarticleads--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.test.js) )
 * [**addOrderedIds**](https://github.com/nymag/nymag-handlebars#addorderedids--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
 * [**displaySelf**](https://github.com/nymag/nymag-handlebars#displayself--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
 * [**displaySelfAll**](https://github.com/nymag/nymag-handlebars#displayselfall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
@@ -77,6 +79,8 @@ Currently **45 helpers** in **10 categories**:
 ### misc
 
 * [**default**](https://github.com/nymag/nymag-handlebars#default--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
+* [**extractImgHeight**](https://github.com/nymag/nymag-handlebars#extractimgheight--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
+* [**extractImgWidth**](https://github.com/nymag/nymag-handlebars#extractimgwidth--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
 * [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
 
@@ -180,6 +184,33 @@ return an array of numbers, in order<br /> _note:_  can be used inline or as a b
 
 ## components
 
+
+### addAnnotatedTextAria ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
+
+Add aria to phrases in paragraphs, corresponds to annotation ids.
+
+#### Params
+* `content` _(array)_ list of components
+
+**Returns** _(array)_ content
+
+#### Example
+
+```hbs
+{{> component-list (addAnnotatedTextAria content)}}
+
+```
+
+### addInArticleAds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.test.js) )
+
+Add in article ads to list of components in an article
+
+#### Params
+* `content` _(array)_ the list of components in the article
+* `adUnits` _(object)_ the various ad units passed in from the article
+* `featureTypes` _(object)_ the feature types associated with the article
+
+**Returns** _(object)_ article
 
 ### addOrderedIds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
 
@@ -448,6 +479,38 @@ return the first value if it's not empty, otherwise return the second value<br /
 ```hbs
 {{ default "" "foo" }}
 //=> foo
+```
+
+### extractImgHeight ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
+
+Extract the height of a mediaplay image given the image URL.
+
+#### Params
+* `url` _(string)_ 
+
+**Returns** _(object)_ extracted height
+
+#### Example
+
+```hbs
+{{ extractImgHeight feedImgUrl }}
+//=> 946
+```
+
+### extractImgWidth ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
+
+Extract the width of a mediaplay image given the image URL.
+
+#### Params
+* `url` _(string)_ 
+
+**Returns** _(object)_ extracted width
+
+#### Example
+
+```hbs
+{{ extractImgWidth feedImgUrl }}
+//=> 1420
 ```
 
 ### indexOf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
