@@ -7,7 +7,7 @@ const dimRegex = /\.w([0-9]+)\.h(?:[0-9]+)\.(?:([1-2])x\.)?/;
 /**
  * Extract the width of a mediaplay image given the image URL.
  * @param {string} url
- * @returns {object} extracted width
+ * @returns {Object} extracted width
  */
 module.exports = function (url) {
   var matches,

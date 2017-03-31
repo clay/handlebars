@@ -199,11 +199,12 @@ function isWithinEmbedLookahead(content, index) {
 /**
  * Add in article ads to list of components in an article
  * @param {array} content - the list of components in the article
- * @param {object} adUnits - the various ad units passed in from the article
+ * @param {object} articleData - all the data from the article, to grab the ad instances
  * @param {object} featureTypes - the feature types associated with the article
  * @return {object} article
  */
-module.exports = function (content, adUnits, featureTypes) {
+module.exports = function (content, articleData, featureTypes) {
+  var adUnits;
 
   let mobileCounter = 0,
     desktopCounter = 0,
@@ -217,6 +218,10 @@ module.exports = function (content, adUnits, featureTypes) {
     isFirst = true,
     newContent = [], // don't just replace the content (it's a sealed array), create a new array!
     isFeatureCoverStory = featureTypes ? featureTypes['Cover Story Online'] : false;
+
+  if (articleData) {
+    adUnits = articleData.inArticleDesktopOutStreamAd || articleData.inArticleDesktopPremiumAd || articleData.inArticleTabletAd || articleData.inArticleMobileFirstAd || articleData.inArticleMobileSubsequentAd || articleData.inArticleDesktop300x250;
+  }
 
   _.forEach(content, function (component, index) {
     let tempCount = 0,
@@ -258,9 +263,9 @@ module.exports = function (content, adUnits, featureTypes) {
     if (isCounterOverLimit(mobileCounter, mobileLimit) && !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
       insertAd(newContent, {
         isFirst: isFirst,
-        inArticleTabletAd: adUnits.inArticleTabletAd,
-        inArticleMobileFirstAd: adUnits.inArticleMobileFirstAd,
-        inArticleMobileSubsequentAd: adUnits.inArticleMobileSubsequentAd
+        inArticleTabletAd: articleData.inArticleTabletAd,
+        inArticleMobileFirstAd: articleData.inArticleMobileFirstAd,
+        inArticleMobileSubsequentAd: articleData.inArticleMobileSubsequentAd
       });
       // reset mobileCounter
       mobileCounter = 0;
@@ -272,7 +277,7 @@ module.exports = function (content, adUnits, featureTypes) {
     if (!foundPremiumDesktop && isCounterOverLimit(desktopCounter, desktopPremiumLimit) &&
       !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
       insertAd(newContent, {
-        inArticleDesktopPremiumAd: adUnits.inArticleDesktopPremiumAd
+        inArticleDesktopPremiumAd: articleData.inArticleDesktopPremiumAd
       });
       // only display one of this type of ad
       foundPremiumDesktop = true;
@@ -284,7 +289,7 @@ module.exports = function (content, adUnits, featureTypes) {
     if (!isFeatureCoverStory && !foundOutStreamDesktop && !isNearEndOfArticle(content, index) && index >= 3 && outStreamTrigger === 0 &&
       isWithinEmbedLookahead(content, index + 1)) {
       insertAd(newContent, {
-        inArticleDesktopOutStreamAd: adUnits.inArticleDesktopOutStreamAd
+        inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd
       });
 
       // only display one of this type of ad
@@ -298,7 +303,7 @@ module.exports = function (content, adUnits, featureTypes) {
 
         if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index)) {
           insertAd(newContent, {
-            inArticleDesktop300x250: adUnits.inArticleDesktop300x250
+            inArticleDesktop300x250: articleData.inArticleDesktop300x250
           });
         }
       }
@@ -307,7 +312,7 @@ module.exports = function (content, adUnits, featureTypes) {
       // insert first 300x250
       if (isSurroundedByText(content, index) && first300x250 == false && !isNearEndOfArticle(content, index) ) {
         insertAd(newContent, {
-          inArticleDesktop300x250: adUnits.inArticleDesktop300x250
+          inArticleDesktop300x250: articleData.inArticleDesktop300x250
         });
         first300x250 = true;
         subsequent300x250Counter = 0;

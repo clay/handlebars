@@ -207,7 +207,7 @@ Add in article ads to list of components in an article
 
 #### Params
 * `content` _(array)_ the list of components in the article
-* `adUnits` _(object)_ the various ad units passed in from the article
+* `articleData` _(object)_ all the data from the article, to grab the ad instances
 * `featureTypes` _(object)_ the feature types associated with the article
 
 **Returns** _(object)_ article
@@ -504,7 +504,7 @@ Extract the width of a mediaplay image given the image URL.
 #### Params
 * `url` _(string)_ 
 
-**Returns** _(object)_ extracted width
+**Returns** _(Object)_ extracted width
 
 #### Example
 
