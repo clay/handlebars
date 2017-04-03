@@ -15,9 +15,7 @@ module.exports = function (url) {
 
   if (url && url !== '') {
     matches = url.match(dimRegex);
-    console.log(dimRegex);
     if (matches && matches.length) {
-      console.log(matches);
       // Multiplier
       if (matches[2]) {
         multiplier = parseInt(matches[2], 10);

@@ -35,7 +35,7 @@ describe(name, function () {
       _ref: 'localhost/components/other-component/'
     },
     mediaplayComponent = {
-      _ref: 'localhost/components/mediaplay/'
+      _ref: 'localhost/components/mediaplay-image/'
     },
     relatedStoriesComponent = {
       _ref: 'localhost/components/related-stories/'
@@ -43,6 +43,10 @@ describe(name, function () {
     ooyalaPlayerComponent = {
       _ref: 'localhost/components/ooyala-player/',
       videoId: 'lj09283r098dfg'
+    },
+    videoComponent = {
+      _ref: 'localhost/components/video/',
+      url: 'https://www.youtube.com/watch?v=ySTQk6updjQ'
     },
     desktopOutStreamAd = {
       _ref: 'localhost/components/ad/desktopOutStream/'
@@ -204,6 +208,12 @@ describe(name, function () {
 
     expect(_.includes(result, desktopOutStreamAd)).to.equal(true);
     expect(outStreamIndex - ooyalaPlayerIndex).to.be.above(5);
+  });
+
+  it('inserts an outstream ad before a "video"-type component thats toward the end of the article', function () {
+    var result = filter([paragraph1, paragraph1, paragraph4, paragraph4, paragraph4, paragraph1, paragraph1, paragraph1, videoComponent], { inArticleDesktopOutStreamAd: desktopOutStreamAd }, featureTypesRegularArticle);
+
+    expect(_.includes(result, desktopOutStreamAd)).to.equal(true);
   });
 
 
