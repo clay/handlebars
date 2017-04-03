@@ -45,6 +45,7 @@ app.set('view engine', 'handlebars');
 Currently **49 helpers** in **10 categories**:
 
 
+
 ### arrays
 
 * [**join**](https://github.com/nymag/nymag-handlebars#join--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
@@ -83,6 +84,7 @@ Currently **49 helpers** in **10 categories**:
 * [**extractImgWidth**](https://github.com/nymag/nymag-handlebars#extractimgwidth--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
 * [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
+* [**slugToSiteName**](https://github.com/nymag/nymag-handlebars#slugtositename--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
 
 ### numbers
 
@@ -544,6 +546,22 @@ set data into current context or other optional context/object<br /> _note:_  do
 ```hbs
 {{ set "a.b.c" "abc" }}{{ a.b.c }}
 //=> "abc"
+```
+
+### slugToSiteName ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
+
+return comma-separated site names from comma-separated slugs
+
+#### Params
+* `slugs` _(string)_ comma-separated string of slugs
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ slugToSiteName (commaSeparated crosspost) }}
+
 ```
 
 ## numbers
