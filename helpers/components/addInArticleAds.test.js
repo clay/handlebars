@@ -25,6 +25,12 @@ describe(name, function () {
         paragraph4, paragraph1
       ]
     },
+    subsectionWithNonTextChild = {
+      _ref: 'localhost/components/subsection/instances/fixture',
+      content: [
+        mediaplayComponent
+      ]
+    },
     nonTextComponent = {
       _ref: 'localhost/components/other-component/'
     },
@@ -43,6 +49,9 @@ describe(name, function () {
     },
     desktopPremiumAd = {
       _ref: 'localhost/components/ad/desktopPremium/'
+    },
+    desktop300x250Ad = {
+      _ref: 'localhost/components/ad/desktop300x250/'
     },
     tabletAd = {
       _ref: 'localhost/components/ad/tablet/'
@@ -197,10 +206,17 @@ describe(name, function () {
     expect(outStreamIndex - ooyalaPlayerIndex).to.be.above(5);
   });
 
+
   it('does not insert an outstream ad in cover story articles', function () {
     var result = filter([mediaplayComponent, paragraph1, paragraph1, paragraph4, paragraph4, paragraph4, paragraph1, paragraph1, paragraph1], { inArticleDesktopOutStreamAd: desktopOutStreamAd }, featureTypesCoverStory);
 
     expect(_.includes(result, desktopOutStreamAd)).to.equal(false);
+  });
+
+  it('inserts desktop 300x250 ads in cover story articles', function () {
+    var result = filter([mediaplayComponent, paragraph1, paragraph1, paragraph4, paragraph4, paragraph4, paragraph1, paragraph1, paragraph1], { inArticleDesktop300x250: desktop300x250Ad }, featureTypesCoverStory);
+
+    expect(_.includes(result, desktop300x250Ad)).to.equal(true);
   });
 
   it('does not insert ads based on content of the "read more" component', function () {
@@ -208,4 +224,13 @@ describe(name, function () {
 
     expect(_.includes(result, tabletAd)).to.equal(false);
   });
+
+  it('does not insert ads after components with non-text child components', function () {
+    var result = filter([paragraph1, subsectionWithNonTextChild], { inArticleMobileFirstAd: firstMobileAd, inArticleMobileSubsequentAd: otherMobileAd }, featureTypesRegularArticle);
+
+    expect(result[0]).to.equal(paragraph1);
+    expect(result[1]).to.equal(subsectionWithNonTextChild);
+  });
+
+
 });
