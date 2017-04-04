@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **50 helpers** in **10 categories**:
+Currently **51 helpers** in **10 categories**:
 
 
 ### arrays
@@ -120,6 +120,7 @@ Currently **50 helpers** in **10 categories**:
 ### time
 
 * [**articleDate**](https://github.com/nymag/nymag-handlebars#articledate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
+* [**formatLocalDate**](https://github.com/nymag/nymag-handlebars#formatlocaldate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
 
 ### urls
 
@@ -961,6 +962,16 @@ generate article dates and times, based on a relative format
 {{ articleDate "Fri, 13 Jan 2017 18:22:16 GMT" }}
 //=> "Yesterday at 6:22 p.m."
 ```
+
+### formatLocalDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
+
+Formats a date with moment.js
+
+#### Params
+* `date` _(*)_ 
+* `[format]` _(string)_ 
+
+**Returns** _(string)_ 
 
 ## urls
 
