@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **51 helpers** in **10 categories**:
+Currently **52 helpers** in **10 categories**:
 
 
 ### arrays
@@ -56,6 +56,7 @@ Currently **51 helpers** in **10 categories**:
 * [**addAnnotatedTextAria**](https://github.com/nymag/nymag-handlebars#addannotatedtextaria--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
 * [**addInArticleAds**](https://github.com/nymag/nymag-handlebars#addinarticleads--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.test.js) )
 * [**addOrderedIds**](https://github.com/nymag/nymag-handlebars#addorderedids--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
+* [**adsToDummies**](https://github.com/nymag/nymag-handlebars#adstodummies--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.test.js) )
 * [**displaySelf**](https://github.com/nymag/nymag-handlebars#displayself--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
 * [**displaySelfAll**](https://github.com/nymag/nymag-handlebars#displayselfall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
 * [**getComponentName**](https://github.com/nymag/nymag-handlebars#getcomponentname--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
@@ -231,6 +232,17 @@ Add ordered ids to components within a componentlist
 {{> component-list (addOrderedIds content "annotation-") }}
 
 ```
+
+### adsToDummies ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.test.js) )
+
+Given a list of component instance objects, replace each ad component<br />with a site's "dummy" ad instance, matching the properties of the ad<br />instance replaced.
+
+#### Params
+* `content` _(Array)_ an array of component instance objects,
+                         e.g.  `[{_ref: 'a/uri/etc', foo: 'bar'}, ...]`
+
+**Returns** _(Array)_ an array of components, with ads replaced with the
+                  ad dummy instance
 
 ### displaySelf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
 
