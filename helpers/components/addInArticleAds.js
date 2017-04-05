@@ -144,6 +144,7 @@ function isNearEndOfArticle(content, index) {
  * @param {boolean} options.isFirst
  * @param {object} options.component (current component!)
  * @param {object} [options.inArticleDesktopOutStreamAd]
+ * @param {object} [options.inArticleMobileOutStreamAd]
  * @param {object} [options.inArticleDesktopPremiumAd]
  * @param {object} [options.inArticleTabletAd]
  * @param {object} [options.inArticleMobileFirstAd]
@@ -153,6 +154,9 @@ function isNearEndOfArticle(content, index) {
 function insertAd(newContent, options) {
   // add desktop out stream in-article ad
   newContent.push(options.inArticleDesktopOutStreamAd);
+
+  // add mobile out stream in-article ad
+  newContent.push(options.inArticleMobileOutStreamAd);
 
   // add desktop premium in-article ads
   newContent.push(options.inArticleDesktopPremiumAd);
@@ -167,7 +171,9 @@ function insertAd(newContent, options) {
 
   // add first / subsequent mobile ads
   if (options.isFirst) {
-    newContent.push(options.inArticleMobileFirstAd);
+    if (options.foundOutStreamDesktop == false) {
+      newContent.push(options.inArticleMobileFirstAd);
+    }
   } else {
     newContent.push(options.inArticleMobileSubsequentAd);
   }
@@ -220,7 +226,7 @@ module.exports = function (content, articleData, featureTypes) {
     isFeatureCoverStory = featureTypes ? featureTypes['Cover Story Online'] : false;
 
   if (articleData) {
-    adUnits = articleData.inArticleDesktopOutStreamAd || articleData.inArticleDesktopPremiumAd || articleData.inArticleTabletAd || articleData.inArticleMobileFirstAd || articleData.inArticleMobileSubsequentAd || articleData.inArticleDesktop300x250;
+    adUnits = articleData.inArticleDesktopOutStreamAd || articleData.inArticleMobileOutStreamAd || articleData.inArticleDesktopPremiumAd || articleData.inArticleTabletAd || articleData.inArticleMobileFirstAd || articleData.inArticleMobileSubsequentAd || articleData.inArticleDesktop300x250;
   }
 
   _.forEach(content, function (component, index) {
@@ -260,19 +266,6 @@ module.exports = function (content, articleData, featureTypes) {
     // add the current component before any ads
     newContent.push(component);
 
-    if (isCounterOverLimit(mobileCounter, mobileLimit) && !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
-      insertAd(newContent, {
-        isFirst: isFirst,
-        inArticleTabletAd: articleData.inArticleTabletAd,
-        inArticleMobileFirstAd: articleData.inArticleMobileFirstAd,
-        inArticleMobileSubsequentAd: articleData.inArticleMobileSubsequentAd
-      });
-      // reset mobileCounter
-      mobileCounter = 0;
-      // we've added at least one ad, so set isFirst to false
-      isFirst = false;
-    }
-
     // Premium In-Article desktop ads, including Premium In-Article Video and Shade units insertion logic
     if (!foundPremiumDesktop && isCounterOverLimit(desktopCounter, desktopPremiumLimit) &&
       !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
@@ -289,7 +282,9 @@ module.exports = function (content, articleData, featureTypes) {
     if (!isFeatureCoverStory && !foundOutStreamDesktop && !isNearEndOfArticle(content, index) && index >= 3 && outStreamTrigger === 0 &&
       isWithinEmbedLookahead(content, index + 1)) {
       insertAd(newContent, {
-        inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd
+        inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd,
+        inArticleMobileOutStreamAd: articleData.inArticleMobileOutStreamAd
+
       });
 
       // only display one of this type of ad
@@ -317,6 +312,19 @@ module.exports = function (content, articleData, featureTypes) {
         first300x250 = true;
         subsequent300x250Counter = 0;
       }
+    }
+
+    if (isCounterOverLimit(mobileCounter, mobileLimit) && !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
+      insertAd(newContent, {
+        isFirst: isFirst,
+        inArticleTabletAd: articleData.inArticleTabletAd,
+        inArticleMobileFirstAd: articleData.inArticleMobileFirstAd,
+        inArticleMobileSubsequentAd: articleData.inArticleMobileSubsequentAd
+      });
+      // reset mobileCounter
+      mobileCounter = 0;
+      // we've added at least one ad, so set isFirst to false
+      isFirst = false;
     }
 
   });
