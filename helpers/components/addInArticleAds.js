@@ -284,7 +284,6 @@ module.exports = function (content, articleData, featureTypes) {
       insertAd(newContent, {
         inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd,
         inArticleMobileOutStreamAd: articleData.inArticleMobileOutStreamAd
-
       });
 
       // only display one of this type of ad
@@ -317,6 +316,7 @@ module.exports = function (content, articleData, featureTypes) {
     if (isCounterOverLimit(mobileCounter, mobileLimit) && !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
       insertAd(newContent, {
         isFirst: isFirst,
+        foundOutStreamDesktop: foundOutStreamDesktop,
         inArticleTabletAd: articleData.inArticleTabletAd,
         inArticleMobileFirstAd: articleData.inArticleMobileFirstAd,
         inArticleMobileSubsequentAd: articleData.inArticleMobileSubsequentAd
