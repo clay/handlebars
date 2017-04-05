@@ -18,4 +18,8 @@ describe(name, function () {
   it('capitalizes the first word in items', function () {
     expect(hbs.compile('{{ commaSeparated a true }}')({a: {alpha: true, 'bravo charlie': true}})).to.equal('Alpha, Bravo charlie');
   });
+
+  it('capitalizes the first word in items and maintains other capitalizations', function () {
+    expect(hbs.compile('{{ commaSeparated a true }}')({a: {alpha: true, 'Bravo Charlie-Delta Echo': true}})).to.equal('Alpha, Bravo Charlie-Delta Echo');
+  });
 });

@@ -1,6 +1,11 @@
 'use strict';
 const _ = require('lodash');
 
+// capitalizes the first letter in the first word
+function capitalizeFirstWord(key) {
+  return key.charAt(0).toUpperCase() + key.slice(1);
+}
+
 /**
  * Turn an object into a comma-delineated list of key names, depending if their values are true/false
  * @param  {object} obj
@@ -19,7 +24,7 @@ module.exports = function (obj, shouldCapitalize) {
 
     if (value) {
       result = result ? result + ', ' : result; // if result already has stuff in it, add a comma
-      result += shouldCapitalize ? _.capitalize(key) : key;
+      result += shouldCapitalize ? capitalizeFirstWord(key) : key;
     }
 
     return result;
