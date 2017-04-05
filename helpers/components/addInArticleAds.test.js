@@ -51,6 +51,9 @@ describe(name, function () {
     desktopOutStreamAd = {
       _ref: 'localhost/components/ad/desktopOutStream/'
     },
+    mobileOutStreamAd = {
+      _ref: 'localhost/components/ad/outStreamMobile/'
+    },
     desktopPremiumAd = {
       _ref: 'localhost/components/ad/desktopPremium/'
     },
@@ -152,7 +155,7 @@ describe(name, function () {
   });
 
   it('inserts other mobile ad after first 1000 characters', function () {
-    var result = filter([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1, paragraph1, paragraph1], { inArticleDesktopOutStreamAd: desktopOutStreamAd, inArticleTabletAd: tabletAd, inArticleMobileFirstAd: firstMobileAd, inArticleMobileSubsequentAd: otherMobileAd }, featureTypesRegularArticle);
+    var result = filter([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1, paragraph1, paragraph1], { inArticleDesktopOutStreamAd: desktopOutStreamAd, inArticleMobileOutStreamAd: mobileOutStreamAd, inArticleTabletAd: tabletAd, inArticleMobileFirstAd: firstMobileAd, inArticleMobileSubsequentAd: otherMobileAd }, featureTypesRegularArticle);
 
     expect(result[0]).to.equal(paragraph1);
     expect(result[1]).to.equal(paragraph4);
@@ -160,16 +163,17 @@ describe(name, function () {
     expect(result[3]).to.equal(firstMobileAd);
     expect(result[4]).to.equal(paragraph1);
     expect(result[5]).to.equal(paragraph4);
-    expect(result[6]).to.equal(tabletAd); //  note: it adds a tablet ad every time
-    expect(result[7]).to.equal(otherMobileAd);
-    expect(result[8]).to.equal(desktopOutStreamAd);
-    expect(result[9]).to.equal(paragraph1);
+    expect(result[6]).to.equal(desktopOutStreamAd);
+    expect(result[7]).to.equal(mobileOutStreamAd); //  note: it adds a tablet ad every time
+    expect(result[8]).to.equal(tabletAd);
+    expect(result[9]).to.equal(otherMobileAd);
     expect(result[10]).to.equal(paragraph1);
     expect(result[11]).to.equal(paragraph1);
+    expect(result[12]).to.equal(paragraph1);
   });
 
   it('inserts premium desktop ad after first 1900 characters', function () {
-    var result = filter([paragraph4, paragraph4, paragraph4, paragraph4, paragraph1, paragraph1, paragraph1, paragraph4, paragraph1, paragraph1, paragraph1], { inArticleDesktopOutStreamAd: desktopOutStreamAd, inArticleDesktopPremiumAd: desktopPremiumAd, inArticleTabletAd: tabletAd, inArticleMobileFirstAd: firstMobileAd, inArticleMobileSubsequentAd: otherMobileAd }, featureTypesRegularArticle);
+    var result = filter([paragraph4, paragraph4, paragraph4, paragraph4, paragraph1, paragraph1, paragraph1, paragraph4, paragraph1, paragraph1, paragraph1], { inArticleDesktopOutStreamAd: desktopOutStreamAd, inArticleMobileOutStreamAd: mobileOutStreamAd, inArticleDesktopPremiumAd: desktopPremiumAd, inArticleTabletAd: tabletAd, inArticleMobileFirstAd: firstMobileAd, inArticleMobileSubsequentAd: otherMobileAd }, featureTypesRegularArticle);
 
     expect(result[0]).to.equal(paragraph4);
     expect(result[1]).to.equal(paragraph4);
@@ -177,19 +181,20 @@ describe(name, function () {
     expect(result[3]).to.equal(firstMobileAd);
     expect(result[4]).to.equal(paragraph4);
     expect(result[5]).to.equal(paragraph4);
-    expect(result[6]).to.equal(tabletAd); // note: it adds a tablet ad every time
-    expect(result[7]).to.equal(otherMobileAd);
-    expect(result[8]).to.equal(desktopOutStreamAd);
-    expect(result[9]).to.equal(paragraph1);
+    expect(result[6]).to.equal(desktopOutStreamAd);// note: it adds a tablet ad every time
+    expect(result[7]).to.equal(mobileOutStreamAd);
+    expect(result[8]).to.equal(tabletAd);
+    expect(result[9]).to.equal(otherMobileAd);
     expect(result[10]).to.equal(paragraph1);
     expect(result[11]).to.equal(paragraph1);
-    expect(result[12]).to.equal(desktopPremiumAd);
-    expect(result[13]).to.equal(paragraph4);
-    expect(result[14]).to.equal(tabletAd);
-    expect(result[15]).to.equal(otherMobileAd);
-    expect(result[16]).to.equal(paragraph1);
+    expect(result[12]).to.equal(paragraph1);
+    expect(result[13]).to.equal(desktopPremiumAd);
+    expect(result[14]).to.equal(paragraph4);
+    expect(result[15]).to.equal(tabletAd);
+    expect(result[16]).to.equal(otherMobileAd);
     expect(result[17]).to.equal(paragraph1);
     expect(result[18]).to.equal(paragraph1);
+    expect(result[19]).to.equal(paragraph1);
   });
 
   it('does not insert an outstream ad within three components of an "embed"-type component', function () {
