@@ -304,7 +304,7 @@ module.exports = function (content, articleData, featureTypes) {
 
 
       // insert first 300x250
-      if (isSurroundedByText(content, index) && first300x250 == false && !isNearEndOfArticle(content, index) && getComponentType(content[index + 1]) !== 'ignore') {
+      if (isSurroundedByText(content, index) && first300x250 == false && getWordCount(content[index + 1]) > 85 && !isNearEndOfArticle(content, index) && getComponentType(content[index + 1]) !== 'ignore') {
         insertAd(newContent, {
           inArticleDesktop300x250: articleData.inArticleDesktop300x250
         });
