@@ -295,7 +295,7 @@ module.exports = function (content, articleData, featureTypes) {
       if (isTextComponent(content[index]) && !textComponentTooShort) {
         subsequent300x250Counter += 1;
 
-        if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index)) {
+        if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index) && getWordCount(content[index + 1]) > 85) {
           insertAd(newContent, {
             inArticleDesktop300x250: articleData.inArticleDesktop300x250
           });
