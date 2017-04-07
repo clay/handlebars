@@ -32,7 +32,7 @@ module.exports = {
   plugins: [
     new LodashModuleReplacementPlugin,
     new webpack.optimize.OccurrenceOrderPlugin,
-    new webpack.optimize.UglifyJsPlugin,
+    new webpack.optimize.UglifyJsPlugin({ output: {inline_script: true} }),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
   ]
 };
