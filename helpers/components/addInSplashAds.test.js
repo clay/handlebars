@@ -22,24 +22,25 @@ describe(name, function () {
     mediaplayComponent = {
       _ref: 'localhost/components/mediaplay-image/instances/new'
     },
-    desktopSplashAd = {
+    desktopAd = {
       _ref: 'localhost/components/ad/desktopAd/'
     },
-    tabletSplashAd = {
+    tabletAd = {
       _ref: 'localhost/components/ad/tabletAd/'
     },
-    mobileSplashAd = {
-      _ref: 'localhost/components/ad/inSplashMobileAd/'
+    mobileAd = {
+      _ref: 'localhost/components/ad/mobileAd/'
     };
 
   it('passes through content of an article', function () {
+    console.log(content);
     expect(filter(content)).to.deep.equal(content);
   });
 
   it('inserts ads after given component', function () {
-    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { desktopAd: desktopSplashAd, tabletAd: tabletSplashAd, mobileAd: mobileSplashAd }, 'mediaplay-image');
+    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'mediaplay-image');
 
-    expect(_.includes(result, mobileSplashAd)).to.equal(true);
+    expect(_.includes(result, mobileAd)).to.equal(true);
   });
 
   it('returns the same content when no ad units are passed in', function () {
@@ -52,7 +53,7 @@ describe(name, function () {
   });
 
   it('returns the same content when the string passed in is not a component in the content', function () {
-    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { desktopAd: desktopSplashAd, tabletAd: tabletSplashAd, mobileAd: mobileSplashAd }, 'notAComponent');
+    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'notAComponent');
 
     expect(result[0]).to.equal(paragraph4);
     expect(result[1]).to.equal(paragraph1);

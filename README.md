@@ -222,7 +222,7 @@ Add in article ads to list of components in an article
 
 #### Params
 * `content` _(array)_ the list of components in the article
-* `adUnits` _(object)_ the various ad units passed in from the article
+* `articleData` _(object)_ the various ad units passed in from the article
 * `afterComponent` _(string)_ the component type to insert the ad after
 
 **Returns** _(object)_ splash

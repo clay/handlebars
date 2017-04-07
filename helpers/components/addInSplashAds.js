@@ -13,13 +13,18 @@ function getComponentType(component) {
 /**
  * Add in article ads to list of components in an article
  * @param {array} content - the list of components in the article
- * @param {object} adUnits - the various ad units passed in from the article
+ * @param {object} articleData - the various ad units passed in from the article
  * @param {string} afterComponent - the component type to insert the ad after
  * @return {object} splash
  */
-module.exports = function (content, adUnits, afterComponent) {
+module.exports = function (content, articleData, afterComponent) {
+  var adUnits;
+
   let newContent = []; // don't just replace the content (it's a sealed array), create a new array!
 
+  if (articleData) {
+    adUnits = articleData.inSplashDesktopAd || articleData.inSplashTabletAd || articleData.inSplashMobileAd;
+  }
   // console.log('Got ad units:', adUnits);
   if (adUnits) {
     _.forEach(content, function (component) {
@@ -30,17 +35,17 @@ module.exports = function (content, adUnits, afterComponent) {
       newContent.push(component);
       if (componentType === afterComponent) {
         // console.log('Component type matches: ', afterComponent);
-        if (adUnits.mobileAd) {
+        if (articleData.inSplashMobileAd) {
           // console.log('Pushing a mobile ad');
-          newContent.push(adUnits.mobileAd);
+          newContent.push(articleData.inSplashMobileAd);
         }
-        if (adUnits.tabletAd) {
+        if (articleData.inSplashTabletAd) {
           // console.log('Pushing a tablet ad');
-          newContent.push(adUnits.tabletAd);
+          newContent.push(articleData.inSplashTabletAd);
         }
-        if (adUnits.desktopAd) {
+        if (articleData.inSplashDesktopAd) {
           // console.log('Pushing a desktop ad');
-          newContent.push(adUnits.desktopAd);
+          newContent.push(articleData.inSplashDesktopAd);
         }
       }
     });
