@@ -295,7 +295,7 @@ module.exports = function (content, articleData, featureTypes) {
       if (isTextComponent(content[index]) && !textComponentTooShort) {
         subsequent300x250Counter += 1;
 
-        if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index)) {
+        if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index) && getWordCount(content[index + 1]) > 85) {
           insertAd(newContent, {
             inArticleDesktop300x250: articleData.inArticleDesktop300x250
           });
@@ -304,7 +304,9 @@ module.exports = function (content, articleData, featureTypes) {
 
 
       // insert first 300x250
-      if (isSurroundedByText(content, index) && first300x250 == false && getWordCount(content[index + 1]) > 85 && !isNearEndOfArticle(content, index) && getComponentType(content[index + 1]) !== 'ignore') {
+      if (isSurroundedByText(content, index) && first300x250 == false && !isNearEndOfArticle(content, index) && getComponentType(content[index + 1]) !== 'ignore') {
+        console.log('#1 ' + content[index + 1]);
+        console.log('#2 ' + getWordCount(content[index + 1]));
         insertAd(newContent, {
           inArticleDesktop300x250: articleData.inArticleDesktop300x250
         });
