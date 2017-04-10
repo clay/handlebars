@@ -154,9 +154,9 @@ function isNearEndOfArticle(content, index) {
 function insertAd(newContent, options) {
   // add desktop out stream in-article ad
   newContent.push(options.inArticleDesktopOutStreamAd);
-
   // add mobile out stream in-article ad
   newContent.push(options.inArticleMobileOutStreamAd);
+
 
   // add desktop premium in-article ads
   newContent.push(options.inArticleDesktopPremiumAd);
@@ -282,6 +282,7 @@ module.exports = function (content, articleData, featureTypes) {
     // Out Stream Desktop insertion logic
     if (!isFeatureCoverStory && !foundOutStreamDesktop && !isNearEndOfArticle(content, index) && index >= 3 && outStreamTrigger === 0 &&
       isWithinEmbedLookahead(content, index + 1)) {
+
       insertAd(newContent, {
         inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd
       });
@@ -292,12 +293,12 @@ module.exports = function (content, articleData, featureTypes) {
 
     // Out Stream Mobile insertion logic
     if (!isFeatureCoverStory && !foundOutStreamMobile && !isNearEndOfArticle(content, index) && index >= 3 && outStreamTrigger === 0 &&
-      isWithinEmbedLookahead(content, index + 1)) {
+      isWithinEmbedLookahead(content, index + 1) && articleData.inArticleMobileOutStreamAd) {
+
       insertAd(newContent, {
         inArticleMobileOutStreamAd: articleData.inArticleMobileOutStreamAd
       });
 
-      // only display one of this type of ad
       foundOutStreamMobile = true;
     }
 
