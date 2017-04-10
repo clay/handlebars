@@ -157,7 +157,6 @@ function insertAd(newContent, options) {
   // add mobile out stream in-article ad
   newContent.push(options.inArticleMobileOutStreamAd);
 
-
   // add desktop premium in-article ads
   newContent.push(options.inArticleDesktopPremiumAd);
 
