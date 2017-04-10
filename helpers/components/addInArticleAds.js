@@ -154,7 +154,6 @@ function isNearEndOfArticle(content, index) {
 function insertAd(newContent, options) {
   // add desktop out stream in-article ad
   newContent.push(options.inArticleDesktopOutStreamAd);
-
   // add mobile out stream in-article ad
   newContent.push(options.inArticleMobileOutStreamAd);
 
@@ -171,7 +170,7 @@ function insertAd(newContent, options) {
 
   // add first / subsequent mobile ads
   if (options.isFirst) {
-    if (options.foundOutStreamDesktop == false) {
+    if (options.foundOutStreamMobile == false) {
       newContent.push(options.inArticleMobileFirstAd);
     }
   } else {
@@ -218,6 +217,7 @@ module.exports = function (content, articleData, featureTypes) {
     desktopPremiumLimit = 1900,
     foundPremiumDesktop = false,
     foundOutStreamDesktop = false,
+    foundOutStreamMobile = false,
     first300x250 = false,
     subsequent300x250Counter = 0,
     outStreamTrigger = 1,
@@ -278,16 +278,27 @@ module.exports = function (content, articleData, featureTypes) {
       desktopCounter = 0;
     }
 
-    // Out Stream insertion logic
+    // Out Stream Desktop insertion logic
     if (!isFeatureCoverStory && !foundOutStreamDesktop && !isNearEndOfArticle(content, index) && index >= 3 && outStreamTrigger === 0 &&
       isWithinEmbedLookahead(content, index + 1)) {
+
       insertAd(newContent, {
-        inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd,
-        inArticleMobileOutStreamAd: articleData.inArticleMobileOutStreamAd
+        inArticleDesktopOutStreamAd: articleData.inArticleDesktopOutStreamAd
       });
 
       // only display one of this type of ad
       foundOutStreamDesktop = true;
+    }
+
+    // Out Stream Mobile insertion logic
+    if (!isFeatureCoverStory && !foundOutStreamMobile && !isNearEndOfArticle(content, index) && index >= 3 && outStreamTrigger === 0 &&
+      isWithinEmbedLookahead(content, index + 1) && articleData.inArticleMobileOutStreamAd) {
+
+      insertAd(newContent, {
+        inArticleMobileOutStreamAd: articleData.inArticleMobileOutStreamAd
+      });
+
+      foundOutStreamMobile = true;
     }
 
     // feature article 300x250 logic - this ad is only on the layout for feature articles, dont need if logic around placement
@@ -316,7 +327,7 @@ module.exports = function (content, articleData, featureTypes) {
     if (isCounterOverLimit(mobileCounter, mobileLimit) && !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
       insertAd(newContent, {
         isFirst: isFirst,
-        foundOutStreamDesktop: foundOutStreamDesktop,
+        foundOutStreamMobile: foundOutStreamMobile,
         inArticleTabletAd: articleData.inArticleTabletAd,
         inArticleMobileFirstAd: articleData.inArticleMobileFirstAd,
         inArticleMobileSubsequentAd: articleData.inArticleMobileSubsequentAd
