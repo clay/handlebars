@@ -964,7 +964,7 @@ If a string is over a given length, truncate and append an ellipsis character to
 generate article dates and times, based on a relative format
 
 #### Params
-* `datetime` _(Date|string)_ for  `moment.js`  to parse
+* `datetime` _(Date|string)_ for  `date-fns`  to parse
 
 **Returns** _(string)_ 
 

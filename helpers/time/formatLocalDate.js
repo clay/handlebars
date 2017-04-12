@@ -1,5 +1,5 @@
 'use strict';
-var moment = require('moment'),
+var dateFormat = require('date-fns/format'),
   defaultFormat = 'M/D/YYYY [at] h:mm a';
 
 /**
@@ -12,14 +12,5 @@ var moment = require('moment'),
 module.exports = function (date, format) {
   format = format || defaultFormat;
 
-  // moment defaults to using the local time
-  return moment(date).format(format);
-};
-
-module.exports.setMoment = function (instance) {
-  moment = instance;
-};
-
-module.exports.getDefaultFormat = function () {
-  return defaultFormat;
+  return dateFormat(date, format);
 };
