@@ -62,7 +62,6 @@
     "glob": "^7.1.1",
     "handlebars": "^4.0.6",
     "he": "^1.1.0",
-    "helper-date": "^0.2.3",
     "helper-yaml": "^0.1.0",
     "json-stringify-safe": "^5.0.1",
     "lodash": "^4.17.4",

@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **52 helpers** in **10 categories**:
+Currently **53 helpers** in **10 categories**:
 
 
 ### arrays
@@ -122,6 +122,7 @@ Currently **52 helpers** in **10 categories**:
 
 * [**articleDate**](https://github.com/nymag/nymag-handlebars#articledate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
 * [**formatLocalDate**](https://github.com/nymag/nymag-handlebars#formatlocaldate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
+* [**moment**](https://github.com/nymag/nymag-handlebars#moment--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
 
 ### urls
 
@@ -977,13 +978,19 @@ generate article dates and times, based on a relative format
 
 ### formatLocalDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
 
-Formats a date with moment.js
+Formats a date with date-fns
 
 #### Params
 * `date` _(*)_ 
 * `[format]` _(string)_ 
 
 **Returns** _(string)_ 
+
+### moment ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
+
+_No description_
+
+
 
 ## urls
 

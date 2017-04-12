@@ -3,7 +3,7 @@ var dateFormat = require('date-fns/format'),
   defaultFormat = 'M/D/YYYY [at] h:mm a';
 
 /**
- * Formats a date with moment.js
+ * Formats a date with date-fns
  *
  * @param  {*} date
  * @param {string} [format]
