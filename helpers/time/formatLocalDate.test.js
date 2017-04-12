@@ -1,19 +1,20 @@
 'use strict';
 var filterName = __filename.split('/').pop().split('.').shift(),
   filter = require('./' + filterName),
-  expect = require('chai').expect;
+  expect = require('chai').expect,
+  dateFormat = require('date-fns/format');
 
 describe('Filters: ' + filterName, function () {
   it('formats with default format', function () {
-    var expectedResult = '12/31/1969 at 7:00 pm';
+    var date = (new Date(0)).toString();
 
-    expect(filter((new Date(0)).toString())).to.equal(expectedResult);
+    expect(filter(date)).to.equal(dateFormat(date, 'M/D/YYYY [at] h:mm a'));
   });
 
   it('formats with given format', function () {
     var format = 'MM/DD/YYYY',
-      expectedResult = '12/31/1969';
+      date = (new Date(0)).toString();
 
-    expect(filter((new Date(0)).toString(), format)).to.equal(expectedResult);
+    expect(filter(date, format)).to.equal(dateFormat(date, format));
   });
 });
