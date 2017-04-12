@@ -1,5 +1,5 @@
 'use strict';
-// a unified collection of third party helpers, used on both the client and the server
+// a unified collection of third party helpers, used on the server
 const yaml = require('helper-yaml');
 
 /**

@@ -8,13 +8,9 @@ module.exports = function (env) {
     env = require('handlebars/dist/handlebars.runtime.min.js');
   }
 
-  // add 3rd party helpers first (in case we need to overwrite any)
-  require('./third-party-helpers')(env);
-
-  // add noop to `read` helper on the client-side
-  // todo: deprecate this when we figure out how to precompile these assets
-  // (and thus remove the helper from the server-side)
+  // add noop to `read` and `yaml` helpers on the client-side
   env.registerHelper('read', () => '');
+  env.registerHelper('yaml', () => '');
 
   // add helpers
   helpersReq.keys().forEach(h => env.registerHelper(path.basename(h, '.js'), helpersReq(h)));
