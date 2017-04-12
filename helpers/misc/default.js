@@ -1,5 +1,7 @@
 'use strict';
-const _ = require('lodash');
+const _isObject = require('lodash/isObject'),
+  _isArray = require('lodash/isArray'),
+  _isEmpty = require('lodash/isEmpty');
 
 /**
  * return the first value if it's not empty, otherwise return the second value
@@ -9,8 +11,8 @@ const _ = require('lodash');
  * @return {*}
  */
 module.exports = function (value, defaultValue) {
-  if (_.isObject(value) || _.isArray(value)) {
-    return !_.isEmpty(value) ? value : defaultValue;
+  if (_isObject(value) || _isArray(value)) {
+    return !_isEmpty(value) ? value : defaultValue;
   } else {
     return !!value ? value : defaultValue;
   }

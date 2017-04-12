@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const _isString = require('lodash/isString');
 
 /**
  * If a string is over a given length, truncate and append an ellipsis character to the end.
@@ -11,7 +11,7 @@ const _ = require('lodash');
  * @return {string}
  */
 module.exports = function (str, len, options) {
-  var suffix = options === undefined || !_.isString(options.hash.suffix) ? '…' : options.hash.suffix;
+  var suffix = options === undefined || !_isString(options.hash.suffix) ? '…' : options.hash.suffix;
 
   if (str && typeof str === 'string') {
     return str.trim().length > len ? str.trim().slice(0, len).trim() + suffix : str.trim();

@@ -550,7 +550,7 @@ set data into current context or other optional context/object<br /> _note:_  do
 
 #### Params
 * `[obj]` _(object)_ context or object for storing data beyond current context
-* `key` _(string)_ `_.set()`  key/path
+* `key` _(string)_ `_set()`  key/path
 * `val` _(*)_ value to set
 
 #### Example
@@ -747,7 +747,7 @@ Turn an object into a comma-delineated list of key names, depending if their val
 get property in object<br />this is similar to handlebars-helpers'  [`get`](https://github.com/helpers/handlebars-helpers#get) , but the context is called on a returned function.<br />this allows you to easily convert arrays of objects to arrays of a specific property from each objects
 
 #### Params
-* `prop` _(string)_ key/path, passed to  [`_.get()`](https://lodash.com/docs/4.17.4#get)
+* `prop` _(string)_ key/path, passed to  [`_get()`](https://lodash.com/docs/4.17.4#get)
 
 **Returns** value of the property from the object
 
@@ -826,7 +826,7 @@ concatenate any number of strings
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
-straight passthrough to  [`_.kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
+straight passthrough to  [`_kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
 
 
 

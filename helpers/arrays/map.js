@@ -1,5 +1,7 @@
 'use strict';
-const _ = require('lodash');
+const _isArray = require('lodash/isArray'),
+  _map = require('lodash/map'),
+  _isString = require('lodash/isString');
 
 /**
  * map through array, call function on each item
@@ -8,10 +10,10 @@ const _ = require('lodash');
  * @return {array}
  */
 module.exports = function (array, fn) {
-  if (_.isArray(array)) {
-    return _.map(array, fn);
-  } else if (_.isString(array)) {
-    return _.map(array.split(''), fn);
+  if (_isArray(array)) {
+    return _map(array, fn);
+  } else if (_isString(array)) {
+    return _map(array.split(''), fn);
   } else {
     return [];
   }

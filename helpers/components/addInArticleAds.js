@@ -1,7 +1,12 @@
 'use strict';
 /* eslint complexity: ["error", 15] */
 
-const _ = require('lodash'),
+const _property = require('lodash/property'),
+  _has = require('lodash/has'),
+  _isArray = require('lodash/isArray'),
+  _forEach = require('lodash/forEach'),
+  _filter = require('lodash/filter'),
+  _compact = require('lodash/compact'),
   wordcount = require('../html/wordCount.js');
 
 /**
@@ -10,7 +15,7 @@ const _ = require('lodash'),
  * @return {array} of strings
  */
 function getTextContents(component) {
-  return component.content.map(_.property('text'));
+  return component.content.map(_property('text'));
 }
 
 /**
@@ -22,10 +27,10 @@ function getWordCount(component) {
   let contentsWordCount = 0;
 
   // if component has a content componentList, loop through children and count words
-  if (_.has(component, 'content') && _.isArray(component.content)) {
+  if (_has(component, 'content') && _isArray(component.content)) {
 
-    _.forEach(component.content, function (childComponent) {
-      if (_.has(childComponent,'text')) {
+    _forEach(component.content, function (childComponent) {
+      if (_has(childComponent,'text')) {
         contentsWordCount += wordcount(childComponent.text);
       }
     });
@@ -46,13 +51,13 @@ function isTextComponent(component) {
 
   // assumes that if a component has a content property that it is a componentList
   // and might have text components
-  if (_.has(component,'content') && _.isArray(component.content)) {
+  if (_has(component,'content') && _isArray(component.content)) {
     textContents = getTextContents(component);
 
     return !! textContents.length;
   }
 
-  return _.has(component, 'text');
+  return _has(component, 'text');
 
   // note: this assumes that any component with a `text` property
   // is a component that will contain a large block of text,
@@ -70,11 +75,11 @@ function isTextComponent(component) {
 function getComponentType(component) {
   let componentType = '';
 
-  if (_.has(component, 'videoId') || !!component._ref.match(/\/(ooyala-player|video|video-promo)\//ig) ||
-    _.has(component, 'url') && !!component.url.match(/youtube\.com/ig)) {
+  if (_has(component, 'videoId') || !!component._ref.match(/\/(ooyala-player|video|video-promo)\//ig) ||
+    _has(component, 'url') && !!component.url.match(/youtube\.com/ig)) {
     componentType = 'video';
   } else if (!!component._ref.match(/\/(embedly|mediaplay-image|related-stories|related-story|article-sidebar|see-also|tumblr-post)\//ig) ||
-    _.has(component, 'url') && !!component.url.match(/twitter\.com\/|instagram\.com/ig)) {
+    _has(component, 'url') && !!component.url.match(/twitter\.com\/|instagram\.com/ig)) {
     componentType = 'embed';
   } else if (!!component._ref.match(/\/(read-more|walking-tour-slideshow|clay-subheader)\//ig)) {
     componentType = 'ignore';   // explicitly ignore the read more component here, or it will be picked up as text
@@ -115,12 +120,12 @@ function isNearEndOfArticle(content, index) {
   let explodedContent = [],
     remainingTextComponents;
 
-  _.forEach(content,function (component, i) {
+  _forEach(content,function (component, i) {
     if (i > index) {
       // if a component has a content property and it is an array, add that array
       // to be counted. Assumes that it is a component like 'subsection' and that
       // the 'content' array contains other components
-      if (_.has(component,'content') && _.isArray(component.content)) {
+      if (_has(component,'content') && _isArray(component.content)) {
         explodedContent = explodedContent.concat(component.content);
       } else {
         explodedContent.push(component);
@@ -128,7 +133,7 @@ function isNearEndOfArticle(content, index) {
     }
   });
 
-  remainingTextComponents = _.filter(explodedContent, function (val) {
+  remainingTextComponents = _filter(explodedContent, function (val) {
     // get the components that are past the current component (index) and
     // are text components
     return isTextComponent(val);
@@ -229,7 +234,7 @@ module.exports = function (content, articleData, featureTypes) {
     adUnits = articleData.inArticleDesktopOutStreamAd || articleData.inArticleMobileOutStreamAd || articleData.inArticleDesktopPremiumAd || articleData.inArticleTabletAd || articleData.inArticleMobileFirstAd || articleData.inArticleMobileSubsequentAd || articleData.inArticleDesktop300x250;
   }
 
-  _.forEach(content, function (component, index) {
+  _forEach(content, function (component, index) {
     let tempCount = 0,
       componentType,
 
@@ -339,6 +344,5 @@ module.exports = function (content, articleData, featureTypes) {
     }
 
   });
-  return _.compact(newContent); // get rid of undefined ads
+  return _compact(newContent); // get rid of undefined ads
 };
-

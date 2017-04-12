@@ -1,5 +1,7 @@
 'use strict';
-const _ = require('lodash');
+const _initial = require('lodash/initial'),
+  _last = require('lodash/last'),
+  _takeWhile = require('lodash/takeWhile');
 
 /**
  * block helper for checking that NOT ALL arguments passed in are truthy
@@ -7,9 +9,9 @@ const _ = require('lodash');
  * @return {string} calls block functions
  */
 module.exports = function () {
-  const conditionals = _.initial(arguments),
-    options = _.last(arguments),
-    taken = _.takeWhile(conditionals, c => !!c === true);
+  const conditionals = _initial(arguments),
+    options = _last(arguments),
+    taken = _takeWhile(conditionals, c => !!c === true);
 
     // see if any of the conditionals are falsy without needing to
     // iterate through all of them

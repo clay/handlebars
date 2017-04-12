@@ -1,5 +1,5 @@
 'use strict';
-const _ = require('lodash');
+const _isNaN = require('lodash/isNaN');
 
 /**
  * converts things (usually strings) into numbers
@@ -10,7 +10,7 @@ const _ = require('lodash');
 module.exports = function (x) {
   const num = parseInt(x, 10);
 
-  if (!_.isNaN(num)) {
+  if (!_isNaN(num)) {
     return num;
   } else {
     throw new Error(`Cannot parse ${x} as number!`);

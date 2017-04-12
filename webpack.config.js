@@ -40,6 +40,6 @@ module.exports = {
       flattening: true, // allow flattening methods
       paths: true, // allow deep _.get, _.set, _.has
       // note: we're explicitly not allowing chaining, cloning, memoizing, or currying
-    }),
+    })
   ]
 };

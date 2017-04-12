@@ -1,5 +1,6 @@
 'use strict';
-const _ = require('lodash');
+const _isObject = require('lodash/isObject'),
+  _reduce = require('lodash/reduce');
 
 // capitalizes the first letter in the first word
 function capitalizeFirstWord(key) {
@@ -13,14 +14,14 @@ function capitalizeFirstWord(key) {
  * @return {string}
  */
 module.exports = function (obj, shouldCapitalize) {
-  if (_.isObject(shouldCapitalize)) {
+  if (_isObject(shouldCapitalize)) {
     // no explicit shouldCapitalize argument passed in
     // (it's seeing the options object passed in as second argument),
     // so default to false
     shouldCapitalize = false;
   }
 
-  return _.reduce(obj, function (result, value, key) {
+  return _reduce(obj, function (result, value, key) {
 
     if (value) {
       result = result ? result + ', ' : result; // if result already has stuff in it, add a comma
