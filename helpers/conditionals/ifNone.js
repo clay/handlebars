@@ -1,14 +1,16 @@
 'use strict';
-const _ = require('lodash');
+const _initial = require('lodash/initial'),
+  _last = require('lodash/last'),
+  _find = require('lodash/find');
 
 /**
  * block helper for checking if NO arguments passed in are truthy
  * @return {string} calls block functions
  */
 module.exports = function () {
-  const conditionals = _.initial(arguments),
-    options = _.last(arguments),
-    truthyFound = _.find(conditionals, function (conditional) {
+  const conditionals = _initial(arguments),
+    options = _last(arguments),
+    truthyFound = _find(conditionals, function (conditional) {
       // see if any of the conditionals are truthy without needing to
       // iterate through all of them (once we've found it)
       return !!conditional === true;
@@ -16,7 +18,7 @@ module.exports = function () {
 
   if (truthyFound !== undefined) {
     // at least one of the conditionals is truthy
-    // so _.find returns quickly without iterating over all of them
+    // so _find returns quickly without iterating over all of them
     return options.inverse(this);
   } else {
     return options.fn(this);

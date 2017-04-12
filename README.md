@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **52 helpers** in **10 categories**:
+Currently **53 helpers** in **10 categories**:
 
 
 ### arrays
@@ -122,6 +122,7 @@ Currently **52 helpers** in **10 categories**:
 
 * [**articleDate**](https://github.com/nymag/nymag-handlebars#articledate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
 * [**formatLocalDate**](https://github.com/nymag/nymag-handlebars#formatlocaldate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
+* [**moment**](https://github.com/nymag/nymag-handlebars#moment--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
 
 ### urls
 
@@ -550,7 +551,7 @@ set data into current context or other optional context/object<br /> _note:_  do
 
 #### Params
 * `[obj]` _(object)_ context or object for storing data beyond current context
-* `key` _(string)_ `_.set()`  key/path
+* `key` _(string)_ `_set()`  key/path
 * `val` _(*)_ value to set
 
 #### Example
@@ -747,7 +748,7 @@ Turn an object into a comma-delineated list of key names, depending if their val
 get property in object<br />this is similar to handlebars-helpers'  [`get`](https://github.com/helpers/handlebars-helpers#get) , but the context is called on a returned function.<br />this allows you to easily convert arrays of objects to arrays of a specific property from each objects
 
 #### Params
-* `prop` _(string)_ key/path, passed to  [`_.get()`](https://lodash.com/docs/4.17.4#get)
+* `prop` _(string)_ key/path, passed to  [`_get()`](https://lodash.com/docs/4.17.4#get)
 
 **Returns** value of the property from the object
 
@@ -826,7 +827,7 @@ concatenate any number of strings
 
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
-straight passthrough to  [`_.kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
+straight passthrough to  [`_kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
 
 
 
@@ -964,7 +965,7 @@ If a string is over a given length, truncate and append an ellipsis character to
 generate article dates and times, based on a relative format
 
 #### Params
-* `datetime` _(Date|string)_ for  `moment.js`  to parse
+* `datetime` _(Date|string)_ for  `date-fns`  to parse
 
 **Returns** _(string)_ 
 
@@ -977,13 +978,19 @@ generate article dates and times, based on a relative format
 
 ### formatLocalDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
 
-Formats a date with moment.js
+Formats a date with date-fns
 
 #### Params
 * `date` _(*)_ 
 * `[format]` _(string)_ 
 
 **Returns** _(string)_ 
+
+### moment ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
+
+_No description_
+
+
 
 ## urls
 

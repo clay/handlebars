@@ -1,5 +1,6 @@
 'use strict';
-const _ = require('lodash');
+const _isNumber = require('lodash/isNumber'),
+  _range = require('lodash/range');
 
 /**
  * return an array of numbers, in order
@@ -12,14 +13,14 @@ const _ = require('lodash');
 module.exports = function (start, end, options) {
   let range;
 
-  if (!_.isNumber(end)) {
+  if (!_isNumber(end)) {
     // if they only specify one argument, start from 0
     options = end;
     end = start;
     start = 0;
   }
 
-  range = _.range(start, end);
+  range = _range(start, end);
 
   if (options && options.fn) {
     // block-level, iterate through the range!

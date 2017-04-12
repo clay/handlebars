@@ -1,6 +1,7 @@
 'use strict';
 const name = getName(__filename),
   timeOnly = /^\d+:\d+ [ap]\.m\./,
+  timeAgoSec = /1 second ago/,
   timeAgoSecs = /([12]?\d|30) seconds ago/,
   timeAgoMins = /([12]?\d|30) (min|mins) ago/,
   yesterday = /^Yesterday at \d+:\d+ [ap]\.m\./,
@@ -39,6 +40,15 @@ describe(name, function () {
     var result = tpl({a: new Date()});
 
     expect(result).to.match(timeAgoSecs);
+  });
+
+  it('should show a time ago in seconds if article is created 1 second ago', function () {
+    var date = new Date(),
+      result;
+
+    date = matchSeconds(date, -1);
+    result = tpl({a: date});
+    expect(result).to.match(timeAgoSec);
   });
 
   it('should show a time ago in seconds if article is created < 1 minute ago', function () {

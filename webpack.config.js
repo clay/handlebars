@@ -20,7 +20,6 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        plugins: ['lodash'],
         presets: ['es2015'],
       }
     }, {
@@ -30,9 +29,17 @@ module.exports = {
     }]
   },
   plugins: [
-    new LodashModuleReplacementPlugin,
     new webpack.optimize.OccurrenceOrderPlugin,
     new webpack.optimize.UglifyJsPlugin({ output: {inline_script: true} }),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+    new LodashModuleReplacementPlugin({
+      shorthands: true, // allow _.map(collection, prop)
+      collections: true, // allow objects in collection methods
+      deburring: true, // remove diacritical marks
+      unicode: true, // support unicode
+      coercions: true, // allow coercions
+      flattening: true, // allow flattening methods
+      paths: true, // allow deep _.get, _.set, _.has
+      // note: we're explicitly not allowing chaining, cloning, memoizing, or currying
+    })
   ]
 };

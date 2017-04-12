@@ -1,40 +1,64 @@
 'use strict';
-const moment = require('moment');
-
-function ampm(date) {
-  var datestring = ' ' + date.format('a'); // extra space before a.m./p.m.
-
-  return datestring.replace('am', 'a.m.').replace('pm', 'p.m.');
-}
+const parse = require('date-fns/parse'),
+  isValid = require('date-fns/is_valid'),
+  differenceInMinutes = require('date-fns/difference_in_minutes'),
+  distanceInWordsStrict = require('date-fns/distance_in_words_strict'),
+  subDays = require('date-fns/sub_days'),
+  isSameDay = require('date-fns/is_same_day'),
+  format = require('date-fns/format');
 
 /**
  * generate article dates and times, based on a relative format
- * @param  {Date|string} datetime for `moment.js` to parse
+ * @param  {Date|string} datetime for `date-fns` to parse
  * @return {string}
  */
 module.exports = function (datetime) {
-  var date = moment(datetime),
-    now = moment(),
-    yesterday = moment().subtract(1, 'days'),
+  var date = parse(datetime),
+    now = new Date(),
+    yesterday = subDays(new Date(), 1),
     // we want an abbreviated version of 'minute' and 'minutes'
-    locale = moment.locale('en', {
-      relativeTime: {
-        s:  '%d seconds ago',
-        m:  '%d min ago',
-        mm: '%d mins ago'
+    tokens = {
+      lessThanXSeconds: {
+        one: 'less than a second',
+        other: 'less than {{count}} seconds'
+      },
+      xSeconds: {
+        one: '1 second',
+        other: '{{count}} seconds'
+      },
+      xMinutes: {
+        one: '1 min',
+        other: '{{count}} mins'
       }
-    });
+    },
+    locale = {
+      distanceInWords: {
+        localize: function (token, count) {
+          let result;
 
-  if (date.isValid()) {
-    // articles < 30 min old should display time-ago"
-    if (date.isAfter(now.subtract(31, 'minutes'))) {
-      return date.fromNow(locale);
-    } else if (date.isSame(now, 'day')) {
-      return date.format('h:mm') + ampm(date);
-    } else if (date.isSame(yesterday, 'day')) {
-      return 'Yesterday at ' + date.format('h:mm') + ampm(date);
+          if (count === 1) {
+            result = tokens[token].one;
+          } else {
+            result = tokens[token].other.replace('{{count}}', count);
+          }
+
+          return `${result} ago`;
+        }
+      }
+    };
+
+  if (isValid(date)) {
+    // articles < 30 min old should display 'x seconds ago / x minutes ago'
+    if (differenceInMinutes(now, date) < 1) {
+      return distanceInWordsStrict(now, date, { unit: 's', addSuffix: true, locale: locale });
+    } else if (differenceInMinutes(now, date) < 30) {
+      return distanceInWordsStrict(now, date, { unit: 'm', addSuffix: true, locale: locale });
+    } else if (isSameDay(now, date)) {
+      return format(date, 'h:mm aa');
+    } else if (isSameDay(yesterday, date)) {
+      return `Yesterday at ${format(date, 'h:mm aa')}`;
     } else {
-      return date.format('M/D/YYYY [at] h:mm') + ampm(date);
+      return format(date, 'M/D/YYYY [at] h:mm aa');
     }
   } else {
     return '';

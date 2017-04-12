@@ -2,7 +2,10 @@
 const striptags = require('striptags'),
   speakingurl = require('speakingurl'),
   he = require('he'),
-  _ = require('lodash');
+  _map = require('lodash/map'),
+  _last = require('lodash/last'),
+  _isEmpty = require('lodash/isEmpty'),
+  _isString = require('lodash/isString');
 
 /**
  * Removes all unicode from string
@@ -56,7 +59,7 @@ function addCharSpan(letter, index) {
 function generateLetterClasses(word) {
   const letters = word.split('');
 
-  return _.map(letters, addCharSpan).join('');
+  return _map(letters, addCharSpan).join('');
 }
 
 /**
@@ -68,7 +71,7 @@ function generateLetterClasses(word) {
  * @returns {string}
  */
 function wrapWord(word, index, array, hasLetterClasses) {
-  const isLastWord = _.last(array) === word,
+  const isLastWord = _last(array) === word,
     suffixSpace = isLastWord ? '' : ' ',
     finalWord = hasLetterClasses ? generateLetterClasses(word) : word;
 
@@ -88,7 +91,7 @@ function wrapWord(word, index, array, hasLetterClasses) {
 module.exports = function (html, options) {
   let words, hasLetterClasses;
 
-  if (_.isEmpty(html) || !_.isString(html)) {
+  if (_isEmpty(html) || !_isString(html)) {
     return ''; // fail gracefully
   }
 
@@ -101,7 +104,7 @@ module.exports = function (html, options) {
 
   // replace nonbreaking spaces before splitting the text
   words = html.split(' ');
-  return _.map(words, (word, index, array) => wrapWord(word, index, array, hasLetterClasses)).join('');
+  return _map(words, (word, index, array) => wrapWord(word, index, array, hasLetterClasses)).join('');
 };
 
 // for testing

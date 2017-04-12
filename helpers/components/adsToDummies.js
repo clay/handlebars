@@ -1,6 +1,7 @@
 'use strict';
 
-const _ = require('lodash');
+const _map = require('lodash/map'),
+  _includes = require('lodash/includes');
 
 /**
  * Given a list of component instance objects, replace each ad component
@@ -13,10 +14,10 @@ const _ = require('lodash');
  */
 
 module.exports = function (content) {
-  return _.map(content, function (cmpt) {
+  return _map(content, function (cmpt) {
     var dummy;
 
-    if (_.includes(cmpt._ref, '/components/ad/')) {
+    if (_includes(cmpt._ref, '/components/ad/')) {
       dummy = {
         viewportMin: cmpt.viewportMin,
         viewportMax: cmpt.viewportMax,

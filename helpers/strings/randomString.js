@@ -1,6 +1,6 @@
 'use strict';
 const randomstring = require('randomstring'),
-  _ = require('lodash');
+  _isString = require('lodash/isString');
 
 /**
  * generate a random string
@@ -15,7 +15,7 @@ module.exports = function (prefix, options) {
     // no prefix defined, options is the first arg
     options = prefix;
     prefix = '';
-  } else if (!_.isString(prefix)) {
+  } else if (!_isString(prefix)) {
     prefix = '';
   }
 

@@ -1,5 +1,5 @@
 'use strict';
-const _ = require('lodash');
+const _filter = require('lodash/filter');
 
 /**
  * Return the first component (from a list of components) with a truthy `displaySelf` property. Used by Spaces.
@@ -9,7 +9,7 @@ const _ = require('lodash');
 module.exports = function (components) {
   var limitReached = false;
 
-  return _.filter(components, function (item) {
+  return _filter(components, function (item) {
     if (item.displaySelf && !limitReached) {
       limitReached = true;
       return item;
