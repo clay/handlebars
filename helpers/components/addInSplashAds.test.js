@@ -33,7 +33,6 @@ describe(name, function () {
     };
 
   it('passes through content of an article', function () {
-    console.log(content);
     expect(filter(content)).to.deep.equal(content);
   });
 
