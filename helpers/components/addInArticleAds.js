@@ -155,9 +155,7 @@ function isNearEndOfArticle(content, index) {
  * @param {object} [options.inArticleMobileFirstAd]
  * @param {object} [options.inArticleMobileSubsequentAd]
  * @param {object} [options.inArticleDesktop300x250]
- * @param {object} [options.inArticleDesktop728x90]
- * @param {object} [options.inArticleDesktop970x90]
- * @param {object} [options.inArticleDesktop970x250]
+ * @param {object} [options.inArticleDesktopBanner]
  */
 function insertAd(newContent, options) {
   // add desktop out stream in-article ad
