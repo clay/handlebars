@@ -8,7 +8,7 @@ var filterName = __filename.split('/').pop().split('.').shift(),
 describe('Filters: ' + filterName, function () {
   let sandbox;
 
-  beforeEach(function (){
+  beforeEach(function () {
     sandbox = sinon.sandbox.create();
     sandbox.useFakeTimers();
   });
