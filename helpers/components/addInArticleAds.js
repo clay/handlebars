@@ -155,6 +155,7 @@ function isNearEndOfArticle(content, index) {
  * @param {object} [options.inArticleMobileFirstAd]
  * @param {object} [options.inArticleMobileSubsequentAd]
  * @param {object} [options.inArticleDesktop300x250]
+ * @param {object} [options.inArticleDesktopBanner]
  */
 function insertAd(newContent, options) {
   // add desktop out stream in-article ad
@@ -171,6 +172,11 @@ function insertAd(newContent, options) {
   // add feature article 300x250 ads
   if (options.inArticleDesktop300x250 && Object.keys(options.inArticleDesktop300x250).length) {
     newContent.push(options.inArticleDesktop300x250);
+  }
+
+  // add feature article banner ads
+  if (options.inArticleDesktopBanner && Object.keys(options.inArticleDesktopBanner).length) {
+    newContent.push(options.inArticleDesktopBanner);
   }
 
   // add first / subsequent mobile ads
@@ -231,7 +237,7 @@ module.exports = function (content, articleData, featureTypes) {
     isFeatureCoverStory = featureTypes ? featureTypes['Cover Story Online'] : false;
 
   if (articleData) {
-    adUnits = articleData.inArticleDesktopOutStreamAd || articleData.inArticleMobileOutStreamAd || articleData.inArticleDesktopPremiumAd || articleData.inArticleTabletAd || articleData.inArticleMobileFirstAd || articleData.inArticleMobileSubsequentAd || articleData.inArticleDesktop300x250;
+    adUnits = articleData.inArticleDesktopOutStreamAd || articleData.inArticleMobileOutStreamAd || articleData.inArticleDesktopPremiumAd || articleData.inArticleTabletAd || articleData.inArticleMobileFirstAd || articleData.inArticleMobileSubsequentAd || articleData.inArticleDesktop300x250 || articleData.inArticleDesktopBanner;
   }
 
   _forEach(content, function (component, index) {
@@ -311,9 +317,10 @@ module.exports = function (content, articleData, featureTypes) {
       if (isTextComponent(content[index]) && !textComponentTooShort) {
         subsequent300x250Counter += 1;
 
-        if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index) && getWordCount(content[index + 1]) > 85) {
+        if (isSurroundedByText(content, index) && subsequent300x250Counter % 5 === 0 && first300x250 && !isNearEndOfArticle(content, index)) {
           insertAd(newContent, {
-            inArticleDesktop300x250: articleData.inArticleDesktop300x250
+            inArticleDesktop300x250: articleData.inArticleDesktop300x250,
+            inArticleDesktopBanner: articleData.inArticleDesktopBanner
           });
         }
       }
@@ -322,12 +329,14 @@ module.exports = function (content, articleData, featureTypes) {
       // insert first 300x250
       if (isSurroundedByText(content, index) && first300x250 == false && !isNearEndOfArticle(content, index) && getComponentType(content[index + 1]) !== 'ignore') {
         insertAd(newContent, {
-          inArticleDesktop300x250: articleData.inArticleDesktop300x250
+          inArticleDesktop300x250: articleData.inArticleDesktop300x250,
+          inArticleDesktopBanner: articleData.inArticleDesktopBanner
         });
         first300x250 = true;
         subsequent300x250Counter = 0;
       }
     }
+
 
     if (isCounterOverLimit(mobileCounter, mobileLimit) && !isNearEndOfArticle(content, index) && isSurroundedByText(content, index)) {
       insertAd(newContent, {
