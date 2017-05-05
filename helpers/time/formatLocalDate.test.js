@@ -31,6 +31,6 @@ describe('Filters: ' + filterName, function () {
 
   it('if date is set to "now," uses current time', function () {
     sandbox.clock.tick(1);
-    expect(filter('now', 'M/D/YYYY h:mm a')).to.equal('12/31/1969 7:00 pm');
+    expect(filter('now', 'x')).to.equal(sandbox.clock.now.toString());
   });
 });
