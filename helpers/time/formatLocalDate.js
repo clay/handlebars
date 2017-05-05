@@ -11,6 +11,7 @@ var dateFormat = require('date-fns/format'),
  */
 module.exports = function (date, format) {
   format = format || defaultFormat;
+  date = date === 'now' ? new Date() : date;
 
   return dateFormat(date, format);
 };
