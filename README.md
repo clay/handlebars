@@ -110,13 +110,13 @@ Currently **55 helpers** in **10 categories**:
 * [**capitalize**](https://github.com/nymag/nymag-handlebars#capitalize--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
 * [**capitalizeAll**](https://github.com/nymag/nymag-handlebars#capitalizeall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
 * [**concat**](https://github.com/nymag/nymag-handlebars#concat--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
+* [**includes**](https://github.com/nymag/nymag-handlebars#includes--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.test.js) )
 * [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabcase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 * [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
 * [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 * [**removeSpaces**](https://github.com/nymag/nymag-handlebars#removespaces--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
-* [**searchString**](https://github.com/nymag/nymag-handlebars#searchstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.test.js) )
 * [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
 * [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
 
@@ -845,6 +845,23 @@ concatenate any number of strings
 //=> "FooBarBaz"
 ```
 
+### includes ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.test.js) )
+
+check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.
+
+#### Params
+* `string` _(string)_ 
+* `substring` _(string)_ 
+
+**Returns** _(boolean)_ 
+
+#### Example
+
+```hbs
+{{ includes "hello world" "world" }}
+//=> true
+```
+
 ### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
 straight passthrough to  [`_kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
@@ -940,23 +957,6 @@ replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple stri
 ```hbs
 {{ replace "Foo Bar" "Bar" "Baz" }}
 //=> "Foo Baz"
-```
-
-### searchString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.test.js) )
-
-check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it returns a boolean.
-
-#### Params
-* `string` _(string)_ 
-* `substring` _(string)_ 
-
-**Returns** _(boolean)_ 
-
-#### Example
-
-```hbs
-{{ searchString "hello world" "world" }}
-//=> true
 ```
 
 ### trim ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
