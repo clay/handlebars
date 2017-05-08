@@ -11,6 +11,14 @@ describe(name, function () {
     expect(result).to.throw(Error);
   });
 
+  it('throws an error if arguments are not strings', function () {
+    const result = function () {
+      return tpl({a: 100, b: 'test'});
+    };
+
+    expect(result).to.throw(Error);
+  });
+
   it('finds substring within string', function () {
     expect(tpl({a: 'foo', b: 'f'})).to.be.ok;
   });
