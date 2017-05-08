@@ -1,6 +1,6 @@
 'use strict';
 const name = getName(__filename),
-  tpl = hbs.compile('{{ searchString a b }}');
+  tpl = hbs.compile('{{ includes a b }}');
 
 describe(name, function () {
   it('throws an error if no value passed in', function () {
