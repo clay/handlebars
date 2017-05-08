@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **54 helpers** in **10 categories**:
+Currently **55 helpers** in **10 categories**:
 
 
 ### arrays
@@ -116,6 +116,7 @@ Currently **54 helpers** in **10 categories**:
 * [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
 * [**removeSpaces**](https://github.com/nymag/nymag-handlebars#removespaces--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
 * [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
+* [**searchString**](https://github.com/nymag/nymag-handlebars#searchstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.test.js) )
 * [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
 * [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
 
@@ -939,6 +940,23 @@ replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple stri
 ```hbs
 {{ replace "Foo Bar" "Bar" "Baz" }}
 //=> "Foo Baz"
+```
+
+### searchString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/searchString.test.js) )
+
+check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it returns a boolean.
+
+#### Params
+* `string` _(string)_ 
+* `substring` _(string)_ 
+
+**Returns** _(boolean)_ 
+
+#### Example
+
+```hbs
+{{ searchString "hello world" "world" }}
+//=> true
 ```
 
 ### trim ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
