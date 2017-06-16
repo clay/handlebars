@@ -7,6 +7,7 @@ const _property = require('lodash/property'),
   _forEach = require('lodash/forEach'),
   _filter = require('lodash/filter'),
   _compact = require('lodash/compact'),
+  _isString = require('lodash/isString'),
   wordcount = require('../html/wordCount.js');
 
 /**
@@ -76,7 +77,7 @@ function getComponentType(component) {
   let componentType = '';
 
   if (_has(component, 'videoId') || !!component._ref.match(/\/(ooyala-player|video|video-promo)\//ig) ||
-    _has(component, 'url') && !!component.url.match(/youtube\.com/ig)) {
+    _has(component, 'url') && _isString(component.url) && !!component.url.match(/youtube\.com/ig)) {
     componentType = 'video';
   } else if (!!component._ref.match(/\/(embedly|mediaplay-image|related-stories|related-story|article-sidebar|see-also|tumblr-post)\//ig) ||
     _has(component, 'url') && !!component.url.match(/twitter\.com\/|instagram\.com/ig)) {
