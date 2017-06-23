@@ -261,6 +261,7 @@ Given a list of component instance objects, replace each ad component<br />with 
 #### Params
 * `content` _(Array)_ an array of component instance objects,
                          e.g.  `[{_ref: 'a/uri/etc', foo: 'bar'}, ...]`
+* `[dummyAd]` _(Object)_ an ad object with the reference to the dummy ad instance
 
 **Returns** _(Array)_ an array of components, with ads replaced with the
                   ad dummy instance
