@@ -1004,6 +1004,7 @@ generate article dates and times, based on a relative format
 
 #### Params
 * `datetime` _(Date|string)_ for  `date-fns`  to parse
+* `showDateOnly` _(boolean)_ optional argument to show only the date, without time, when applicable
 
 **Returns** _(string)_ 
 

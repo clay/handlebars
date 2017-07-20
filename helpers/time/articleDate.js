@@ -10,9 +10,10 @@ const parse = require('date-fns/parse'),
 /**
  * generate article dates and times, based on a relative format
  * @param  {Date|string} datetime for `date-fns` to parse
+ * @param  {boolean} showDateOnly optional argument to show only the date, without time, when applicable
  * @return {string}
  */
-module.exports = function (datetime) {
+module.exports = function (datetime, showDateOnly) {
   var date = parse(datetime),
     now = new Date(),
     yesterday = subDays(new Date(), 1),
@@ -56,9 +57,9 @@ module.exports = function (datetime) {
     } else if (isSameDay(now, date)) {
       return format(date, 'h:mm aa');
     } else if (isSameDay(yesterday, date)) {
-      return `Yesterday at ${format(date, 'h:mm aa')}`;
+      return `Yesterday${!showDateOnly ? ` at ${format(date, 'h:mm aa')}` : ''}`;
     } else {
-      return format(date, 'M/D/YYYY [at] h:mm aa');
+      return showDateOnly ? format(date, 'M/D/YYYY') : format(date, 'M/D/YYYY [at] h:mm aa');
     }
   } else {
     return '';

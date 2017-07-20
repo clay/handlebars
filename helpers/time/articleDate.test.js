@@ -6,7 +6,7 @@ const name = getName(__filename),
   timeAgoMins = /([12]?\d|30) (min|mins) ago/,
   yesterday = /^Yesterday at \d+:\d+ [ap]\.m\./,
   dateAtTime = /^\d+\/\d+\/\d+ at \d+:\d+ [ap]\.m\./,
-  tpl = hbs.compile('{{ articleDate a}}');
+  tpl = hbs.compile('{{ articleDate a b}}');
 
 describe(name, function () {
   function addDays(date, days) {
@@ -103,6 +103,24 @@ describe(name, function () {
     date = addDays(date, -7);
     result = tpl({a: date});
     expect(result).to.match(dateAtTime);
+  });
+
+  it('should display only the word "Yesterday" when date one day ago and showDateOnly is true', function () {
+    var date = new Date(),
+      result;
+
+    date = addDays(date, -1);
+    result = tpl({a: date, b: true});
+    expect(result).to.match(/Yesterday/);
+  });
+
+  it('should display only the date when date is over one day ago and showDateOnly is true', function () {
+    var date = new Date(),
+      result;
+
+    date = addDays(date, -5);
+    result = tpl({a: date, b: true});
+    expect(result).to.match(/^\d+\/\d+\/\d+/);
   });
 
 });
