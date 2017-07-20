@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **55 helpers** in **10 categories**:
+Currently **56 helpers** in **10 categories**:
 
 
 ### arrays
@@ -123,6 +123,7 @@ Currently **55 helpers** in **10 categories**:
 ### time
 
 * [**articleDate**](https://github.com/nymag/nymag-handlebars#articledate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
+* [**dateMinimal**](https://github.com/nymag/nymag-handlebars#dateminimal--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.test.js) )
 * [**formatLocalDate**](https://github.com/nymag/nymag-handlebars#formatlocaldate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
 * [**moment**](https://github.com/nymag/nymag-handlebars#moment--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
 
@@ -1012,6 +1013,22 @@ generate article dates and times, based on a relative format
 ```hbs
 {{ articleDate "Fri, 13 Jan 2017 18:22:16 GMT" }}
 //=> "Yesterday at 6:22 p.m."
+```
+
+### dateMinimal ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.test.js) )
+
+generate display date (without time), based on a relative format
+
+#### Params
+* `datetime` _(Date|string)_ for  `date-fns`  to parse
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ dateMinimal "Fri, 13 Jan 2017 18:22:16 GMT" }}
+//=> "Yesterday"
 ```
 
 ### formatLocalDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
