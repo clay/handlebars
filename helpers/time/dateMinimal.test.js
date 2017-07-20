@@ -4,9 +4,9 @@ const name = getName(__filename),
   timeAgoSec = /1 second ago/,
   timeAgoSecs = /([12]?\d|30) seconds ago/,
   timeAgoMins = /([12]?\d|30) (min|mins) ago/,
-  yesterday = /^Yesterday at \d+:\d+ [ap]\.m\./,
-  dateAtTime = /^\d+\/\d+\/\d+ at \d+:\d+ [ap]\.m\./,
-  tpl = hbs.compile('{{ articleDate a}}');
+  yesterday = /^Yesterday/,
+  dateAtTime = /^\d+\/\d+\/\d+/,
+  tpl = hbs.compile('{{ dateMinimal a}}');
 
 describe(name, function () {
   function addDays(date, days) {

@@ -8,7 +8,7 @@ const parse = require('date-fns/parse'),
   format = require('date-fns/format');
 
 /**
- * generate article dates and times, based on a relative format
+ * generate display date (without time), based on a relative format
  * @param  {Date|string} datetime for `date-fns` to parse
  * @return {string}
  */
@@ -56,9 +56,9 @@ module.exports = function (datetime) {
     } else if (isSameDay(now, date)) {
       return format(date, 'h:mm aa');
     } else if (isSameDay(yesterday, date)) {
-      return `Yesterday at ${format(date, 'h:mm aa')}`;
+      return 'Yesterday';
     } else {
-      return format(date, 'M/D/YYYY [at] h:mm aa');
+      return format(date, 'M/D/YYYY');
     }
   } else {
     return '';
@@ -66,6 +66,6 @@ module.exports = function (datetime) {
 };
 
 module.exports.example = {
-  code: '{{ articleDate "Fri, 13 Jan 2017 18:22:16 GMT" }}',
-  result: '"Yesterday at 6:22 p.m."'
+  code: '{{ dateMinimal "Fri, 13 Jan 2017 18:22:16 GMT" }}',
+  result: '"Yesterday"'
 };
