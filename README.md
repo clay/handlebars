@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **54 helpers** in **10 categories**:
+Currently **55 helpers** in **10 categories**:
 
 
 ### arrays
