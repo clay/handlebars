@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **56 helpers** in **10 categories**:
+Currently **54 helpers** in **10 categories**:
 
 
 ### arrays
@@ -54,7 +54,6 @@ Currently **56 helpers** in **10 categories**:
 ### components
 
 * [**addAnnotatedTextAria**](https://github.com/nymag/nymag-handlebars#addannotatedtextaria--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
-* [**addInArticleAds**](https://github.com/nymag/nymag-handlebars#addinarticleads--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.test.js) )
 * [**addInSplashAds**](https://github.com/nymag/nymag-handlebars#addinsplashads--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
 * [**addOrderedIds**](https://github.com/nymag/nymag-handlebars#addorderedids--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
 * [**adsToDummies**](https://github.com/nymag/nymag-handlebars#adstodummies--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.test.js) )
@@ -207,17 +206,6 @@ Add aria to phrases in paragraphs, corresponds to annotation ids.
 {{> component-list (addAnnotatedTextAria content)}}
 
 ```
-
-### addInArticleAds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInArticleAds.test.js) )
-
-Add in article ads to list of components in an article
-
-#### Params
-* `content` _(array)_ the list of components in the article
-* `articleData` _(object)_ all the data from the article, to grab the ad instances
-* `featureTypes` _(object)_ the feature types associated with the article
-
-**Returns** _(object)_ article
 
 ### addInSplashAds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
 

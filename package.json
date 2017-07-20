@@ -1,6 +1,6 @@
 {
   "name": "nymag-handlebars",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A collection of helpers and partials for handlebars",
   "main": "index.js",
   "browser": "dist/browser.js",
