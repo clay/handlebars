@@ -8,7 +8,7 @@ describe(name, function () {
     expect(filter([
       {
         _ref: 'localhost/components/clay-paragraph/instances/1',
-        text: '<span class="clay-annotated">hello</span>'
+        text: '<span class=\"clay-annotated kiln-phrase\">hello</span>'
       },
       {
         _ref: 'localhost/components/clay-paragraph/instances/2',
@@ -16,7 +16,7 @@ describe(name, function () {
       },
       {
         _ref: 'localhost/components/clay-paragraph/instances/3',
-        text: '<span class="clay-annotated">hola</span>'
+        text: '<span class=\"clay-annotated kiln-phrase\">hola</span>'
       },
       {
         _ref: 'localhost/components/clay-annotated/instances/1',
@@ -29,7 +29,7 @@ describe(name, function () {
     ])).to.deep.equal([
       {
         _ref: 'localhost/components/clay-paragraph/instances/1',
-        text: '<span class="clay-annotated" aria-describedby="annotation-1" tabindex="0">hello</span>'
+        text: '<span class=\"clay-annotated kiln-phrase\" aria-describedby="annotation-1" tabindex="0">hello</span>'
       },
       {
         _ref: 'localhost/components/clay-paragraph/instances/2',
@@ -37,7 +37,7 @@ describe(name, function () {
       },
       {
         _ref: 'localhost/components/clay-paragraph/instances/3',
-        text: '<span class="clay-annotated" aria-describedby="annotation-2" tabindex="0">hola</span>'
+        text: '<span class=\"clay-annotated kiln-phrase\" aria-describedby="annotation-2" tabindex="0">hola</span>'
       },
       {
         _ref: 'localhost/components/clay-annotated/instances/1',

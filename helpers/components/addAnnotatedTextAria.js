@@ -16,7 +16,7 @@ module.exports = function (content) {
       _includes(_get(component, 'text'), 'clay-annotated')
     ) {
       component.text = component.text.replace(
-        /\<span class="clay-annotated"/g,
+        /\<span class=\"clay-annotated.*?"/g,
         match => match + ' aria-describedby="annotation-' + ++counter + '" tabindex="0"'
       );
     }
