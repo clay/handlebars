@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **55 helpers** in **10 categories**:
+Currently **56 helpers** in **10 categories**:
 
 
 ### arrays
@@ -90,6 +90,7 @@ Currently **55 helpers** in **10 categories**:
 
 * [**add**](https://github.com/nymag/nymag-handlebars#add--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
 * [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
+* [**addOrdinalSuffix**](https://github.com/nymag/nymag-handlebars#addordinalsuffix--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
 * [**divide**](https://github.com/nymag/nymag-handlebars#divide--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.test.js) )
 * [**multiply**](https://github.com/nymag/nymag-handlebars#multiply--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.test.js) )
 * [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
@@ -621,6 +622,22 @@ add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCo
 ```hbs
 {{ addCommas "1234.50" }}
 //=> "1,234.50"
+```
+
+### addOrdinalSuffix ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
+
+add ordinal after a number<br />e.g.  `1`  →  `1st` ,  `2`  →  `2nd` ,  `3`  →  `3rd`
+
+#### Params
+* `i` _(number|string)_ number to add ordinal after
+
+**Returns** _(string)_ 
+
+#### Example
+
+```hbs
+{{ addOrdinalSuffix 1 }}
+//=> 1st
 ```
 
 ### divide ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.test.js) )
