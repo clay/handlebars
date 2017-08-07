@@ -1,7 +1,19 @@
 {
   "parserOptions": {
-    // "sourceType": "module", wait until this is an es6 module
-    "ecmaVersion": 6
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "blockBindings": true,
+      "forOf": true,
+      "objectLiteralDuplicateProperties": true,
+      "objectLiteralShorthandProperties": true,
+      "objectLiteralShorthandMethods": true,
+      "octalLiterals": true,
+      "binaryLiterals": true,
+      "templateStrings": true,
+      "generators": true,
+      "modules": true
+    }
   },
   "env": {
     "browser": true,
@@ -14,20 +26,6 @@
     "expect": false,
     "chai": false,
     "sinon": false
-  },
-  // enable the es6 features supported by our browsers / iojs
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "blockBindings": true,
-    "forOf": true,
-    "objectLiteralDuplicateProperties": true,
-    "objectLiteralShorthandProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "octalLiterals": true,
-    "binaryLiterals": true,
-    "templateStrings": true,
-    "generators": true,
-    "modules": true
   },
   "rules": {
     // possible errors
@@ -49,8 +47,7 @@
     "quote-props": [2, "as-needed"],
     "vars-on-top": 2,
     "wrap-iife": 2,
-    // strict mode
-    "strict": [2, "global"],
+    "eqeqeq": 2,
     // variables
     "no-unused-vars": 2,
     // node.js
