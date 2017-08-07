@@ -15,7 +15,7 @@
     "third-party-helpers.js"
   ],
   "scripts": {
-    "lint": "eslint helpers partials test index.js",
+    "lint": "./node_modules/.bin/eslint helpers partials test index.js",
     "test-local": "npm run lint && istanbul cover _mocha",
     "test": "npm run lint && istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "generate-readme": "node docs/generate-readme.js && git add README.md",
@@ -48,7 +48,7 @@
     "coveralls": "^2.11.15",
     "date-fns": "^1.28.2",
     "documentation": "4.0.0-beta15",
-    "eslint": "^3.13.0",
+    "eslint": "^4.4.1",
     "handlebars-template-loader": "^0.7.0",
     "istanbul": "^0.4.5",
     "lodash-webpack-plugin": "^0.11.2",

@@ -6,7 +6,7 @@ const operators = {
   '>': (l, r) => l > r,
   '<=': (l, r) => l <= r,
   '>=': (l, r) => l >= r,
-  typeof: (l, r) => typeof l == r
+  typeof: (l, r) => typeof l === r
 };
 
 /**

@@ -11,16 +11,16 @@ module.exports = function (i) {
     k = i % 100;
 
   // if no value is supplied return an empty string
-  if (i == '') {
+  if (i === '') {
     return '';
   }
-  if (j == 1 && k != 11) {
+  if (j === 1 && k !== 11) {
     return i + 'st';
   }
-  if (j == 2 && k != 12) {
+  if (j === 2 && k !== 12) {
     return i + 'nd';
   }
-  if (j == 3 && k != 13) {
+  if (j === 3 && k !== 13) {
     return i + 'rd';
   }
   return i + 'th';

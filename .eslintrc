@@ -1,8 +1,6 @@
 {
   "parserOptions": {
-    // "sourceType": "module", wait until this is an es6 module
     "ecmaVersion": 6,
-    // enable the es6 features supported by our browsers / iojs
     "ecmaFeatures": {
       "arrowFunctions": true,
       "blockBindings": true,
@@ -49,8 +47,7 @@
     "quote-props": [2, "as-needed"],
     "vars-on-top": 2,
     "wrap-iife": 2,
-    // strict mode
-    "strict": [2, "global"],
+    "eqeqeq": 2,
     // variables
     "no-unused-vars": 2,
     // node.js
