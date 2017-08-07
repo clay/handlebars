@@ -10,20 +10,18 @@ module.exports = function (i) {
   const j = i % 10,
     k = i % 100;
 
-  // if no value is supplied return an empty string
-  if (i === '') {
-    return '';
-  }
-  if (j === 1 && k !== 11) {
+  // if no number is supplied, pass through string
+  if (i === '' || isNaN(i)) { // will check numbers and (numbers in) strings
+    return new String(i); // will convert to a string if it's a different type
+  } else if (j === 1 && k !== 11) {
     return i + 'st';
-  }
-  if (j === 2 && k !== 12) {
+  } else if (j === 2 && k !== 12) {
     return i + 'nd';
-  }
-  if (j === 3 && k !== 13) {
+  } else if (j === 3 && k !== 13) {
     return i + 'rd';
+  } else {
+    return i + 'th';
   }
-  return i + 'th';
 };
 
 module.exports.example = {
