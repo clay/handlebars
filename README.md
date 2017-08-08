@@ -1058,9 +1058,10 @@ encode urls (ported from the nunjucks  `urlencode`  filter)<br /> _note:_   `han
 
 # Partials
 
-Currently **1 partial**:
+Currently **2 partials**:
 
 * **component-list** ( [code](https://github.com/nymag/nymag-handlebars/blob/master/partials/component-list.hbs) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/partials/component-list.test.js) )
+* **data-track** ( [code](https://github.com/nymag/nymag-handlebars/blob/master/partials/data-track.hbs) | no tests )
 
 ---
 
