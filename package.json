@@ -28,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nymag/nymag-handlebars.git"
+    "url": "git+https://github.com/clay/handlebars.git"
   },
   "keywords": [
     "handlebars"
@@ -36,9 +36,9 @@
   "author": "New York Media",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nymag/nymag-handlebars/issues"
+    "url": "https://github.com/clay/handlebars/issues"
   },
-  "homepage": "https://github.com/nymag/nymag-handlebars#readme",
+  "homepage": "https://github.com/clay/handlebars#readme",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",

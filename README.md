@@ -1,8 +1,8 @@
 # nymag-handlebars
 
-[![Build Status](https://travis-ci.org/nymag/nymag-handlebars.svg)](https://travis-ci.org/nymag/nymag-handlebars)
-[![Coverage Status](https://coveralls.io/repos/github/nymag/nymag-handlebars/badge.svg?branch=master)](https://coveralls.io/github/nymag/nymag-handlebars?branch=master)
-[![Code Climate](https://codeclimate.com/github/nymag/nymag-handlebars/badges/gpa.svg)](https://codeclimate.com/github/nymag/nymag-handlebars)
+[![Build Status](https://travis-ci.org/clay/handlebars.svg)](https://travis-ci.org/clay/handlebars)
+[![Coverage Status](https://coveralls.io/repos/github/clay/handlebars/badge.svg?branch=master)](https://coveralls.io/github/clay/handlebars?branch=master)
+[![Code Climate](https://codeclimate.com/github/clay/handlebars/badges/gpa.svg)](https://codeclimate.com/github/clay/handlebars)
 
 A collection of helpers and partials for handlebars
 
@@ -47,89 +47,89 @@ Currently **56 helpers** in **10 categories**:
 
 ### arrays
 
-* [**join**](https://github.com/nymag/nymag-handlebars#join--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
-* [**map**](https://github.com/nymag/nymag-handlebars#map--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.test.js) )
-* [**range**](https://github.com/nymag/nymag-handlebars#range--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
+* [**join**](https://github.com/clay/handlebars#join--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/join.test.js) )
+* [**map**](https://github.com/clay/handlebars#map--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/map.test.js) )
+* [**range**](https://github.com/clay/handlebars#range--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/range.test.js) )
 
 ### components
 
-* [**addAnnotatedTextAria**](https://github.com/nymag/nymag-handlebars#addannotatedtextaria--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
-* [**addInSplashAds**](https://github.com/nymag/nymag-handlebars#addinsplashads--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
-* [**addOrderedIds**](https://github.com/nymag/nymag-handlebars#addorderedids--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
-* [**adsToDummies**](https://github.com/nymag/nymag-handlebars#adstodummies--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.test.js) )
-* [**displaySelf**](https://github.com/nymag/nymag-handlebars#displayself--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
-* [**displaySelfAll**](https://github.com/nymag/nymag-handlebars#displayselfall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
-* [**getComponentName**](https://github.com/nymag/nymag-handlebars#getcomponentname--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
+* [**addAnnotatedTextAria**](https://github.com/clay/handlebars#addannotatedtextaria--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
+* [**addInSplashAds**](https://github.com/clay/handlebars#addinsplashads--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
+* [**addOrderedIds**](https://github.com/clay/handlebars#addorderedids--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
+* [**adsToDummies**](https://github.com/clay/handlebars#adstodummies--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.test.js) )
+* [**displaySelf**](https://github.com/clay/handlebars#displayself--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.test.js) )
+* [**displaySelfAll**](https://github.com/clay/handlebars#displayselfall--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
+* [**getComponentName**](https://github.com/clay/handlebars#getcomponentname--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.test.js) )
 
 ### conditionals
 
-* [**compare**](https://github.com/nymag/nymag-handlebars#compare--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
-* [**if**](https://github.com/nymag/nymag-handlebars#if--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
-* [**ifAll**](https://github.com/nymag/nymag-handlebars#ifall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
-* [**ifAny**](https://github.com/nymag/nymag-handlebars#ifany--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
-* [**ifNone**](https://github.com/nymag/nymag-handlebars#ifnone--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
-* [**modulo**](https://github.com/nymag/nymag-handlebars#modulo--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.test.js) )
-* [**unlessAll**](https://github.com/nymag/nymag-handlebars#unlessall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
+* [**compare**](https://github.com/clay/handlebars#compare--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/compare.test.js) )
+* [**if**](https://github.com/clay/handlebars#if--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/if.test.js) )
+* [**ifAll**](https://github.com/clay/handlebars#ifall--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
+* [**ifAny**](https://github.com/clay/handlebars#ifany--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
+* [**ifNone**](https://github.com/clay/handlebars#ifnone--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
+* [**modulo**](https://github.com/clay/handlebars#modulo--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/modulo.test.js) )
+* [**unlessAll**](https://github.com/clay/handlebars#unlessall--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
 
 ### html
 
-* [**perWordClasses**](https://github.com/nymag/nymag-handlebars#perwordclasses--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
-* [**striptags**](https://github.com/nymag/nymag-handlebars#striptags--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
-* [**wordCount**](https://github.com/nymag/nymag-handlebars#wordcount--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
+* [**perWordClasses**](https://github.com/clay/handlebars#perwordclasses--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/html/perWordClasses.test.js) )
+* [**striptags**](https://github.com/clay/handlebars#striptags--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/striptags.js) | no tests )
+* [**wordCount**](https://github.com/clay/handlebars#wordcount--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/html/wordCount.test.js) )
 
 ### misc
 
-* [**default**](https://github.com/nymag/nymag-handlebars#default--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
-* [**extractImgHeight**](https://github.com/nymag/nymag-handlebars#extractimgheight--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
-* [**extractImgWidth**](https://github.com/nymag/nymag-handlebars#extractimgwidth--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
-* [**indexOf**](https://github.com/nymag/nymag-handlebars#indexof--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
-* [**set**](https://github.com/nymag/nymag-handlebars#set--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
-* [**slugToSiteName**](https://github.com/nymag/nymag-handlebars#slugtositename--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
+* [**default**](https://github.com/clay/handlebars#default--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/default.test.js) )
+* [**extractImgHeight**](https://github.com/clay/handlebars#extractimgheight--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
+* [**extractImgWidth**](https://github.com/clay/handlebars#extractimgwidth--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
+* [**indexOf**](https://github.com/clay/handlebars#indexof--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.test.js) )
+* [**set**](https://github.com/clay/handlebars#set--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/set.test.js) )
+* [**slugToSiteName**](https://github.com/clay/handlebars#slugtositename--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
 
 ### numbers
 
-* [**add**](https://github.com/nymag/nymag-handlebars#add--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
-* [**addCommas**](https://github.com/nymag/nymag-handlebars#addcommas--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
-* [**addOrdinalSuffix**](https://github.com/nymag/nymag-handlebars#addordinalsuffix--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
-* [**divide**](https://github.com/nymag/nymag-handlebars#divide--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.test.js) )
-* [**multiply**](https://github.com/nymag/nymag-handlebars#multiply--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.test.js) )
-* [**num**](https://github.com/nymag/nymag-handlebars#num--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
-* [**random**](https://github.com/nymag/nymag-handlebars#random--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
-* [**round**](https://github.com/nymag/nymag-handlebars#round--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.test.js) )
-* [**subtract**](https://github.com/nymag/nymag-handlebars#subtract--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
-* [**toK**](https://github.com/nymag/nymag-handlebars#tok--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
+* [**add**](https://github.com/clay/handlebars#add--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/add.test.js) )
+* [**addCommas**](https://github.com/clay/handlebars#addcommas--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/addCommas.test.js) )
+* [**addOrdinalSuffix**](https://github.com/clay/handlebars#addordinalsuffix--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
+* [**divide**](https://github.com/clay/handlebars#divide--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/divide.test.js) )
+* [**multiply**](https://github.com/clay/handlebars#multiply--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/multiply.test.js) )
+* [**num**](https://github.com/clay/handlebars#num--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/num.test.js) )
+* [**random**](https://github.com/clay/handlebars#random--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/random.test.js) )
+* [**round**](https://github.com/clay/handlebars#round--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/round.test.js) )
+* [**subtract**](https://github.com/clay/handlebars#subtract--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/subtract.test.js) )
+* [**toK**](https://github.com/clay/handlebars#tok--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 ### objects
 
-* [**commaSeparated**](https://github.com/nymag/nymag-handlebars#commaseparated--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
-* [**getProp**](https://github.com/nymag/nymag-handlebars#getprop--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
-* [**stringify**](https://github.com/nymag/nymag-handlebars#stringify--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.test.js) )
+* [**commaSeparated**](https://github.com/clay/handlebars#commaseparated--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
+* [**getProp**](https://github.com/clay/handlebars#getprop--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/getProp.test.js) )
+* [**stringify**](https://github.com/clay/handlebars#stringify--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/stringify.test.js) )
 
 ### strings
 
-* [**capitalize**](https://github.com/nymag/nymag-handlebars#capitalize--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
-* [**capitalizeAll**](https://github.com/nymag/nymag-handlebars#capitalizeall--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
-* [**concat**](https://github.com/nymag/nymag-handlebars#concat--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
-* [**includes**](https://github.com/nymag/nymag-handlebars#includes--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.test.js) )
-* [**kebabCase**](https://github.com/nymag/nymag-handlebars#kebabcase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
-* [**longestWord**](https://github.com/nymag/nymag-handlebars#longestword--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
-* [**lowercase**](https://github.com/nymag/nymag-handlebars#lowercase--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
-* [**randomString**](https://github.com/nymag/nymag-handlebars#randomstring--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
-* [**removeSpaces**](https://github.com/nymag/nymag-handlebars#removespaces--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
-* [**replace**](https://github.com/nymag/nymag-handlebars#replace--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
-* [**trim**](https://github.com/nymag/nymag-handlebars#trim--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
-* [**truncate**](https://github.com/nymag/nymag-handlebars#truncate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
+* [**capitalize**](https://github.com/clay/handlebars#capitalize--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalize.test.js) )
+* [**capitalizeAll**](https://github.com/clay/handlebars#capitalizeall--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
+* [**concat**](https://github.com/clay/handlebars#concat--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/concat.test.js) )
+* [**includes**](https://github.com/clay/handlebars#includes--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.test.js) )
+* [**kebabCase**](https://github.com/clay/handlebars#kebabcase--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
+* [**longestWord**](https://github.com/clay/handlebars#longestword--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/longestWord.test.js) )
+* [**lowercase**](https://github.com/clay/handlebars#lowercase--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/lowercase.test.js) )
+* [**randomString**](https://github.com/clay/handlebars#randomstring--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/randomString.test.js) )
+* [**removeSpaces**](https://github.com/clay/handlebars#removespaces--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
+* [**replace**](https://github.com/clay/handlebars#replace--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/replace.test.js) )
+* [**trim**](https://github.com/clay/handlebars#trim--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/trim.test.js) )
+* [**truncate**](https://github.com/clay/handlebars#truncate--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/truncate.test.js) )
 
 ### time
 
-* [**articleDate**](https://github.com/nymag/nymag-handlebars#articledate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
-* [**dateMinimal**](https://github.com/nymag/nymag-handlebars#dateminimal--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.test.js) )
-* [**formatLocalDate**](https://github.com/nymag/nymag-handlebars#formatlocaldate--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
-* [**moment**](https://github.com/nymag/nymag-handlebars#moment--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
+* [**articleDate**](https://github.com/clay/handlebars#articledate--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/articleDate.test.js) )
+* [**dateMinimal**](https://github.com/clay/handlebars#dateminimal--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/dateMinimal.test.js) )
+* [**formatLocalDate**](https://github.com/clay/handlebars#formatlocaldate--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
+* [**moment**](https://github.com/clay/handlebars#moment--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/moment.js) | no tests )
 
 ### urls
 
-* [**urlencode**](https://github.com/nymag/nymag-handlebars#urlencode--code--tests-) ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/urls/urlencode.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/urls/urlencode.test.js) )
+* [**urlencode**](https://github.com/clay/handlebars#urlencode--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/urls/urlencode.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/urls/urlencode.test.js) )
 
 ---
 
@@ -137,7 +137,7 @@ Currently **56 helpers** in **10 categories**:
 ## arrays
 
 
-### join ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/join.test.js) )
+### join ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/join.test.js) )
 
 join all elements of array into a string, optionally using a given separator
 
@@ -154,7 +154,7 @@ join all elements of array into a string, optionally using a given separator
 //=> "a-b-c"
 ```
 
-### map ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/map.test.js) )
+### map ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/map.test.js) )
 
 map through array, call function on each item
 
@@ -171,7 +171,7 @@ map through array, call function on each item
 //=> "1, 2"
 ```
 
-### range ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/arrays/range.test.js) )
+### range ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/range.test.js) )
 
 return an array of numbers, in order<br /> _note:_  can be used inline or as a block helper (will iterate through all numbers)
 
@@ -192,7 +192,7 @@ return an array of numbers, in order<br /> _note:_  can be used inline or as a b
 ## components
 
 
-### addAnnotatedTextAria ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
+### addAnnotatedTextAria ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
 
 Add aria to phrases in paragraphs, corresponds to annotation ids.
 
@@ -208,7 +208,7 @@ Add aria to phrases in paragraphs, corresponds to annotation ids.
 
 ```
 
-### addInSplashAds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
+### addInSplashAds ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
 
 Add in article ads to list of components in an article
 
@@ -226,7 +226,7 @@ Add in article ads to list of components in an article
 
 ```
 
-### addOrderedIds ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
+### addOrderedIds ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
 
 Add ordered ids to components within a componentlist
 
@@ -244,7 +244,7 @@ Add ordered ids to components within a componentlist
 
 ```
 
-### adsToDummies ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/adsToDummies.test.js) )
+### adsToDummies ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.test.js) )
 
 Given a list of component instance objects, replace each ad component<br />with a site's "dummy" ad instance, matching the properties of the ad<br />instance replaced.
 
@@ -256,7 +256,7 @@ Given a list of component instance objects, replace each ad component<br />with 
 **Returns** _(Array)_ an array of components, with ads replaced with the
                   ad dummy instance
 
-### displaySelf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelf.test.js) )
+### displaySelf ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.test.js) )
 
 Return the first component (from a list of components) with a truthy  `displaySelf`  property. Used by Spaces.
 
@@ -272,7 +272,7 @@ Return the first component (from a list of components) with a truthy  `displaySe
 
 ```
 
-### displaySelfAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
+### displaySelfAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
 
 Return all components (from a list of components) with a truthy  `displaySelf`  property. Used by Spaces.
 
@@ -288,7 +288,7 @@ Return all components (from a list of components) with a truthy  `displaySelf`  
 
 ```
 
-### getComponentName ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/components/getComponentName.test.js) )
+### getComponentName ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.test.js) )
 
 get a component's name from the reference
 
@@ -307,7 +307,7 @@ get a component's name from the reference
 ## conditionals
 
 
-### compare ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/compare.test.js) )
+### compare ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/compare.test.js) )
 
 compare two values, with an operator.<br /> _note:_  if you don't pass an operator, it assumes  `===` <br /> _note:_  this can be used as a block  _or_  inline helper
 
@@ -326,7 +326,7 @@ compare two values, with an operator.<br /> _note:_  if you don't pass an operat
 //=> "true"
 ```
 
-### if ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/if.test.js) )
+### if ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/if.test.js) )
 
 overwrite default handlebars 'if' helper<br />this adds support for an inline helper,  `{{if foo bar}}`   _(if foo is truthy, print bar)_ <br />as well as an inline if/else helper,  `{{if foo bar else=baz}}`   _(if foo is truthy, print bar. otherwise, print baz)_
 
@@ -344,7 +344,7 @@ overwrite default handlebars 'if' helper<br />this adds support for an inline he
 //=> "bar"
 ```
 
-### ifAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
+### ifAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
 
 block helper for checking if ALL arguments passed in are truthy
 
@@ -363,7 +363,7 @@ block helper for checking if ALL arguments passed in are truthy
 
 ```
 
-### ifAny ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
+### ifAny ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
 
 block helper for checking if ANY arguments passed in are truthy
 
@@ -382,7 +382,7 @@ block helper for checking if ANY arguments passed in are truthy
 
 ```
 
-### ifNone ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
+### ifNone ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 
 block helper for checking if NO arguments passed in are truthy
 
@@ -401,7 +401,7 @@ block helper for checking if NO arguments passed in are truthy
 
 ```
 
-### modulo ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/modulo.test.js) )
+### modulo ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/modulo.test.js) )
 
 compare the modulo of two values to a third value
 
@@ -420,7 +420,7 @@ compare the modulo of two values to a third value
 //=> true
 ```
 
-### unlessAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
+### unlessAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
 
 block helper for checking that NOT ALL arguments passed in are truthy<br /> _note:_  this is the inverse of the ifAll helper
 
@@ -442,7 +442,7 @@ block helper for checking that NOT ALL arguments passed in are truthy<br /> _not
 ## html
 
 
-### perWordClasses ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/perWordClasses.test.js) )
+### perWordClasses ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/html/perWordClasses.test.js) )
 
 wraps each word in spans with classes allowing designers and devs to target individual words with css
 
@@ -460,7 +460,7 @@ wraps each word in spans with classes allowing designers and devs to target indi
 //=> <span class="_one">One</span> <span class="_two">two</span> <span class="_three">three</span>
 ```
 
-### striptags ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/striptags.js) | no tests )
+### striptags ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/striptags.js) | no tests )
 
 straight passthrough to  [striptags](https://www.npmjs.com/package/striptags)
 
@@ -473,7 +473,7 @@ straight passthrough to  [striptags](https://www.npmjs.com/package/striptags)
 //=> Hello World!
 ```
 
-### wordCount ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/html/wordCount.test.js) )
+### wordCount ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/html/wordCount.test.js) )
 
 counts the words in a string of text or html
 
@@ -492,7 +492,7 @@ counts the words in a string of text or html
 ## misc
 
 
-### default ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/default.test.js) )
+### default ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/default.test.js) )
 
 return the first value if it's not empty, otherwise return the second value<br /> _note:_  this overrides handlebar-helper's  [default](https://github.com/helpers/handlebars-helpers#default)  helper, since that only checks for null values (not all falsy/empty values)
 
@@ -507,7 +507,7 @@ return the first value if it's not empty, otherwise return the second value<br /
 //=> foo
 ```
 
-### extractImgHeight ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
+### extractImgHeight ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
 
 Extract the height of a mediaplay image given the image URL.
 
@@ -523,7 +523,7 @@ Extract the height of a mediaplay image given the image URL.
 //=> 946
 ```
 
-### extractImgWidth ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
+### extractImgWidth ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
 
 Extract the width of a mediaplay image given the image URL.
 
@@ -539,7 +539,7 @@ Extract the width of a mediaplay image given the image URL.
 //=> 1420
 ```
 
-### indexOf ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/indexOf.test.js) )
+### indexOf ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.test.js) )
 
 get the index of something inside something else
 
@@ -556,7 +556,7 @@ get the index of something inside something else
 //=> 1
 ```
 
-### set ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/set.test.js) )
+### set ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/set.test.js) )
 
 set data into current context or other optional context/object<br /> _note:_  doesn't return anything
 
@@ -572,7 +572,7 @@ set data into current context or other optional context/object<br /> _note:_  do
 //=> "abc"
 ```
 
-### slugToSiteName ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
+### slugToSiteName ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
 
 return comma-separated site names from comma-separated slugs
 
@@ -591,7 +591,7 @@ return comma-separated site names from comma-separated slugs
 ## numbers
 
 
-### add ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/add.test.js) )
+### add ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/add.test.js) )
 
 Return the product of  `a`  plus  `b`
 
@@ -608,7 +608,7 @@ Return the product of  `a`  plus  `b`
 //=> 5
 ```
 
-### addCommas ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addCommas.test.js) )
+### addCommas ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 
 add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCommas`  helper because we want to preserve zeroes in decimals (for money)<br />e.g.  `1234.50`  →  `1,234.50`  instead of  `1,234.5` <br /> _note:_  decimals are only preserved if passed in as a string (they don't exist in js numbers)
 
@@ -624,7 +624,7 @@ add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCo
 //=> "1,234.50"
 ```
 
-### addOrdinalSuffix ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
+### addOrdinalSuffix ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
 
 add ordinal after a number<br />e.g.  `1`  →  `1st` ,  `2`  →  `2nd` ,  `3`  →  `3rd`
 
@@ -640,7 +640,7 @@ add ordinal after a number<br />e.g.  `1`  →  `1st` ,  `2`  →  `2nd` ,  `3` 
 //=> 1st
 ```
 
-### divide ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/divide.test.js) )
+### divide ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/divide.test.js) )
 
 Return the result of  `a`  divided by  `b`
 
@@ -657,7 +657,7 @@ Return the result of  `a`  divided by  `b`
 //=> 25
 ```
 
-### multiply ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/multiply.test.js) )
+### multiply ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/multiply.test.js) )
 
 Return the product of  `a`  multiplied by  `b`
 
@@ -674,7 +674,7 @@ Return the product of  `a`  multiplied by  `b`
 //=> 100
 ```
 
-### num ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/num.test.js) )
+### num ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/num.test.js) )
 
 converts things (usually strings) into numbers<br /> _note:_  this is useful if you need to parse user input
 
@@ -690,7 +690,7 @@ converts things (usually strings) into numbers<br /> _note:_  this is useful if 
 //=> 123
 ```
 
-### random ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/random.test.js) )
+### random ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/random.test.js) )
 
 Returns a number within a specified range.
 
@@ -700,7 +700,7 @@ Returns a number within a specified range.
 
 **Returns** _(Number)_ 
 
-### round ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/round.test.js) )
+### round ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/round.test.js) )
 
 Return the rounded value of  `x` , optionally always rounding up or down
 
@@ -717,7 +717,7 @@ Return the rounded value of  `x` , optionally always rounding up or down
 //=> 1
 ```
 
-### subtract ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/subtract.test.js) )
+### subtract ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/subtract.test.js) )
 
 Return the product of  `a`  minus  `b`
 
@@ -734,7 +734,7 @@ Return the product of  `a`  minus  `b`
 //=> 1
 ```
 
-### toK ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/numbers/toK.test.js) )
+### toK ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/toK.test.js) )
 
 format thousands using  `k` <br />e.g.  `1000`  →  `1k`
 
@@ -753,7 +753,7 @@ format thousands using  `k` <br />e.g.  `1000`  →  `1k`
 ## objects
 
 
-### commaSeparated ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
+### commaSeparated ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
 
 Turn an object into a comma-delineated list of key names, depending if their values are true/false
 
@@ -770,7 +770,7 @@ Turn an object into a comma-delineated list of key names, depending if their val
 //=> "Alpha, Bravo charlie"
 ```
 
-### getProp ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/getProp.test.js) )
+### getProp ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/getProp.test.js) )
 
 get property in object<br />this is similar to handlebars-helpers'  [`get`](https://github.com/helpers/handlebars-helpers#get) , but the context is called on a returned function.<br />this allows you to easily convert arrays of objects to arrays of a specific property from each objects
 
@@ -786,7 +786,7 @@ get property in object<br />this is similar to handlebars-helpers'  [`get`](http
 //=> "1, 2"
 ```
 
-### stringify ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/objects/stringify.test.js) )
+### stringify ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/stringify.test.js) )
 
 stringify JSON<br /> _note:_  doesn't blow up on circular references
 
@@ -805,7 +805,7 @@ stringify JSON<br /> _note:_  doesn't blow up on circular references
 ## strings
 
 
-### capitalize ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalize.test.js) )
+### capitalize ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalize.test.js) )
 
 capitalize the first character in a string
 
@@ -821,7 +821,7 @@ capitalize the first character in a string
 //=> "Foo bar"
 ```
 
-### capitalizeAll ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
+### capitalizeAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
 
 capitalize every word in a string
 
@@ -837,7 +837,7 @@ capitalize every word in a string
 //=> "Foo Bar"
 ```
 
-### concat ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/concat.test.js) )
+### concat ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/concat.test.js) )
 
 concatenate any number of strings
 
@@ -852,7 +852,7 @@ concatenate any number of strings
 //=> "FooBarBaz"
 ```
 
-### includes ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/includes.test.js) )
+### includes ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.test.js) )
 
 check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.
 
@@ -869,7 +869,7 @@ check if a substring exist within a string. This is very similiar to the<br />in
 //=> true
 ```
 
-### kebabCase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
+### kebabCase ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
 straight passthrough to  [`_kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
 
@@ -882,7 +882,7 @@ straight passthrough to  [`_kebabCase`](https://lodash.com/docs/4.17.4#kebabCase
 //=> "foo-bar-baz"
 ```
 
-### longestWord ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/longestWord.test.js) )
+### longestWord ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/longestWord.test.js) )
 
 returns the number of characters in the longest word of a string. Punctuation is NOT ignored.
 
@@ -898,7 +898,7 @@ returns the number of characters in the longest word of a string. Punctuation is
 //=> 3
 ```
 
-### lowercase ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/lowercase.test.js) )
+### lowercase ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/lowercase.test.js) )
 
 lower cases a string<br /> _note:_  non-strings will return emptystring
 
@@ -914,7 +914,7 @@ lower cases a string<br /> _note:_  non-strings will return emptystring
 //=> "foo"
 ```
 
-### randomString ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/randomString.test.js) )
+### randomString ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/randomString.test.js) )
 
 generate a random string<br /> _note:_  by default it generates an 8-character string
 
@@ -932,7 +932,7 @@ generate a random string<br /> _note:_  by default it generates an 8-character s
 //=> "greatest-hit-z56"
 ```
 
-### removeSpaces ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
+### removeSpaces ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
 
 remove spaces, used by in-page  `id`  attributes so we can do in-page links<br />(per the HTML spec IDs cannot have spaces)
 
@@ -948,7 +948,7 @@ remove spaces, used by in-page  `id`  attributes so we can do in-page links<br /
 //=> "FooBar"
 ```
 
-### replace ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/replace.test.js) )
+### replace ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/replace.test.js) )
 
 replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple string replacement, not regex
 
@@ -966,7 +966,7 @@ replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple stri
 //=> "Foo Baz"
 ```
 
-### trim ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/trim.test.js) )
+### trim ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/trim.test.js) )
 
 trim leading and trailing whitespace from a string
 
@@ -982,7 +982,7 @@ trim leading and trailing whitespace from a string
 //=> "Foo"
 ```
 
-### truncate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/strings/truncate.test.js) )
+### truncate ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/truncate.test.js) )
 
 If a string is over a given length, truncate and append an ellipsis character to the end.
 
@@ -1004,7 +1004,7 @@ If a string is over a given length, truncate and append an ellipsis character to
 ## time
 
 
-### articleDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/articleDate.test.js) )
+### articleDate ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/articleDate.test.js) )
 
 generate article dates and times, based on a relative format
 
@@ -1020,7 +1020,7 @@ generate article dates and times, based on a relative format
 //=> "Yesterday at 6:22 p.m."
 ```
 
-### dateMinimal ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/dateMinimal.test.js) )
+### dateMinimal ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/dateMinimal.test.js) )
 
 generate display date (without time), based on a relative format
 
@@ -1036,7 +1036,7 @@ generate display date (without time), based on a relative format
 //=> "Yesterday"
 ```
 
-### formatLocalDate ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
+### formatLocalDate ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
 
 Formats a date with date-fns
 
@@ -1046,7 +1046,7 @@ Formats a date with date-fns
 
 **Returns** _(string)_ 
 
-### moment ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/time/moment.js) | no tests )
+### moment ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/moment.js) | no tests )
 
 _No description_
 
@@ -1055,7 +1055,7 @@ _No description_
 ## urls
 
 
-### urlencode ( [code](https://github.com/nymag/nymag-handlebars/blob/master/helpers/urls/urlencode.js) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/helpers/urls/urlencode.test.js) )
+### urlencode ( [code](https://github.com/clay/handlebars/blob/master/helpers/urls/urlencode.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/urls/urlencode.test.js) )
 
 encode urls (ported from the nunjucks  `urlencode`  filter)<br /> _note:_   `handlebars-helpers`  contains an  `encodeURI`  helper, but it doesn't handle arrays or objects.
 
@@ -1077,12 +1077,12 @@ encode urls (ported from the nunjucks  `urlencode`  filter)<br /> _note:_   `han
 
 Currently **1 partial**:
 
-* **component-list** ( [code](https://github.com/nymag/nymag-handlebars/blob/master/partials/component-list.hbs) | [tests](https://github.com/nymag/nymag-handlebars/blob/master/partials/component-list.test.js) )
+* **component-list** ( [code](https://github.com/clay/handlebars/blob/master/partials/component-list.hbs) | [tests](https://github.com/clay/handlebars/blob/master/partials/component-list.test.js) )
 
 ---
 
 # Contributing
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/nymag/nymag-handlebars/issues/new).
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/clay/handlebars/issues/new).
 
-This project is released under the [MIT license](https://github.com/nymag/nymag-handlebars/blob/master/LICENSE).
+This project is released under the [MIT license](https://github.com/clay/handlebars/blob/master/LICENSE).
