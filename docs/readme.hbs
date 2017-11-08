@@ -1,4 +1,4 @@
-# nymag-handlebars
+# clayhandlebars
 
 [![Build Status](https://travis-ci.org/clay/handlebars.svg)](https://travis-ci.org/clay/handlebars)
 [![Coverage Status](https://coveralls.io/repos/github/clay/handlebars/badge.svg?branch=master)](https://coveralls.io/github/clay/handlebars?branch=master)
@@ -9,15 +9,15 @@ A collection of helpers and partials for handlebars
 # Installation
 
 ```
-npm install --save nymag-handlebars
+npm install --save clayhandlebars
 ```
 
 # Usage
 
-By default, `nymag-handlebars` will export a function that returns a new handlebars instance with all of the helpers and partials added.
+By default, `clayhandlebars` will export a function that returns a new handlebars instance with all of the helpers and partials added.
 
 ```js
-var hbs = require('nymag-handlebars')(),
+var hbs = require('clayhandlebars')(),
   template = hbs.compile('<h1>Hello \{{ place }}!</h1>'),
   result = template({ place: 'World' });
 
@@ -31,7 +31,7 @@ If you want to configure and use your own handlebars environment, you can pass i
 ```js
 var Handlebars = require('express-handlebars'),
   env = new Handlebars({ /* some config */ }),
-  hbs = require('nymag-handlebars')(env),
+  hbs = require('clayhandlebars')(env),
   app = require('express')();
 
 app.engine('handlebars', hbs.engine);
