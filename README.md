@@ -629,7 +629,7 @@ add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCo
 add ordinal after a number<br />e.g.  `1`  →  `1st` ,  `2`  →  `2nd` ,  `3`  →  `3rd`
 
 #### Params
-* `i` _(number|string)_ number to add ordinal after
+* `num` _(number|string)_ number to add ordinal after
 
 **Returns** _(string)_ 
 
