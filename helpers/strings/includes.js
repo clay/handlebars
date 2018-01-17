@@ -3,6 +3,8 @@
  * check if a substring exist within a string. This is very similiar to the
  * indexOf helper, except it uses String.prototype.includes() and returns a
  * boolean.
+ * note: handlebars returns booleans as strings, so only return a value if the substring is found
+ * otherwise, return undefined (rather than false)
  *
  * @param  {string} string
  * @param  {string} substring
@@ -15,12 +17,8 @@ module.exports = function (string, substring) {
   } else if (typeof string !== 'string' || typeof substring !== 'string') {
     // something's there, but it's not a string
     throw new Error('includes needs a string to search');
-  } else {
-    // Handlebars returns booleans as strings, so only return a value if the
-    // substring is found
-    if (string.includes(substring)) {
-      return true;
-    }
+  } else if (string.includes(substring)) {
+    return true;
   }
 };
 

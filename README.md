@@ -854,7 +854,7 @@ concatenate any number of strings
 
 ### includes ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.test.js) )
 
-check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.
+check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.<br />note: handlebars returns booleans as strings, so only return a value if the substring is found<br />otherwise, return undefined (rather than false)
 
 #### Params
 * `string` _(string)_ 
