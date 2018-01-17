@@ -1,26 +1,43 @@
 'use strict';
 
+function mod10(num) {
+  return num % 10;
+}
+
+function mod100(num) {
+  return num % 100;
+}
+
+function isFirst(num) {
+  return mod10(num) === 1 && mod100(num) !== 11;
+}
+
+function isSecond(num) {
+  return mod10(num) === 2 && mod100(num) !== 12;
+}
+
+function isThird(num) {
+  return mod10(num) === 3 && mod100(num) !== 13;
+}
+
 /**
  * add ordinal after a number
  * e.g. `1` → `1st`, `2` → `2nd`, `3` → `3rd`
- * @param  {number|string} i number to add ordinal after
+ * @param  {number|string} num number to add ordinal after
  * @return {string}
  */
-module.exports = function (i) {
-  const j = i % 10,
-    k = i % 100;
-
+module.exports = function (num) {
   // if no number is supplied, pass through string
-  if (i === '' || isNaN(i)) { // will check numbers and (numbers in) strings
-    return new String(i); // will convert to a string if it's a different type
-  } else if (j === 1 && k !== 11) {
-    return i + 'st';
-  } else if (j === 2 && k !== 12) {
-    return i + 'nd';
-  } else if (j === 3 && k !== 13) {
-    return i + 'rd';
+  if (num === '' || isNaN(num)) { // will check numbers and (numbers in) strings
+    return new String(num); // will convert to a string if it's a different type
+  } else if (isFirst(num)) {
+    return `${num}st`;
+  } else if (isSecond(num)) {
+    return `${num}nd`;
+  } else if (isThird(num)) {
+    return `${num}rd`;
   } else {
-    return i + 'th';
+    return `${num}th`;
   }
 };
 

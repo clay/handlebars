@@ -3,17 +3,21 @@ const name = getName(__filename),
   tpl = hbs.compile('{{ includes a b }}');
 
 describe(name, function () {
-  it('throws an error if no value passed in', function () {
+  it('returns empty if no value passed in', function () {
+    expect(tpl({a: null, b: 'test'})).to.be.empty;
+  });
+
+  it('throws an error if first arg is not string', function () {
     const result = function () {
-      return tpl({a: null, b: 'test'});
+      return tpl({a: 100, b: 'test'});
     };
 
     expect(result).to.throw(Error);
   });
 
-  it('throws an error if arguments are not strings', function () {
+  it('throws an error if second arg is not string', function () {
     const result = function () {
-      return tpl({a: 100, b: 'test'});
+      return tpl({a: 'test', b: 100});
     };
 
     expect(result).to.throw(Error);

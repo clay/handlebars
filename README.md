@@ -629,7 +629,7 @@ add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCo
 add ordinal after a number<br />e.g.  `1`  →  `1st` ,  `2`  →  `2nd` ,  `3`  →  `3rd`
 
 #### Params
-* `i` _(number|string)_ number to add ordinal after
+* `num` _(number|string)_ number to add ordinal after
 
 **Returns** _(string)_ 
 
@@ -854,13 +854,11 @@ concatenate any number of strings
 
 ### includes ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.test.js) )
 
-check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.
+check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.<br />note: handlebars returns booleans as strings, so only return a value if the substring is found<br />otherwise, return undefined (rather than false)
 
 #### Params
 * `string` _(string)_ 
 * `substring` _(string)_ 
-
-**Returns** _(boolean)_ 
 
 #### Example
 
