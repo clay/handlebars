@@ -16,7 +16,7 @@ function isSecond(num) {
   return mod10(num) === 2 && mod100(num) !== 12;
 }
 
-function isFourth(num) {
+function isThird(num) {
   return mod10(num) === 3 && mod100(num) !== 13;
 }
 
@@ -34,7 +34,7 @@ module.exports = function (num) {
     return `${num}st`;
   } else if (isSecond(num)) {
     return `${num}nd`;
-  } else if (isFourth(num)) {
+  } else if (isThird(num)) {
     return `${num}rd`;
   } else {
     return `${num}th`;
