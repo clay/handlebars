@@ -860,8 +860,6 @@ check if a substring exist within a string. This is very similiar to the<br />in
 * `string` _(string)_ 
 * `substring` _(string)_ 
 
-**Returns** _(boolean)_ 
-
 #### Example
 
 ```hbs
