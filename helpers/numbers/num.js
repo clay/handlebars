@@ -7,7 +7,7 @@
  * @return {string}
  */
 module.exports = function (x) {
-  return parseInt(x, 10);;
+  return parseInt(x, 10);
 };
 
 module.exports.example = {
