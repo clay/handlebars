@@ -11,11 +11,7 @@ describe(name, function () {
     expect(tpl({a: '123'})).to.equal('123');
   });
 
-  it('throws error if it cannot parse', function () {
-    const result = function () {
-      return tpl({a: []});
-    };
-
-    expect(result).to.throw(Error);
+  it('returns NaN for unparsable values', function () {
+    expect(tpl({a: []})).to.equal('NaN');
   });
 });
