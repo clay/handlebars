@@ -25,7 +25,10 @@ module.exports = {
     }, {
       // allows us to require() partials
       test: /\.hbs$/,
-      loader: 'handlebars-template-loader'
+      loader: 'handlebars-template-loader',
+      query: {
+        attributes: []
+      }
     }]
   },
   plugins: [
