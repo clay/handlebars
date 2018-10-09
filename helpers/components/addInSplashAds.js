@@ -15,10 +15,10 @@ function getComponentType(component) {
  * Add in article ads to list of components in an article
  * @param {array} content - the list of components in the article
  * @param {object} articleData - the entire article's data, used to pull in the different ad units defined
- * @param {string} afterComponent - the component type to insert the ad after
+ * @param {string} afterCmp - the component type to insert the ad after
  * @return {object} splash
  */
-module.exports = function (content, articleData, afterComponent) {
+module.exports = function (content, articleData, afterCmp) {
   var adUnits;
 
   let newContent = []; // don't just replace the content (it's a sealed array), create a new array!
@@ -26,19 +26,24 @@ module.exports = function (content, articleData, afterComponent) {
   if (articleData) {
     adUnits = articleData.inSplashDesktopAd || articleData.inSplashTabletAd || articleData.inSplashMobileAd;
   }
+
   if (adUnits) {
     _forEach(content, function (component) {
       const componentType = getComponentType(component);
 
+
       // add the current component before any ads
       newContent.push(component);
-      if (componentType === afterComponent) {
+      if (componentType === afterCmp) {
+        /* istanbul ignore else */
         if (articleData.inSplashMobileAd) {
           newContent.push(articleData.inSplashMobileAd);
         }
+        /* istanbul ignore else */
         if (articleData.inSplashTabletAd) {
           newContent.push(articleData.inSplashTabletAd);
         }
+        /* istanbul ignore else */
         if (articleData.inSplashDesktopAd) {
           newContent.push(articleData.inSplashDesktopAd);
         }
