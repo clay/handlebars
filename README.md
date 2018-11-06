@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **56 helpers** in **10 categories**:
+Currently **55 helpers** in **10 categories**:
 
 
 ### arrays
@@ -84,7 +84,6 @@ Currently **56 helpers** in **10 categories**:
 * [**extractImgWidth**](https://github.com/clay/handlebars#extractimgwidth--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
 * [**indexOf**](https://github.com/clay/handlebars#indexof--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.test.js) )
 * [**set**](https://github.com/clay/handlebars#set--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/set.test.js) )
-* [**slugToSiteName**](https://github.com/clay/handlebars#slugtositename--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
 
 ### numbers
 
@@ -215,7 +214,7 @@ Add in article ads to list of components in an article
 #### Params
 * `content` _(array)_ the list of components in the article
 * `articleData` _(object)_ the entire article's data, used to pull in the different ad units defined
-* `afterComponent` _(string)_ the component type to insert the ad after
+* `afterCmp` _(string)_ the component type to insert the ad after
 
 **Returns** _(object)_ splash
 
@@ -570,22 +569,6 @@ set data into current context or other optional context/object<br /> _note:_  do
 ```hbs
 {{ set "a.b.c" "abc" }}{{ a.b.c }}
 //=> "abc"
-```
-
-### slugToSiteName ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
-
-return comma-separated site names from comma-separated slugs
-
-#### Params
-* `slugs` _(string)_ comma-separated string of slugs
-
-**Returns** _(string)_ 
-
-#### Example
-
-```hbs
-{{ slugToSiteName (commaSeparated crosspost) }}
-
 ```
 
 ## numbers

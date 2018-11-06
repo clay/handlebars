@@ -52,11 +52,17 @@ describe(name, function () {
   });
 
   it('returns the same content when the string passed in is not a component in the content', function () {
-    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'notAComponent');
+    var result = filter([desktopAd, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'notAComponent');
 
-    expect(result[0]).to.equal(paragraph4);
+    expect(result[0]).to.equal(desktopAd);
     expect(result[1]).to.equal(paragraph1);
     expect(result[2]).to.equal(mediaplayComponent);
     expect(result[3]).to.equal(paragraph1);
+  });
+
+  it('should just return the content if there is no articleData', function () {
+    var result = filter([mobileAd, paragraph1, mediaplayComponent, paragraph1], {}, 'notAComponent');
+
+    expect(_.includes(result, mobileAd)).to.equal(true);
   });
 });
