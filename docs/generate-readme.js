@@ -58,40 +58,45 @@ function parseType(obj) {
 }
 
 function generateDoc(helper) {
-  const rawDoc = _.find(doc.buildSync([helper], { shallow: true }), function (section) {
-    // grab the jsdoc for the exported function
-    // note: you must do `module.exports = function () {}`,
-    // rather than declaring a named function above and referencing it
-    // from module.exports
-    return section.namespace === path.basename(helper, '.js');
+  return doc.build(
+    [helper],
+    { shallow: true }
+  ).then(function (result) {
+    const rawDoc = _.find(result, function (section) {
+      // grab the jsdoc for the exported function
+      // note: you must do `module.exports = function () {}`,
+      // rather than declaring a named function above and referencing it
+      // from module.exports
+      return section.namespace === path.basename(helper, '.js');
+    });
+
+    if (!_.isEmpty(rawDoc)) {
+      let desc = _.get(rawDoc, 'description.children[0].children') || [],
+        ret = _.get(rawDoc, 'returns[0].description.children[0].children') || [],
+        returnType = _.get(rawDoc, 'returns[0].type.name'),
+        description = desc.map(parseDoc).join(' ').replace(/\n/g, '<br />'),
+        params = _.map(rawDoc.params, function (param) {
+          let desc = _.get(param, 'description.children[0].children') || [];
+  
+          return {
+            name: param.name,
+            type: parseType(param.type),
+            isOptional: _.get(param, 'type.type') === 'OptionalType',
+            description: desc.map(parseDoc).join(' ')
+          };
+        }),
+        returnValue = ret.map(parseDoc).join(' ');
+  
+      return {
+        description,
+        params,
+        returnValue,
+        returnType
+      };
+    } else {
+      return {};
+    }
   });
-
-  if (!_.isEmpty(rawDoc)) {
-    let desc = _.get(rawDoc, 'description.children[0].children') || [],
-      ret = _.get(rawDoc, 'returns[0].description.children[0].children') || [],
-      returnType = _.get(rawDoc, 'returns[0].type.name'),
-      description = desc.map(parseDoc).join(' ').replace(/\n/g, '<br />'),
-      params = _.map(rawDoc.params, function (param) {
-        let desc = _.get(param, 'description.children[0].children') || [];
-
-        return {
-          name: param.name,
-          type: parseType(param.type),
-          isOptional: _.get(param, 'type.type') === 'OptionalType',
-          description: desc.map(parseDoc).join(' ')
-        };
-      }),
-      returnValue = ret.map(parseDoc).join(' ');
-
-    return {
-      description,
-      params,
-      returnValue,
-      returnType
-    };
-  } else {
-    return {};
-  }
 }
 
 /**
