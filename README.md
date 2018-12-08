@@ -139,9 +139,13 @@ Currently **56 helpers** in **10 categories**:
 
 ### join ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/join.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/join.test.js) )
 
-_No description_
+join all elements of array into a string, optionally using a given separator
 
+#### Params
+* `array` _(array)_ 
+* `[sep]` _(string)_ the separator to use (defaults to ', ')
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -152,9 +156,13 @@ _No description_
 
 ### map ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/map.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/map.test.js) )
 
-_No description_
+map through array, call function on each item
 
+#### Params
+* `array` _(array|string)_ of items to iterate through
+* `fn` _(function)_ to run on each item
 
+**Returns** _(array)_ 
 
 #### Example
 
@@ -165,9 +173,14 @@ _No description_
 
 ### range ( [code](https://github.com/clay/handlebars/blob/master/helpers/arrays/range.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/arrays/range.test.js) )
 
-_No description_
+return an array of numbers, in order<br /> _note:_  can be used inline or as a block helper (will iterate through all numbers)
 
+#### Params
+* `[start]` _(number)_ on this number (defaults to 0)
+* `end` _(number)_ on this number
+* `[options]` _(object)_ 
 
+**Returns** _(array)_ 
 
 #### Example
 
@@ -181,9 +194,12 @@ _No description_
 
 ### addAnnotatedTextAria ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addAnnotatedTextAria.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addAnnotatedTextAria.test.js) )
 
-_No description_
+Add aria to phrases in paragraphs, corresponds to annotation ids.
 
+#### Params
+* `content` _(array)_ list of components
 
+**Returns** _(array)_ content
 
 #### Example
 
@@ -194,9 +210,14 @@ _No description_
 
 ### addInSplashAds ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addInSplashAds.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addInSplashAds.test.js) )
 
-_No description_
+Add in article ads to list of components in an article
 
+#### Params
+* `content` _(array)_ the list of components in the article
+* `articleData` _(object)_ the entire article's data, used to pull in the different ad units defined
+* `afterComponent` _(string)_ the component type to insert the ad after
 
+**Returns** _(object)_ splash
 
 #### Example
 
@@ -207,9 +228,14 @@ _No description_
 
 ### addOrderedIds ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/addOrderedIds.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/addOrderedIds.test.js) )
 
-_No description_
+Add ordered ids to components within a componentlist
 
+#### Params
+* `content` _(Array)_ list of components
+* `prefix` _(string)_ prefix for the ids
+* `[offset]` _(number)_ index to start at, defaults to 1
 
+**Returns** _(Array)_ content
 
 #### Example
 
@@ -220,15 +246,24 @@ _No description_
 
 ### adsToDummies ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.test.js) )
 
-_No description_
+Given a list of component instance objects, replace each ad component<br />with a site's "dummy" ad instance, matching the properties of the ad<br />instance replaced.
 
+#### Params
+* `content` _(Array)_ an array of component instance objects,
+                         e.g.  `[{_ref: 'a/uri/etc', foo: 'bar'}, ...]`
+* `[dummyAd]` _(Object)_ an ad object with the reference to the dummy ad instance
 
+**Returns** _(Array)_ an array of components, with ads replaced with the
+                  ad dummy instance
 
 ### displaySelf ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.test.js) )
 
-_No description_
+Return the first component (from a list of components) with a truthy  `displaySelf`  property. Used by Spaces.
 
+#### Params
+* `components` _(array)_ with  `displaySelf`  properties
 
+**Returns** _(object)_ first component with  `displaySelf: true`
 
 #### Example
 
@@ -239,9 +274,12 @@ _No description_
 
 ### displaySelfAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
 
-_No description_
+Return all components (from a list of components) with a truthy  `displaySelf`  property. Used by Spaces.
 
+#### Params
+* `components` _(array)_ with  `displaySelf`  properties
 
+**Returns** _(array)_ all components with  `displaySelf: true`
 
 #### Example
 
@@ -252,9 +290,12 @@ _No description_
 
 ### getComponentName ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.test.js) )
 
-_No description_
+get a component's name from the reference
 
+#### Params
+* `ref` _(string)_ full component uri
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -268,9 +309,15 @@ _No description_
 
 ### compare ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/compare.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/compare.test.js) )
 
-_No description_
+compare two values, with an operator.<br /> _note:_  if you don't pass an operator, it assumes  `===` <br /> _note:_  this can be used as a block  _or_  inline helper
 
+#### Params
+* `left` _(*)_ left value
+* `operator` _(string)_ to compare with
+* `right` _(*)_ right value
+* `[options]` _(object)_ 
 
+**Returns** _(string)_ if inline, otherwise calls block functions
 
 #### Example
 
@@ -281,9 +328,14 @@ _No description_
 
 ### if ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/if.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/if.test.js) )
 
-_No description_
+overwrite default handlebars 'if' helper<br />this adds support for an inline helper,  `{{if foo bar}}`   _(if foo is truthy, print bar)_ <br />as well as an inline if/else helper,  `{{if foo bar else=baz}}`   _(if foo is truthy, print bar. otherwise, print baz)_
 
+#### Params
+* `conditional` _(*)_ to check for truthiness
+* `value` _(*)_ to print if conditional is truthy
+* `[options]` _(object)_ 
 
+**Returns** _(string)_ if inline, otherwise calls block functions
 
 #### Example
 
@@ -294,9 +346,11 @@ _No description_
 
 ### ifAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
 
-_No description_
+block helper for checking if ALL arguments passed in are truthy
 
 
+
+**Returns** _(string)_ calls block functions
 
 #### Example
 
@@ -311,9 +365,11 @@ _No description_
 
 ### ifAny ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
 
-_No description_
+block helper for checking if ANY arguments passed in are truthy
 
 
+
+**Returns** _(string)_ calls block functions
 
 #### Example
 
@@ -328,9 +384,11 @@ _No description_
 
 ### ifNone ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 
-_No description_
+block helper for checking if NO arguments passed in are truthy
 
 
+
+**Returns** _(string)_ calls block functions
 
 #### Example
 
@@ -345,9 +403,15 @@ _No description_
 
 ### modulo ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/modulo.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/modulo.test.js) )
 
-_No description_
+compare the modulo of two values to a third value
 
+#### Params
+* `dividend` _(number)_ 
+* `divisor` _(number)_ 
+* `remainder` _(number)_ 
+* `[options]` _(object)_ 
 
+**Returns** _(string)_ if inline, otherwise calls block functions
 
 #### Example
 
@@ -358,9 +422,11 @@ _No description_
 
 ### unlessAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
 
-_No description_
+block helper for checking that NOT ALL arguments passed in are truthy<br /> _note:_  this is the inverse of the ifAll helper
 
 
+
+**Returns** _(string)_ calls block functions
 
 #### Example
 
@@ -378,9 +444,13 @@ _No description_
 
 ### perWordClasses ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/perWordClasses.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/html/perWordClasses.test.js) )
 
-_No description_
+wraps each word in spans with classes allowing designers and devs to target individual words with css
 
+#### Params
+* `html` _(string)_ to add classes to
+* `options` _(object)_ 
 
+**Returns** _(string)_ words wrapped in classes
 
 #### Example
 
@@ -391,7 +461,7 @@ _No description_
 
 ### striptags ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/striptags.js) | no tests )
 
-_No description_
+straight passthrough to  [striptags](https://www.npmjs.com/package/striptags)
 
 
 
@@ -404,9 +474,12 @@ _No description_
 
 ### wordCount ( [code](https://github.com/clay/handlebars/blob/master/helpers/html/wordCount.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/html/wordCount.test.js) )
 
-_No description_
+counts the words in a string of text or html
 
+#### Params
+* `[html]` _(string)_ 
 
+**Returns** _(number)_ the number of words
 
 #### Example
 
@@ -420,9 +493,11 @@ _No description_
 
 ### default ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/default.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/default.test.js) )
 
-_No description_
+return the first value if it's not empty, otherwise return the second value<br /> _note:_  this overrides handlebar-helper's  [default](https://github.com/helpers/handlebars-helpers#default)  helper, since that only checks for null values (not all falsy/empty values)
 
-
+#### Params
+* `value` _(*)_ to check
+* `defaultValue` _(*)_ value to return if first value is falsy
 
 #### Example
 
@@ -433,9 +508,12 @@ _No description_
 
 ### extractImgHeight ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgHeight.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgHeight.test.js) )
 
-_No description_
+Extract the height of a mediaplay image given the image URL.
 
+#### Params
+* `url` _(string)_ 
 
+**Returns** _(object)_ extracted height
 
 #### Example
 
@@ -446,9 +524,12 @@ _No description_
 
 ### extractImgWidth ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/extractImgWidth.test.js) )
 
-_No description_
+Extract the width of a mediaplay image given the image URL.
 
+#### Params
+* `url` _(string)_ 
 
+**Returns** _(Object)_ extracted width
 
 #### Example
 
@@ -459,9 +540,13 @@ _No description_
 
 ### indexOf ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/indexOf.test.js) )
 
-_No description_
+get the index of something inside something else
 
+#### Params
+* `outside` _(*)_ array, string, etc (anything with  `indexOf` )
+* `inside` _(*)_ anything that can exist inside something else
 
+**Returns** _(number)_ 
 
 #### Example
 
@@ -472,9 +557,12 @@ _No description_
 
 ### set ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/set.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/set.test.js) )
 
-_No description_
+set data into current context or other optional context/object<br /> _note:_  doesn't return anything
 
-
+#### Params
+* `[obj]` _(object)_ context or object for storing data beyond current context
+* `key` _(string)_ `_set()`  key/path
+* `val` _(*)_ value to set
 
 #### Example
 
@@ -485,9 +573,12 @@ _No description_
 
 ### slugToSiteName ( [code](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/misc/slugToSiteName.test.js) )
 
-_No description_
+return comma-separated site names from comma-separated slugs
 
+#### Params
+* `slugs` _(string)_ comma-separated string of slugs
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -501,9 +592,13 @@ _No description_
 
 ### add ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/add.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/add.test.js) )
 
-_No description_
+Return the product of  `a`  plus  `b`
 
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
 
+**Returns** _(number)_ 
 
 #### Example
 
@@ -514,9 +609,12 @@ _No description_
 
 ### addCommas ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/addCommas.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/addCommas.test.js) )
 
-_No description_
+add commas to numbers.<br /> _note:_  this overrides handlebars-helpers'  `addCommas`  helper because we want to preserve zeroes in decimals (for money)<br />e.g.  `1234.50`  →  `1,234.50`  instead of  `1,234.5` <br /> _note:_  decimals are only preserved if passed in as a string (they don't exist in js numbers)
 
+#### Params
+* `num` _(number|string)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -527,9 +625,12 @@ _No description_
 
 ### addOrdinalSuffix ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/addOrdinalSuffix.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/addOrdinalSuffix.test.js) )
 
-_No description_
+add ordinal after a number<br />e.g.  `1`  →  `1st` ,  `2`  →  `2nd` ,  `3`  →  `3rd`
 
+#### Params
+* `num` _(number|string)_ number to add ordinal after
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -540,9 +641,13 @@ _No description_
 
 ### divide ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/divide.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/divide.test.js) )
 
-_No description_
+Return the result of  `a`  divided by  `b`
 
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
 
+**Returns** _(number)_ 
 
 #### Example
 
@@ -553,9 +658,13 @@ _No description_
 
 ### multiply ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/multiply.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/multiply.test.js) )
 
-_No description_
+Return the product of  `a`  multiplied by  `b`
 
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
 
+**Returns** _(number)_ 
 
 #### Example
 
@@ -566,9 +675,12 @@ _No description_
 
 ### num ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/num.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/num.test.js) )
 
-_No description_
+converts things (usually strings) into numbers<br /> _note:_  this is useful if you need to parse user input
 
+#### Params
+* `x` _(number|string)_ thing to convert into a number
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -579,15 +691,23 @@ _No description_
 
 ### random ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/random.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/random.test.js) )
 
-_No description_
+Returns a number within a specified range.
 
+#### Params
+* `min` _(Number)_ 
+* `max` _(Number)_ 
 
+**Returns** _(Number)_ 
 
 ### round ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/round.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/round.test.js) )
 
-_No description_
+Return the rounded value of  `x` , optionally always rounding up or down
 
+#### Params
+* `x` _(number|string)_ 
+* `[direction]` _(string)_ always round  `x`  up or down, expects values 'up' or 'down', otherwise just round
 
+**Returns** _(number)_ 
 
 #### Example
 
@@ -598,9 +718,13 @@ _No description_
 
 ### subtract ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/subtract.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/subtract.test.js) )
 
-_No description_
+Return the product of  `a`  minus  `b`
 
+#### Params
+* `a` _(number)_ 
+* `b` _(number)_ 
 
+**Returns** _(number)_ 
 
 #### Example
 
@@ -611,9 +735,12 @@ _No description_
 
 ### toK ( [code](https://github.com/clay/handlebars/blob/master/helpers/numbers/toK.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/numbers/toK.test.js) )
 
-_No description_
+format thousands using  `k` <br />e.g.  `1000`  →  `1k`
 
+#### Params
+* `x` _(number|string)_ number to format
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -627,9 +754,13 @@ _No description_
 
 ### commaSeparated ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/commaSeparated.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/commaSeparated.test.js) )
 
-_No description_
+Turn an object into a comma-delineated list of key names, depending if their values are true/false
 
+#### Params
+* `obj` _(object)_ 
+* `shouldCapitalize` _(boolean)_ capitalizes first word in each key
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -640,9 +771,12 @@ _No description_
 
 ### getProp ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/getProp.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/getProp.test.js) )
 
-_No description_
+get property in object<br />this is similar to handlebars-helpers'  [`get`](https://github.com/helpers/handlebars-helpers#get) , but the context is called on a returned function.<br />this allows you to easily convert arrays of objects to arrays of a specific property from each objects
 
+#### Params
+* `prop` _(string)_ key/path, passed to  [`_get()`](https://lodash.com/docs/4.17.4#get)
 
+**Returns** value of the property from the object
 
 #### Example
 
@@ -653,9 +787,12 @@ _No description_
 
 ### stringify ( [code](https://github.com/clay/handlebars/blob/master/helpers/objects/stringify.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/objects/stringify.test.js) )
 
-_No description_
+stringify JSON<br /> _note:_  doesn't blow up on circular references
 
+#### Params
+* `obj` _(object)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -669,9 +806,12 @@ _No description_
 
 ### capitalize ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalize.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalize.test.js) )
 
-_No description_
+capitalize the first character in a string
 
+#### Params
+* `str` _(string)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -682,9 +822,12 @@ _No description_
 
 ### capitalizeAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalizeAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/capitalizeAll.test.js) )
 
-_No description_
+capitalize every word in a string
 
+#### Params
+* `str` _(string)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -695,9 +838,11 @@ _No description_
 
 ### concat ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/concat.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/concat.test.js) )
 
-_No description_
+concatenate any number of strings
 
 
+
+**Returns** _(string)_ concatenated string
 
 #### Example
 
@@ -708,9 +853,11 @@ _No description_
 
 ### includes ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/includes.test.js) )
 
-_No description_
+check if a substring exist within a string. This is very similiar to the<br />indexOf helper, except it uses String.prototype.includes() and returns a<br />boolean.<br />note: handlebars returns booleans as strings, so only return a value if the substring is found<br />otherwise, return undefined (rather than false)
 
-
+#### Params
+* `string` _(string)_ 
+* `substring` _(string)_ 
 
 #### Example
 
@@ -721,7 +868,7 @@ _No description_
 
 ### kebabCase ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/kebabCase.js) | no tests )
 
-_No description_
+straight passthrough to  [`_kebabCase`](https://lodash.com/docs/4.17.4#kebabCase)
 
 
 
@@ -734,9 +881,12 @@ _No description_
 
 ### longestWord ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/longestWord.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/longestWord.test.js) )
 
-_No description_
+returns the number of characters in the longest word of a string. Punctuation is NOT ignored.
 
+#### Params
+* `str` _(string)_ string to search through
 
+**Returns** _(number)_ of letters in the longest word
 
 #### Example
 
@@ -747,9 +897,12 @@ _No description_
 
 ### lowercase ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/lowercase.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/lowercase.test.js) )
 
-_No description_
+lower cases a string<br /> _note:_  non-strings will return emptystring
 
+#### Params
+* `str` _(string)_ 
 
+**Returns** _(string)_ lower cased
 
 #### Example
 
@@ -760,9 +913,13 @@ _No description_
 
 ### randomString ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/randomString.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/randomString.test.js) )
 
-_No description_
+generate a random string<br /> _note:_  by default it generates an 8-character string
 
+#### Params
+* `[prefix]` _(string)_ string to append random stuff to
+* `[options]` _(object)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -773,9 +930,12 @@ _No description_
 
 ### removeSpaces ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/removeSpaces.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/removeSpaces.test.js) )
 
-_No description_
+remove spaces, used by in-page  `id`  attributes so we can do in-page links<br />(per the HTML spec IDs cannot have spaces)
 
+#### Params
+* `str` _(string)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -786,9 +946,14 @@ _No description_
 
 ### replace ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/replace.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/replace.test.js) )
 
-_No description_
+replace all occurrences of  `a`  with  `b` <br /> _note:_  this does simple string replacement, not regex
 
+#### Params
+* `str` _(string)_ to replace inside
+* `a` _(string)_ to replace
+* `b` _(string)_ the replacement
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -799,9 +964,12 @@ _No description_
 
 ### trim ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/trim.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/trim.test.js) )
 
-_No description_
+trim leading and trailing whitespace from a string
 
+#### Params
+* `str` _(string)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -812,9 +980,14 @@ _No description_
 
 ### truncate ( [code](https://github.com/clay/handlebars/blob/master/helpers/strings/truncate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/strings/truncate.test.js) )
 
-_No description_
+If a string is over a given length, truncate and append an ellipsis character to the end.
 
+#### Params
+* `str` _(string)_ to shorten
+* `len` _(number)_ desired length
+* `options` _(object)_ 
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -828,9 +1001,12 @@ _No description_
 
 ### articleDate ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/articleDate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/articleDate.test.js) )
 
-_No description_
+generate article dates and times, based on a relative format
 
+#### Params
+* `datetime` _(Date|string)_ for  `date-fns`  to parse
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -841,9 +1017,12 @@ _No description_
 
 ### dateMinimal ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/dateMinimal.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/dateMinimal.test.js) )
 
-_No description_
+generate display date (without time), based on a relative format
 
+#### Params
+* `datetime` _(Date|string)_ for  `date-fns`  to parse
 
+**Returns** _(string)_ 
 
 #### Example
 
@@ -854,9 +1033,13 @@ _No description_
 
 ### formatLocalDate ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/formatLocalDate.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/time/formatLocalDate.test.js) )
 
-_No description_
+Formats a date with date-fns
 
+#### Params
+* `date` _(*)_ 
+* `[format]` _(string)_ 
 
+**Returns** _(string)_ 
 
 ### moment ( [code](https://github.com/clay/handlebars/blob/master/helpers/time/moment.js) | no tests )
 
@@ -869,9 +1052,12 @@ _No description_
 
 ### urlencode ( [code](https://github.com/clay/handlebars/blob/master/helpers/urls/urlencode.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/urls/urlencode.test.js) )
 
-_No description_
+encode urls (ported from the nunjucks  `urlencode`  filter)<br /> _note:_   `handlebars-helpers`  contains an  `encodeURI`  helper, but it doesn't handle arrays or objects.
 
+#### Params
+* `obj` _(*)_ data to encode
 
+**Returns** _(string)_ urlencoded data
 
 #### Example
 

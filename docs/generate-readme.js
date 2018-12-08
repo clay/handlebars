@@ -77,7 +77,7 @@ function generateDoc(helper) {
         description = desc.map(parseDoc).join(' ').replace(/\n/g, '<br />'),
         params = _.map(rawDoc.params, function (param) {
           let desc = _.get(param, 'description.children[0].children') || [];
-  
+
           return {
             name: param.name,
             type: parseType(param.type),
@@ -86,7 +86,7 @@ function generateDoc(helper) {
           };
         }),
         returnValue = ret.map(parseDoc).join(' ');
-  
+
       return {
         description,
         params,
@@ -108,14 +108,19 @@ function reduceHelpers(category) {
   return function (result, helper) {
     // helperDoc contains description, params, and returnValue
     // module.exports.example contains code and result
-    const helperDoc = generateDoc(helper),
-      info = _.assign({
-        name: path.basename(helper, '.js'),
-        hasTestFile: fs.existsSync(helper.replace('.js', '.test.js')),
-        category: category
-      }, helperDoc, require(helper).example || {});
+    result.push(
+      generateDoc(helper)
+        .then(function (helperDoc) {
+          const info = _.assign({
+            name: path.basename(helper, '.js'),
+            hasTestFile: fs.existsSync(helper.replace('.js', '.test.js')),
+            category: category
+          }, helperDoc, require(helper).example || {});
 
-    result.push(info);
+          return info;
+        })
+    );
+
     return result;
   };
 }
@@ -126,17 +131,26 @@ function reduceHelpers(category) {
  * @param  {array} category directory name
  * @return {array}
  */
-function reduceCategories(result, category) {
+function reduceCategories(category) {
   const dir = path.join(__dirname, '..', 'helpers', category);
+  let helpers = [];
 
   if (fs.statSync(dir).isDirectory()) {
-    result.push({
-      name: category,
-      helpers: _.reduce(glob.sync(path.join(dir, '*.js')).filter(noTests), reduceHelpers(category), [])
-    });
+    helpers = _.reduce(
+      glob.sync(path.join(dir, '*.js')).filter(noTests),
+      reduceHelpers(category),
+      []
+    );
   }
 
-  return result;
+  return Promise.all(
+    helpers
+  ).then(resolvedHelpers => {
+    return ({
+      name: category,
+      helpers: resolvedHelpers
+    });
+  });
 }
 
 /**
@@ -162,14 +176,21 @@ _.each([
   hbs.registerPartial(basename, require(`./${basename}.hbs`));
 });
 
-// get the helpers and partials
-data = {
-  categories: _.reduce(fs.readdirSync(path.join(__dirname, '..', 'helpers')), reduceCategories, []),
-  totalHelpers: glob.sync(path.resolve(__dirname, '..', 'helpers', '**', '*.js')).filter(noTests).length,
-  partials: _.reduce(glob.sync(path.resolve(__dirname, '..', 'partials', '*.hbs')), reducePartials, [])
-};
+Promise.all(
+  _.map(
+    fs.readdirSync(path.join(__dirname, '..', 'helpers')),
+    reduceCategories
+  )
+).then(function (categories) {
+  // get the helpers and partials
+  data = {
+    categories,
+    totalHelpers: glob.sync(path.resolve(__dirname, '..', 'helpers', '**', '*.js')).filter(noTests).length,
+    partials: _.reduce(glob.sync(path.resolve(__dirname, '..', 'partials', '*.hbs')), reducePartials, [])
+  };
 
-// compile the template and run it
-tpl = hbs.compile(fs.readFileSync(path.join(__dirname, 'readme.hbs'), 'utf8'));
-fs.writeFileSync(path.join(__dirname, '..', 'README.md'), tpl(data));
-console.log(`${chalk.green('[DONE]')} Generated readme`);
+  // compile the template and run it
+  tpl = hbs.compile(fs.readFileSync(path.join(__dirname, 'readme.hbs'), 'utf8'));
+  fs.writeFileSync(path.join(__dirname, '..', 'README.md'), tpl(data));
+  console.log(`${chalk.green('[DONE]')} Generated readme`);
+});
