@@ -13,8 +13,8 @@ module.exports = function () {
     options = _last(arguments),
     taken = _takeWhile(conditionals, c => !!c === true);
 
-    // see if any of the conditionals are falsy without needing to
-    // iterate through all of them
+  // see if any of the conditionals are falsy without needing to
+  // iterate through all of them
   if (taken.length === conditionals.length) {
     return options.inverse ? options.inverse(this) : false;
   } else {
