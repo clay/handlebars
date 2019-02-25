@@ -4,7 +4,8 @@ const _initial = require('lodash/initial'),
   _takeWhile = require('lodash/takeWhile');
 
 /**
- * block helper for checking that NOT ALL arguments passed in are truthy
+ * helper for checking that NOT ALL arguments passed in are truthy
+ * _note:_ this can be used as a block _or_ inline helper
  * _note:_ this is the inverse of the ifAll helper
  * @return {string} calls block functions
  */

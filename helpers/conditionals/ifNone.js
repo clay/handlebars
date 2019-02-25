@@ -4,7 +4,8 @@ const _initial = require('lodash/initial'),
   _find = require('lodash/find');
 
 /**
- * block helper for checking if NO arguments passed in are truthy
+ * helper for checking if NO arguments passed in are truthy
+ * _note:_ this can be used as a block _or_ inline helper
  * @return {string} calls block functions
  */
 module.exports = function () {

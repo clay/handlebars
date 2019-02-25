@@ -4,7 +4,8 @@ const _initial = require('lodash/initial'),
   _takeWhile = require('lodash/takeWhile');
 
 /**
- * block helper for checking if ALL arguments passed in are truthy
+ * helper for checking if ALL arguments passed in are truthy
+ * _note:_ this can be used as a block _or_ inline helper
  * @return {string} calls block functions
  */
 module.exports = function () {
