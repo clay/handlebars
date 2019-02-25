@@ -14,11 +14,10 @@ module.exports = function () {
 
     // see if any of the conditionals are falsy without needing to
     // iterate through all of them
-
   if (taken.length === conditionals.length) {
-    return options.fn(this);
+    return options.fn ? options.fn(this) : true;
   } else {
-    return options.inverse(this);
+    return options.inverse ? options.inverse(this) : false;
   }
 };
 

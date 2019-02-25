@@ -19,9 +19,9 @@ module.exports = function () {
   if (truthyFound !== undefined) {
     // at least one of the conditionals is truthy
     // so _find returns quickly without iterating over all of them
-    return options.inverse(this);
+    return options.inverse ? options.inverse(this) : false;
   } else {
-    return options.fn(this);
+    return options.fn ? options.fn(this) : true;
   }
 };
 

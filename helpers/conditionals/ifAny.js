@@ -18,9 +18,9 @@ module.exports = function () {
 
   if (truthyFound) {
     // at least one of the conditionals is truthy
-    return options.fn(this);
+    return options.fn ? options.fn(this) : true;
   } else {
-    return options.inverse(this);
+    return options.inverse ? options.inverse(this) : false;
   }
 };
 
