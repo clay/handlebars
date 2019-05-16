@@ -18,5 +18,5 @@ module.exports = function (content, shouldKeep) {
 };
 
 module.exports.example = {
-  code: '{{> component-list (filterComponents content "some-component" "another-component")}}'
+  code: '{{> component-list (filterComponents content false "some-component" "another-component")}}'
 };
