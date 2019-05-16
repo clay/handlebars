@@ -38,3 +38,6 @@ jspm_packages
 
 # compiled client-side distribution
 dist/
+
+# ide
+.idea
