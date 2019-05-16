@@ -303,7 +303,7 @@ filters component references in a component list
 #### Example
 
 ```hbs
-{{> component-list (filterComponents content "some-component" "another-component")}}
+{{> component-list (filterComponents content false "some-component" "another-component")}}
 
 ```
 
