@@ -42,7 +42,7 @@ app.set('view engine', 'handlebars');
 
 # Helpers
 
-Currently **56 helpers** in **10 categories**:
+Currently **57 helpers** in **10 categories**:
 
 
 ### arrays
@@ -59,6 +59,7 @@ Currently **56 helpers** in **10 categories**:
 * [**adsToDummies**](https://github.com/clay/handlebars#adstodummies--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/adsToDummies.test.js) )
 * [**displaySelf**](https://github.com/clay/handlebars#displayself--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelf.test.js) )
 * [**displaySelfAll**](https://github.com/clay/handlebars#displayselfall--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/displaySelfAll.test.js) )
+* [**filterComponents**](https://github.com/clay/handlebars#filtercomponents--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/filterComponents.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/filterComponents.test.js) )
 * [**getComponentName**](https://github.com/clay/handlebars#getcomponentname--code--tests-) ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/getComponentName.test.js) )
 
 ### conditionals
@@ -285,6 +286,24 @@ Return all components (from a list of components) with a truthy  `displaySelf`  
 
 ```hbs
 {{> component-list (displaySelfAll content) }}
+
+```
+
+### filterComponents ( [code](https://github.com/clay/handlebars/blob/master/helpers/components/filterComponents.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/components/filterComponents.test.js) )
+
+filters component references in a component list
+
+#### Params
+* `content` _(array)_ list of components
+* `shouldKeep` _(boolean)_ if true, only matching component references are returned; if false, then only non-matching component references are returned
+* `componentName` _(string)_ name of the component to remove from the list (accepts multiple arguments)
+
+**Returns** _(array)_ content
+
+#### Example
+
+```hbs
+{{> component-list (filterComponents content false "some-component" "another-component")}}
 
 ```
 
