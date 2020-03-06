@@ -454,7 +454,7 @@ block helper for checking that NOT ALL arguments passed in are truthy<br /> _not
   not all are truthy
 {{else}}
   all are truthy
-{{/ifAll}}
+{{/unlessAll}}
 
 ```
 
