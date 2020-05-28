@@ -60,7 +60,7 @@
     "comma-it": "0.0.7",
     "date-fns": "^1.28.2",
     "glob": "^7.1.1",
-    "handlebars": "^4.0.6",
+    "handlebars": "^4.7.6",
     "he": "^1.1.0",
     "helper-yaml": "^0.1.0",
     "json-stringify-safe": "^5.0.1",
