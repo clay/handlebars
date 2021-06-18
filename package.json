@@ -68,6 +68,6 @@
     "randomstring": "^1.1.5",
     "sinon": "^2.1.0",
     "speakingurl": "^11.0.0",
-    "striptags": "^2.1.1"
+    "striptags": "^3.2.0"
   }
 }
