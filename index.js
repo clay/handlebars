@@ -2,7 +2,11 @@
 const glob = require('glob'),
   path = require('path'),
   outdent = require('outdent'),
-  fs = require('fs');
+  fs = require('fs'),
+  clayLog = require('clay-log'),
+  log = clayLog.init({
+    name: 'clayhandlebars'
+  });
 
 // filter out tests from globbed files
 function noTests(filename) {
@@ -27,7 +31,7 @@ module.exports = function (env) {
     try {
       return fs.readFileSync(filename, 'utf-8');
     } catch (error) {
-      console.log(`Failure to read ${filename}. Error: ${error}`);
+      log('error', `Failure to read ${filename}.`, { error });
     }
   });
 
