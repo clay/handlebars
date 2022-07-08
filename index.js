@@ -1,4 +1,5 @@
 'use strict';
+
 const glob = require('glob'),
   path = require('path'),
   outdent = require('outdent'),
@@ -24,7 +25,11 @@ module.exports = function (env) {
   // support `read` helper on the server-side ONLY
   // todo: deprecate this when we figure out how to precompile these assets
   env.registerHelper('read', function (filename) {
-    return fs.readFileSync(filename, 'utf-8');
+    try {
+      return fs.readFileSync(filename, 'utf-8');
+    } catch (error) {
+      console.log(`Failure to read ${filename}. Error: ${error}`);
+    }
   });
 
   // add helpers
