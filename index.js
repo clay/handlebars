@@ -1,5 +1,4 @@
 'use strict';
-
 const glob = require('glob'),
   path = require('path'),
   outdent = require('outdent'),
