@@ -1,6 +1,6 @@
 {
   "name": "clayhandlebars",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A collection of helpers and partials for handlebars",
   "main": "index.js",
   "browser": "dist/browser.js",
