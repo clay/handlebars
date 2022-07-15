@@ -2,7 +2,11 @@
 const glob = require('glob'),
   path = require('path'),
   outdent = require('outdent'),
-  fs = require('fs');
+  fs = require('fs'),
+  clayLog = require('clay-log'),
+  log = clayLog.init({
+    name: 'clayhandlebars'
+  });
 
 // filter out tests from globbed files
 function noTests(filename) {
@@ -24,7 +28,11 @@ module.exports = function (env) {
   // support `read` helper on the server-side ONLY
   // todo: deprecate this when we figure out how to precompile these assets
   env.registerHelper('read', function (filename) {
-    return fs.readFileSync(filename, 'utf-8');
+    try {
+      return fs.readFileSync(filename, 'utf-8');
+    } catch (error) {
+      log('error', `Failure to read ${filename}.`, { error });
+    }
   });
 
   // add helpers
