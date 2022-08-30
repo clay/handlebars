@@ -31,7 +31,7 @@ module.exports = function (env) {
     try {
       return fs.readFileSync(filename, 'utf-8');
     } catch (error) {
-      log('error', `Failure to read ${filename}.`, { error });
+      log('warn', `Failure to read ${filename}.`, { error });
     }
   });
 
