@@ -4,7 +4,8 @@ const _initial = require('lodash/initial'),
   _find = require('lodash/find');
 
 /**
- * block helper for checking if ANY arguments passed in are truthy
+ * helper for checking if ANY arguments passed in are truthy
+ * _note:_ this can be used as a block _or_ inline helper
  * @return {string} calls block functions
  */
 module.exports = function () {
@@ -18,9 +19,9 @@ module.exports = function () {
 
   if (truthyFound) {
     // at least one of the conditionals is truthy
-    return options.fn(this);
+    return options.fn ? options.fn(this) : true;
   } else {
-    return options.inverse(this);
+    return options.inverse ? options.inverse(this) : false;
   }
 };
 

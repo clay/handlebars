@@ -365,7 +365,7 @@ overwrite default handlebars 'if' helper<br />this adds support for an inline he
 
 ### ifAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAll.test.js) )
 
-block helper for checking if ALL arguments passed in are truthy
+helper for checking if ALL arguments passed in are truthy<br /> _note:_  this can be used as a block  _or_  inline helper
 
 
 
@@ -384,7 +384,7 @@ block helper for checking if ALL arguments passed in are truthy
 
 ### ifAny ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifAny.test.js) )
 
-block helper for checking if ANY arguments passed in are truthy
+helper for checking if ANY arguments passed in are truthy<br /> _note:_  this can be used as a block  _or_  inline helper
 
 
 
@@ -403,7 +403,7 @@ block helper for checking if ANY arguments passed in are truthy
 
 ### ifNone ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/ifNone.test.js) )
 
-block helper for checking if NO arguments passed in are truthy
+helper for checking if NO arguments passed in are truthy<br /> _note:_  this can be used as a block  _or_  inline helper
 
 
 
@@ -441,7 +441,7 @@ compare the modulo of two values to a third value
 
 ### unlessAll ( [code](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.js) | [tests](https://github.com/clay/handlebars/blob/master/helpers/conditionals/unlessAll.test.js) )
 
-block helper for checking that NOT ALL arguments passed in are truthy<br /> _note:_  this is the inverse of the ifAll helper
+helper for checking that NOT ALL arguments passed in are truthy<br /> _note:_  this can be used as a block  _or_  inline helper<br /> _note:_  this is the inverse of the ifAll helper
 
 
 
