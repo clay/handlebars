@@ -32,3 +32,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      # the browser bundle Kiln loads: it must build, and register what index.js registers
+      - run: npm run build
+      - run: npm run check-build
