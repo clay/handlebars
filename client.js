@@ -1,8 +1,16 @@
 'use strict';
-const helpersReq = require.context('./helpers', true, /^.*?\/[\w\-]+\.js$/),
-  partialsReq = require.context('./partials', false, /^.*\.hbs$/),
-  path = require('path');
+const helpers = require('./lib/helpers'),
+  // the partials are compiled when the bundle is built (see vite.config.mjs): each one is a template function
+  partials = {
+    'component-list': require('./partials/component-list.hbs')
+  };
 
+/**
+ * Add the helpers and partials of clayhandlebars to a Handlebars environment in the browser.
+ *
+ * @param  {object} [env] a Handlebars environment; a new one of the runtime (templates have to be precompiled) by default
+ * @return {object} the environment
+ */
 module.exports = function (env) {
   if (!env) {
     env = require('handlebars/dist/handlebars.runtime.min.js');
@@ -13,10 +21,10 @@ module.exports = function (env) {
   env.registerHelper('yaml', () => '');
 
   // add helpers
-  helpersReq.keys().forEach(h => env.registerHelper(path.basename(h, '.js'), helpersReq(h)));
+  Object.keys(helpers).forEach(name => env.registerHelper(name, helpers[name]));
 
   // add partials
-  partialsReq.keys().forEach(p => env.registerPartial(path.basename(p, '.hbs'), partialsReq(p)));
+  Object.keys(partials).forEach(name => env.registerPartial(name, partials[name]));
 
   return env;
 };

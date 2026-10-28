@@ -1,25 +1,28 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ extractImgHeight a }}');
 
 describe(name, function () {
   it('returns empty string if there is no url', function () {
-    expect(tpl({a: ''})).to.equal('');
+    assert.equal(tpl({a: ''}), '');
   });
 
   it('returns the image height using the included multiplier of 2', function () {
-    expect(tpl({a: 'http://pixel.nymag.com/imgs/daily/science/2017/03/30/30-lying.w710.h473.2x.jpg'})).to.equal('946');
+    assert.equal(tpl({a: 'http://pixel.nymag.com/imgs/daily/science/2017/03/30/30-lying.w710.h473.2x.jpg'}), '946');
   });
 
   it('uses default multiplier of 1 when multiplier is not included in the link', function () {
-    expect(tpl({a: 'http://pixel.nymag.com/imgs/daily/science/2017/03/31/31-pitbull.w710.h473.jpg'})).to.equal('473');
+    assert.equal(tpl({a: 'http://pixel.nymag.com/imgs/daily/science/2017/03/31/31-pitbull.w710.h473.jpg'}), '473');
   });
 
   it('returns empty string if there is a non-mediaplay image', function () {
-    expect(tpl({a: 'https://www.w3schools.com/css/img_fjords.jpg'})).to.equal('');
+    assert.equal(tpl({a: 'https://www.w3schools.com/css/img_fjords.jpg'}), '');
   });
 
   it('returns empty string if there is no url', function () {
-    expect(tpl({a: 'fjdkshglkdjf'})).to.equal('');
+    assert.equal(tpl({a: 'fjdkshglkdjf'}), '');
   });
 });

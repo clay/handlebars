@@ -1,5 +1,5 @@
 'use strict';
-const _filter = require('lodash/filter');
+const { toList } = require('../../lib/collection');
 
 /**
  * Return all components (from a list of components) with a truthy `displaySelf` property. Used by Spaces.
@@ -7,7 +7,7 @@ const _filter = require('lodash/filter');
  * @return {array} all components with `displaySelf: true`
  */
 module.exports = function (components) {
-  return _filter(components, item => item.displaySelf);
+  return toList(components).filter(item => item.displaySelf);
 };
 
 module.exports.example = {

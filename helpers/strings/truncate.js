@@ -1,7 +1,5 @@
 'use strict';
 
-const _isString = require('lodash/isString');
-
 /**
  * If a string is over a given length, truncate and append an ellipsis character to the end.
  * @param {string} str to shorten
@@ -11,7 +9,7 @@ const _isString = require('lodash/isString');
  * @return {string}
  */
 module.exports = function (str, len, options) {
-  var suffix = options === undefined || !_isString(options.hash.suffix) ? '…' : options.hash.suffix;
+  const suffix = options === undefined || !(typeof options.hash.suffix === 'string' || options.hash.suffix instanceof String) ? '…' : options.hash.suffix;
 
   if (str && typeof str === 'string') {
     return str.trim().length > len ? str.trim().slice(0, len).trim() + suffix : str.trim();

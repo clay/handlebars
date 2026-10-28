@@ -1,8 +1,11 @@
 'use strict';
-const name = getName(__filename);
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', '');
 
 describe(name, function () {
   it('should stringify an object', function () {
-    expect(hbs.compile('{{{ stringify obj }}}')({ obj: {a: 'b'} })).to.equal('{"a":"b"}');
+    assert.equal(hbs.compile('{{{ stringify obj }}}')({ obj: {a: 'b'} }), '{"a":"b"}');
   });
 });

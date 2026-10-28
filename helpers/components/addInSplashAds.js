@@ -1,10 +1,8 @@
 'use strict';
-
-const _forEach = require('lodash/forEach'),
-  _compact = require('lodash/compact');
+const { toList } = require('../../lib/collection');
 
 function getComponentType(component) {
-  const componentTypeMatch = component._ref.match(/\/components\/([A-Za-z\-]+)\/instances\//);
+  const componentTypeMatch = component._ref.match(/\/components\/([A-Za-z-]+)\/instances\//);
 
   if (componentTypeMatch && componentTypeMatch.length >= 2) {
     return componentTypeMatch[1];
@@ -19,15 +17,15 @@ function getComponentType(component) {
  * @return {object} splash
  */
 module.exports = function (content, articleData, afterComponent) {
-  var adUnits;
+  let adUnits;
 
-  let newContent = []; // don't just replace the content (it's a sealed array), create a new array!
+  const newContent = []; // don't just replace the content (it's a sealed array), create a new array!
 
   if (articleData) {
     adUnits = articleData.inSplashDesktopAd || articleData.inSplashTabletAd || articleData.inSplashMobileAd;
   }
   if (adUnits) {
-    _forEach(content, function (component) {
+    toList(content).forEach(function (component) {
       const componentType = getComponentType(component);
 
       // add the current component before any ads
@@ -44,7 +42,7 @@ module.exports = function (content, articleData, afterComponent) {
         }
       }
     });
-    return _compact(newContent); // get rid of undefined ads
+    return newContent.filter(Boolean); // get rid of undefined ads
   } else {
     return content;
   }

@@ -1,22 +1,25 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ trim a }}');
 
 describe(name, function () {
   it('returns emptystring if undefined', function () {
-    expect(tpl()).to.equal('');
-    expect(tpl({})).to.equal('');
+    assert.equal(tpl(), '');
+    assert.equal(tpl({}), '');
   });
 
   it('trims leading whitespace', function () {
-    expect(tpl({a: '   foo'})).to.equal('foo');
+    assert.equal(tpl({a: '   foo'}), 'foo');
   });
 
   it('trims trailing whitespace', function () {
-    expect(tpl({a: 'foo    '})).to.equal('foo');
+    assert.equal(tpl({a: 'foo    '}), 'foo');
   });
 
   it('trims both leading and trailing whitespace', function () {
-    expect(tpl({a: '   foo   '})).to.equal('foo');
+    assert.equal(tpl({a: '   foo   '}), 'foo');
   });
 });

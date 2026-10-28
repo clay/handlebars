@@ -1,5 +1,8 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{#each (addOrderedIds content "mock-prefix-")}}{{orderedId}}{{/each}}'),
   tplWithOffset = hbs.compile('{{#each (addOrderedIds content "mock-prefix-" 5)}}{{orderedId}}{{/each}}'),
   tplWithoutPrefix = hbs.compile('{{#each (addOrderedIds content)}}{{orderedId}}{{/each}}');
@@ -17,11 +20,11 @@ describe(name, function () {
   }];
 
   it('adds an orderedId property to all components in the list', function () {
-    expect(tpl({content: content})).to.equal('mock-prefix-1mock-prefix-2mock-prefix-3');
+    assert.equal(tpl({content: content}), 'mock-prefix-1mock-prefix-2mock-prefix-3');
   });
 
   it('adds an orderedId starting at an offset', function () {
-    expect(tplWithOffset({content: content})).to.equal('mock-prefix-5mock-prefix-6mock-prefix-7');
+    assert.equal(tplWithOffset({content: content}), 'mock-prefix-5mock-prefix-6mock-prefix-7');
   });
 
   it('throws an error if no prefix is passed in', function () {
@@ -29,7 +32,7 @@ describe(name, function () {
       return tplWithoutPrefix();
     };
 
-    expect(resultWithoutPrefix).to.throw(Error);
+    assert.throws(resultWithoutPrefix, Error);
   });
 
   it('throws an error if no content is passed in', function () {
@@ -37,6 +40,6 @@ describe(name, function () {
       return tpl();
     };
 
-    expect(result).to.throw(Error);
+    assert.throws(result, Error);
   });
 });

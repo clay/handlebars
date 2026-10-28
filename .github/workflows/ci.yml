@@ -31,7 +31,10 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      # lint, then the tests with their coverage threshold
       - run: npm test
       # the browser bundle Kiln loads: it must build, and register what index.js registers
       - run: npm run build
       - run: npm run check-build
+      # README.md is generated from the JSDoc of the helpers: it must be what that gives
+      - run: npm run check-readme

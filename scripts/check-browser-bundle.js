@@ -5,16 +5,10 @@
  * The bundle must register exactly the helpers and partials index.js registers on the server,
  * apart from the two server-only ones that are no-ops in a browser, and render the same.
  */
-const assert = require('assert'),
-  fs = require('fs'),
+const assert = require('node:assert'),
   Handlebars = require('handlebars'),
   helpersOnServer = require('../index.js'),
   helpersInBrowser = require('../dist/browser.js');
-
-// the server loads partials with require(); give plain node a way to read .hbs files
-require.extensions['.hbs'] = (module, filename) => {
-  module.exports = fs.readFileSync(filename, 'utf8');
-};
 
 const server = helpersOnServer(Handlebars.create()),
   browser = helpersInBrowser(Handlebars.create()),

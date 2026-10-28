@@ -1,6 +1,4 @@
 'use strict';
-const _includes = require('lodash/includes'),
-  _get = require('lodash/get');
 
 /**
  * Add aria to phrases in paragraphs, corresponds to annotation ids.
@@ -11,12 +9,12 @@ module.exports = function (content) {
   let counter = 0;
 
   return (content || []).map(function (component) {
-    if (
-      _includes(_get(component, '_ref'), '/clay-paragraph/') &&
-      _includes(_get(component, 'text'), 'clay-annotated')
-    ) {
-      component.text = component.text.replace(
-        /\<span class=\"clay-annotated.*?"/g,
+    const ref = component && component._ref,
+      text = component && component.text;
+
+    if (typeof ref === 'string' && ref.includes('/clay-paragraph/') && typeof text === 'string' && text.includes('clay-annotated')) {
+      component.text = text.replace(
+        /<span class="clay-annotated.*?"/g,
         match => match + ' aria-describedby="annotation-' + ++counter + '" tabindex="0"'
       );
     }
