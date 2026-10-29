@@ -1,28 +1,31 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ default a b }}');
 
 describe(name, function () {
   it('returns the first value if non-empty', function () {
-    expect(tpl({a: 'yes', b: 'no'})).to.equal('yes');
-    expect(tpl({a: [''], b: 'no'})).to.equal(''); // array has items
-    expect(tpl({a: { foo: '' }, b: 'no'})).to.equal('[object Object]'); // object has property
-    expect(tpl({a: 1, b: 'no'})).to.equal('1');
-    expect(tpl({a: true, b: 'no'})).to.equal('true');
+    assert.equal(tpl({a: 'yes', b: 'no'}), 'yes');
+    assert.equal(tpl({a: [''], b: 'no'}), ''); // array has items
+    assert.equal(tpl({a: { foo: '' }, b: 'no'}), '[object Object]'); // object has property
+    assert.equal(tpl({a: 1, b: 'no'}), '1');
+    assert.equal(tpl({a: true, b: 'no'}), 'true');
   });
 
   it('returns the second value if empty', function () {
-    expect(tpl({a: '', b: 'no'})).to.equal('no');
-    expect(tpl({a: [], b: 'no'})).to.equal('no');
-    expect(tpl({a: {}, b: 'no'})).to.equal('no');
-    expect(tpl({a: 0, b: 'no'})).to.equal('no');
-    expect(tpl({a: false, b: 'no'})).to.equal('no');
+    assert.equal(tpl({a: '', b: 'no'}), 'no');
+    assert.equal(tpl({a: [], b: 'no'}), 'no');
+    assert.equal(tpl({a: {}, b: 'no'}), 'no');
+    assert.equal(tpl({a: 0, b: 'no'}), 'no');
+    assert.equal(tpl({a: false, b: 'no'}), 'no');
   });
 
   // test below is a regression test from handlebars-helpers
   it('should fallback to the default value when no value exists', function () {
-    expect(tpl({a: null, b: 'no'})).to.equal('no');
-    expect(tpl({a: undefined, b: 'no'})).to.equal('no');
-    expect(tpl({b: 'no'})).to.equal('no');
+    assert.equal(tpl({a: null, b: 'no'}), 'no');
+    assert.equal(tpl({a: undefined, b: 'no'}), 'no');
+    assert.equal(tpl({b: 'no'}), 'no');
   });
 });

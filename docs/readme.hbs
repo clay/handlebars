@@ -1,8 +1,7 @@
 # clayhandlebars
 
-[![Build Status](https://travis-ci.org/clay/handlebars.svg)](https://travis-ci.org/clay/handlebars)
-[![Coverage Status](https://coveralls.io/repos/github/clay/handlebars/badge.svg?branch=master)](https://coveralls.io/github/clay/handlebars?branch=master)
-[![Code Climate](https://codeclimate.com/github/clay/handlebars/badges/gpa.svg)](https://codeclimate.com/github/clay/handlebars)
+[![CI](https://github.com/clay/handlebars/actions/workflows/ci.yml/badge.svg)](https://github.com/clay/handlebars/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/clayhandlebars.svg)](https://www.npmjs.com/package/clayhandlebars)
 
 A collection of helpers and partials for handlebars
 
@@ -11,6 +10,8 @@ A collection of helpers and partials for handlebars
 ```
 npm install --save clayhandlebars
 ```
+
+Requires Node 26.12.1 or newer. The package has one more build for browsers (`dist/browser.js`, what a bundler picks through the `browser` field): the helpers and partials of this list for the Handlebars runtime, which is how Kiln previews a component. `read` and `yaml` do nothing there.
 
 # Usage
 
@@ -37,6 +38,11 @@ var Handlebars = require('express-handlebars'),
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 ```
+
+### Helpers that only run on the server
+
+* **read** `\{{{ read "path/to/file.svg" }}}` inlines a file (a path relative to where the server runs), like an icon or a small script or style. Files are cached by path and checked again for changes once a second (`CLAYHANDLEBARS_READ_CACHE=false` reads the disk every time). A file that can't be read renders nothing and logs an error.
+* **yaml** `\{{#with (yaml (read "data.yml"))}}...\{{/with}}` parses YAML text. Tags that would build code are refused.
 
 ---
 

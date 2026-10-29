@@ -1,5 +1,8 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ indexOf a b }}');
 
 describe(name, function () {
@@ -8,14 +11,14 @@ describe(name, function () {
       return tpl({a: null, b: null});
     };
 
-    expect(result).to.throw(Error);
+    assert.throws(result, Error);
   });
 
   it('finds indexes in strings', function () {
-    expect(tpl({a: 'foo', b: 'f'})).to.equal('0');
+    assert.equal(tpl({a: 'foo', b: 'f'}), '0');
   });
 
   it('finds indexes in arrays', function () {
-    expect(tpl({a: ['f', 'o', 'o'], b: 'f'})).to.equal('0');
+    assert.equal(tpl({a: ['f', 'o', 'o'], b: 'f'}), '0');
   });
 });

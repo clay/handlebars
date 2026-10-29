@@ -1,25 +1,28 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ commaSeparated a }}');
 
 describe(name, function () {
   it('returns emptystring if not an object', function () {
-    expect(tpl()).to.equal('');
+    assert.equal(tpl(), '');
   });
 
   it('only returns keys with truthy values', function () {
-    expect(tpl({a: {alpha: true, bravo: false}})).to.equal('alpha');
+    assert.equal(tpl({a: {alpha: true, bravo: false}}), 'alpha');
   });
 
   it('delineates items with commas', function () {
-    expect(tpl({a: {alpha: true, bravo: true}})).to.equal('alpha, bravo');
+    assert.equal(tpl({a: {alpha: true, bravo: true}}), 'alpha, bravo');
   });
 
   it('capitalizes the first word in items', function () {
-    expect(hbs.compile('{{ commaSeparated a true }}')({a: {alpha: true, 'bravo charlie': true}})).to.equal('Alpha, Bravo charlie');
+    assert.equal(hbs.compile('{{ commaSeparated a true }}')({a: {alpha: true, 'bravo charlie': true}}), 'Alpha, Bravo charlie');
   });
 
   it('capitalizes the first word in items and maintains other capitalizations', function () {
-    expect(hbs.compile('{{ commaSeparated a true }}')({a: {alpha: true, 'Bravo Charlie-Delta Echo': true}})).to.equal('Alpha, Bravo Charlie-Delta Echo');
+    assert.equal(hbs.compile('{{ commaSeparated a true }}')({a: {alpha: true, 'Bravo Charlie-Delta Echo': true}}), 'Alpha, Bravo Charlie-Delta Echo');
   });
 });

@@ -1,12 +1,12 @@
 'use strict';
-var name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   helperName = __filename.split('/').pop().split('.').shift(),
-  helper = require('./' + helperName),
-  expect = require('chai').expect,
-  _ = require('lodash');
+  helper = require('./' + helperName);
 
 describe(name, function () {
-  var paragraph1 = {
+  const paragraph1 = {
       _ref: 'localhost/components/clay-paragraph/instances/100words',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor nisi leo, non bibendum risus blandit sit amet. Donec mauris sapien, laoreet et odio ac, elementum dictum ex. Nullam eget rhoncus diam, non dignissim diam. Donec diam ex, posuere vitae convallis ac, ultricies vel magna. Nam purus nunc, cursus a accumsan sit amet, semper id metus. Mauris mi elit, congue eu nisl et, hendrerit consequat enim. Nunc ultricies ultrices vulputate. Duis tincidunt sodales leo, id porttitor mauris mollis sed. Mauris risus felis, sagittis bibendum velit sed, blandit consectetur magna. Sed tempus, justo at accumsan dictum, metus nibh pretium enim, in.'
     },
@@ -23,26 +23,26 @@ describe(name, function () {
     };
 
   it('removes ads silently if no ad dummy specified', function () {
-    var result = helper([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1, realAd, paragraph4, paragraph1, paragraph4, paragraph1]);
+    const result = helper([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1, realAd, paragraph4, paragraph1, paragraph4, paragraph1]);
 
-    expect(_.includes(result, realAd)).to.equal(false);
-    expect(!!_.find(result, function (component) {
+    assert.equal(result.includes(realAd), false);
+    assert.equal(!!result.find(function (component) {
       return component._ref === dummyAd._ref;
-    })).to.equal(false);
+    }), false);
   });
 
   it('inserts ad dummies in place of ads', function () {
-    var result = helper([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1, realAd, paragraph4, paragraph1, paragraph4, paragraph1], dummyAd);
+    const result = helper([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1, realAd, paragraph4, paragraph1, paragraph4, paragraph1], dummyAd);
 
-    expect(_.includes(result, realAd)).to.equal(false);
-    expect(result[5].viewportMin).to.equal(realAd.viewportMin);
-    expect(result[5].viewportMax).to.equal(realAd.viewportMax);
-    expect(result[5]._ref).to.equal(dummyAd._ref);
+    assert.equal(result.includes(realAd), false);
+    assert.equal(result[5].viewportMin, realAd.viewportMin);
+    assert.equal(result[5].viewportMax, realAd.viewportMax);
+    assert.equal(result[5]._ref, dummyAd._ref);
   });
 
   it('does not insert ad dummies when there are no ads', function () {
-    var result = helper([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1], dummyAd);
+    const result = helper([paragraph1, paragraph4, paragraph1, paragraph4, paragraph1], dummyAd);
 
-    expect(_.includes(result, dummyAd)).to.equal(false);
+    assert.equal(result.includes(dummyAd), false);
   });
 });

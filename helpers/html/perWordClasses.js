@@ -1,20 +1,18 @@
 'use strict';
-const striptags = require('striptags'),
-  speakingurl = require('speakingurl'),
-  he = require('he'),
-  _map = require('lodash/map'),
-  _last = require('lodash/last'),
-  _isEmpty = require('lodash/isEmpty'),
-  _isString = require('lodash/isString');
+const striptags = require('striptags');
+
+// speakingurl and he are big (language tables, every HTML entity) and only this helper needs them
+let speakingurl, he;
 
 /**
  * Removes all unicode from string
  * mostly used for stripping various curly quotes
+ * (keeps the printable ASCII punctuation but not quotes, apostrophes or backticks)
  * @param {string} str
  * @returns {string}
  */
 function stripUnicode(str) {
-  return str.replace(/[^A-Za-z 0-9\.,\?!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]~]*/g, '');
+  return str.replace(/[^ !#-&(-_a-~]+/g, '');
 }
 
 /**
@@ -23,6 +21,9 @@ function stripUnicode(str) {
  * @return {string}
  */
 function toSlug(word) {
+  speakingurl = speakingurl || require('speakingurl');
+  he = he || require('he');
+
   // strip unicode (mostly curly quotes)
   // strip html tags (like <b>)
   // decode html entities (like &amp;)
@@ -42,43 +43,12 @@ function generateWordClass(word) {
 }
 
 /**
- * wraps each letter in a span
- * @param {string} letter
- * @param {integer} index (array index)
- * @returns {string}
- */
-function addCharSpan(letter, index) {
-  return `<span class="_char${index}">${letter}</span>`;
-}
-
-/**
  * generate mark-up where each letter of a word is wrapped in a span
  * @param {string} word
  * @returns {string}
  */
 function generateLetterClasses(word) {
-  const letters = word.split('');
-
-  return _map(letters, addCharSpan).join('');
-}
-
-/**
- * wrap a word in a class
- * @param {string} word
- * @param {number} index
- * @param {array} array
- * @param {boolean} hasLetterClasses
- * @returns {string}
- */
-function wrapWord(word, index, array, hasLetterClasses) {
-  const isLastWord = _last(array) === word,
-    suffixSpace = isLastWord ? '' : ' ',
-    finalWord = hasLetterClasses ? generateLetterClasses(word) : word;
-
-  // note: we add the space after each word (except the last word) INSIDE the span
-  // because otherwise browsers will display them weirdly if they're styled differently
-  // than the words
-  return `<span class="${generateWordClass(word)}">${finalWord}${suffixSpace}</span>`;
+  return word.split('').map((letter, index) => `<span class="_char${index}">${letter}</span>`).join('');
 }
 
 /**
@@ -89,22 +59,22 @@ function wrapWord(word, index, array, hasLetterClasses) {
  * @returns {string} words wrapped in classes
  */
 module.exports = function (html, options) {
-  let words, hasLetterClasses;
-
-  if (_isEmpty(html) || !_isString(html)) {
+  if (!(typeof html === 'string' || html instanceof String) || html.length === 0) {
     return ''; // fail gracefully
   }
 
-  if (options.hash.perLetter !== false) {
-    // if it's not EXPLICITLY false, add letter classes
-    hasLetterClasses = true;
-  } else {
-    hasLetterClasses = false;
-  }
+  // if it's not EXPLICITLY false, add letter classes
+  const hasLetterClasses = options.hash.perLetter !== false,
+    words = String(html).split(' ');
 
-  // replace nonbreaking spaces before splitting the text
-  words = html.split(' ');
-  return _map(words, (word, index, array) => wrapWord(word, index, array, hasLetterClasses)).join('');
+  // note: we add the space after each word (except the last word) INSIDE the span
+  // because otherwise browsers will display them weirdly if they're styled differently
+  // than the words
+  return words.map((word, index) => {
+    const finalWord = hasLetterClasses ? generateLetterClasses(word) : word;
+
+    return `<span class="${generateWordClass(word)}">${finalWord}${index === words.length - 1 ? '' : ' '}</span>`;
+  }).join('');
 };
 
 // for testing
