@@ -2,6 +2,11 @@ name: Release
 
 # Run `npm run release <patch|minor|major|prepatch|preminor|premajor>` from master:
 # it bumps the version, tags it and pushes the tag, which starts this workflow.
+#
+# Publishing uses npm trusted publishing: the package's npm settings name this
+# repository and this file, so no token is stored in GitHub. The dist-tag is
+# "prerelease" for versions like 9.0.0-rc.1, otherwise the `publishConfig.tag`
+# in package.json when it is set, otherwise "latest".
 on:
   push:
     tags: ['v[0-9]+.[0-9]+.[0-9]+*']
@@ -20,7 +25,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: read
-      id-token: write # npm provenance, and npm trusted publishing if it is set up
+      id-token: write # npm trusted publishing and provenance
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -39,10 +44,7 @@ jobs:
             exit 1
           fi
       - name: Publish
-        env:
-          # Not needed once this package has npm trusted publishing set up for
-          # this repository and workflow (npm package settings > Trusted publisher)
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # npm logs "with tag latest" when publishConfig.tag is set, but publishes to that tag
         run: |
           # versions like 9.0.0-rc.1 go to the "prerelease" tag, not "latest"
           if [[ "$GITHUB_REF_NAME" == *-* ]]; then
