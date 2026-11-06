@@ -1,45 +1,58 @@
 'use strict';
-const glob = require('glob'),
+const fs = require('fs'),
   path = require('path'),
-  outdent = require('outdent'),
-  fs = require('fs'),
-  clayLog = require('clay-log'),
-  log = clayLog.init({
-    name: 'clayhandlebars'
-  });
+  helpers = require('./lib/helpers'),
+  partials = require('./lib/partials'),
+  read = require('./lib/read'),
+  log = require('./lib/log'),
+  yaml = require('./lib/yaml');
 
-// filter out tests from globbed files
-function noTests(filename) {
-  return filename.indexOf('.test.js') === -1;
+/**
+ * A partial that reads and compiles its file when it is first rendered, not when it is registered.
+ * @param {string} name of the file in partials/, without .hbs
+ * @returns {function} what registerPartial takes: a template function
+ */
+function lazyPartial(name) {
+  const file = path.join(__dirname, 'partials', `${name}.hbs`);
+  let template;
+
+  return function (context, options) {
+    template = template || require('handlebars').compile(fs.readFileSync(file, 'utf8'));
+
+    return template(context, options);
+  };
 }
 
+/**
+ * Add the helpers and partials of clayhandlebars to a Handlebars environment.
+ *
+ * @param  {object} [env] a Handlebars environment, anything with `registerHelper` and `registerPartial`; a new one by default
+ * @return {object} the environment
+ */
 module.exports = function (env) {
-  const helpers = glob.sync(path.resolve(__dirname, 'helpers', '**', '*.js')).filter(noTests),
-    partials = glob.sync(path.resolve(__dirname, 'partials', '**', '*.hbs')).filter(noTests);
-
   if (!env) {
     // instantiate a new handlebars
     env = require('handlebars');
   }
 
   // add 3rd party helpers first (in case we need to overwrite any)
-  require('./third-party-helpers')(env);
+  env.registerHelper('yaml', yaml);
 
   // support `read` helper on the server-side ONLY
   // todo: deprecate this when we figure out how to precompile these assets
   env.registerHelper('read', function (filename) {
     try {
-      return fs.readFileSync(filename, 'utf-8');
+      return read(filename);
     } catch (error) {
       log('error', `Failure to read ${filename}.`, { error });
     }
   });
 
   // add helpers
-  helpers.forEach(h => env.registerHelper(path.basename(h, '.js'), require(h)));
+  Object.keys(helpers).forEach(name => env.registerHelper(name, helpers[name]));
 
   // add partials
-  partials.forEach(p => env.registerPartial(path.basename(p, '.hbs'), require(p)));
+  partials.forEach(name => env.registerPartial(name, lazyPartial(name)));
 
   return env;
 };
@@ -51,10 +64,11 @@ module.exports = function (env) {
  * @return {string}      wrapped template string
  */
 module.exports.wrapPartial = function (name, code) {
-  return outdent`
-    {{#ifAny _ref _self}}
-      ${code}
-    {{else}}
-      <!-- unable to render partial ${name} without a supplied context -->
-    {{/ifAny}}`;
+  return [
+    '{{#ifAny _ref _self}}',
+    `  ${code}`,
+    '{{else}}',
+    `  <!-- unable to render partial ${name} without a supplied context -->`,
+    '{{/ifAny}}'
+  ].join('\n');
 };

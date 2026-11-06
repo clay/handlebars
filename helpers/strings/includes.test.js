@@ -1,10 +1,13 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ includes a b }}');
 
 describe(name, function () {
   it('returns empty if no value passed in', function () {
-    expect(tpl({a: null, b: 'test'})).to.be.empty;
+    assert.equal(tpl({a: null, b: 'test'}), '');
   });
 
   it('throws an error if first arg is not string', function () {
@@ -12,7 +15,7 @@ describe(name, function () {
       return tpl({a: 100, b: 'test'});
     };
 
-    expect(result).to.throw(Error);
+    assert.throws(result, Error);
   });
 
   it('throws an error if second arg is not string', function () {
@@ -20,15 +23,15 @@ describe(name, function () {
       return tpl({a: 'test', b: 100});
     };
 
-    expect(result).to.throw(Error);
+    assert.throws(result, Error);
   });
 
   it('finds substring within string', function () {
-    expect(tpl({a: 'foo', b: 'f'})).to.be.ok;
+    assert.ok(tpl({a: 'foo', b: 'f'}));
   });
 
   it('returns empty if substring is not found', function () {
-    expect(tpl({a: 'foo', b: 'p'})).to.be.empty;
+    assert.equal(tpl({a: 'foo', b: 'p'}), '');
   });
 
 });

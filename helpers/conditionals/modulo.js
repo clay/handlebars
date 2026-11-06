@@ -8,7 +8,7 @@
  * @return {string} if inline, otherwise calls block functions
  */
 module.exports = function (dividend, divisor, remainder, options) {
-  var result = dividend % divisor;
+  const result = dividend % divisor;
 
   // if used as a block helper, this will have options.fn and options.inverse
   // if used inline, simply return true/emptystring

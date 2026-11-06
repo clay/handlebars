@@ -4,11 +4,10 @@
  * concatenate any number of strings
  * @return {string} concatenated string
  */
-module.exports = function () {
-  let arg = Array.prototype.slice.call(arguments, 0);
+module.exports = function (...args) {
+  args.pop(); // Handlebars' options object
 
-  arg.pop();
-  return arg.join('');
+  return args.join('');
 };
 
 module.exports.example = {

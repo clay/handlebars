@@ -1,12 +1,12 @@
 'use strict';
-var name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   filterName = __filename.split('/').pop().split('.').shift(),
-  filter = require('./' + filterName),
-  expect = require('chai').expect,
-  _ = require('lodash');
+  filter = require('./' + filterName);
 
 describe(name, function () {
-  var content = [{
+  const content = [{
       _ref: 'fakeParagraph1'
     }, {
       _ref: 'fakeParagraph2'
@@ -33,30 +33,30 @@ describe(name, function () {
     };
 
   it('passes through content of an article', function () {
-    expect(filter(content)).to.deep.equal(content);
+    assert.deepEqual(filter(content), content);
   });
 
   it('inserts ads after given component', function () {
-    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'mediaplay-image');
+    const result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'mediaplay-image');
 
-    expect(_.includes(result, mobileAd)).to.equal(true);
+    assert.equal(result.includes(mobileAd), true);
   });
 
   it('returns the same content when no ad units are passed in', function () {
-    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1]);
+    const result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1]);
 
-    expect(result[0]).to.equal(paragraph4);
-    expect(result[1]).to.equal(paragraph1);
-    expect(result[2]).to.equal(mediaplayComponent);
-    expect(result[3]).to.equal(paragraph1);
+    assert.equal(result[0], paragraph4);
+    assert.equal(result[1], paragraph1);
+    assert.equal(result[2], mediaplayComponent);
+    assert.equal(result[3], paragraph1);
   });
 
   it('returns the same content when the string passed in is not a component in the content', function () {
-    var result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'notAComponent');
+    const result = filter([paragraph4, paragraph1, mediaplayComponent, paragraph1], { inSplashDesktopAd: desktopAd, inSplashTabletAd: tabletAd, inSplashMobileAd: mobileAd }, 'notAComponent');
 
-    expect(result[0]).to.equal(paragraph4);
-    expect(result[1]).to.equal(paragraph1);
-    expect(result[2]).to.equal(mediaplayComponent);
-    expect(result[3]).to.equal(paragraph1);
+    assert.equal(result[0], paragraph4);
+    assert.equal(result[1], paragraph1);
+    assert.equal(result[2], mediaplayComponent);
+    assert.equal(result[3], paragraph1);
   });
 });

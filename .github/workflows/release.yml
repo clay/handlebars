@@ -1,0 +1,54 @@
+name: Release
+
+# Run `npm run release <patch|minor|major|prepatch|preminor|premajor>` from master:
+# it bumps the version, tags it and pushes the tag, which starts this workflow.
+#
+# Publishing uses npm trusted publishing: the package's npm settings name this
+# repository and this file, so no token is stored in GitHub. The dist-tag is
+# "prerelease" for versions like 9.0.0-rc.1, otherwise the `publishConfig.tag`
+# in package.json when it is set, otherwise "latest".
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+*']
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    name: Publish to npm
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write # npm trusted publishing and provenance
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - name: Check that the tag is the package version
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          if [ "$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json ($version)"
+            exit 1
+          fi
+      - name: Publish
+        # npm logs "with tag latest" when publishConfig.tag is set, but publishes to that tag
+        run: |
+          # versions like 9.0.0-rc.1 go to the "prerelease" tag, not "latest"
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            npm publish --provenance --tag prerelease
+          else
+            npm publish --provenance
+          fi

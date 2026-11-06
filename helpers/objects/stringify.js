@@ -1,5 +1,5 @@
 'use strict';
-const stringify = require('json-stringify-safe');
+const stringify = require('../../lib/stringify');
 
 /**
  * stringify JSON
@@ -8,7 +8,7 @@ const stringify = require('json-stringify-safe');
  * @returns {string}
  */
 module.exports = function (obj) {
-  return stringify(obj, null, 0);
+  return stringify(obj);
 };
 
 module.exports.example = {

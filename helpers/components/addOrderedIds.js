@@ -1,5 +1,5 @@
 'use strict';
-const _set = require('lodash/set');
+const { set } = require('../../lib/path');
 
 /**
  * Add ordered ids to components within a componentlist
@@ -11,9 +11,10 @@ const _set = require('lodash/set');
 module.exports = function (content, prefix, offset) {
   offset = typeof offset === 'number' ? offset : 1;
   if (content && prefix) {
-  	return content.map((component, index) => _set(component, 'orderedId', prefix + (index + offset)));
+    // set(), not `component.orderedId =`: a frozen or sealed component, or something that isn't an object, is passed on untouched
+    return content.map((component, index) => set(component, 'orderedId', prefix + (index + offset)));
   } else {
-  	throw new Error('Handlebars Helper "addOrderedIds" needs content and a prefix');
+    throw new Error('Handlebars Helper "addOrderedIds" needs content and a prefix');
   }
 };
 

@@ -1,7 +1,4 @@
 'use strict';
-const _isString = require('lodash/isString'),
-  _isArray = require('lodash/isArray'),
-  _forOwn = require('lodash/forOwn');
 
 /**
  * encode urls (ported from the nunjucks `urlencode` filter)
@@ -10,25 +7,13 @@ const _isString = require('lodash/isString'),
  * @return {string} urlencoded data
  */
 module.exports = function (obj) {
-  if (_isString(obj)) {
+  if (typeof obj === 'string' || obj instanceof String) {
     return encodeURIComponent(obj);
-  } else {
-    let parts;
-
-    if (_isArray(obj)) {
-      parts = obj.map(function (item) {
-        return encodeURIComponent(item[0]) + '=' + encodeURIComponent(item[1]);
-      });
-    } else {
-      parts = [];
-
-      _forOwn(obj, function (val, key) {
-        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
-      });
-    }
-
-    return parts.join('&');
   }
+
+  const pairs = Array.isArray(obj) ? obj.map(item => [item[0], item[1]]) : Object.keys(Object(obj)).map(key => [key, obj[key]]);
+
+  return pairs.map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value)).join('&');
 };
 
 module.exports.example = {

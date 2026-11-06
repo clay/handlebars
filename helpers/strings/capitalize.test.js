@@ -1,13 +1,16 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ capitalize a }}');
 
 describe(name, function () {
   it('returns emptystring if undefined', function () {
-    expect(tpl()).to.equal('');
+    assert.equal(tpl(), '');
   });
 
   it('capitalizes first character in a string', function () {
-    expect(tpl({a: 'foo bar'})).to.equal('Foo bar');
+    assert.equal(tpl({a: 'foo bar'}), 'Foo bar');
   });
 });

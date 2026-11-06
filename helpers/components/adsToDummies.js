@@ -1,9 +1,5 @@
 'use strict';
-
-const _map = require('lodash/map'),
-  _includes = require('lodash/includes'),
-  _assign = require('lodash/assign'),
-  _compact = require('lodash/compact');
+const { toList } = require('../../lib/collection');
 
 /**
  * Given a list of component instance objects, replace each ad component
@@ -15,15 +11,16 @@ const _map = require('lodash/map'),
  * @return {Array} - an array of components, with ads replaced with the
  *                   ad dummy instance
  */
-
 module.exports = function (content, dummyAd) {
-  return _compact(_map(content, function (cmpt) {
-    if (_includes(cmpt._ref, '/components/ad/') && dummyAd && dummyAd._ref) {
-      return _assign({}, cmpt, { _ref: dummyAd._ref });
-    } else if (_includes(cmpt._ref, '/components/ad/')) {
+  return toList(content).map(function (cmpt) {
+    const isAd = typeof cmpt._ref === 'string' && cmpt._ref.includes('/components/ad/');
+
+    if (isAd && dummyAd && dummyAd._ref) {
+      return Object.assign({}, cmpt, { _ref: dummyAd._ref });
+    } else if (isAd) {
       return false;
     } else {
       return cmpt;
     }
-  }));
+  }).filter(Boolean);
 };

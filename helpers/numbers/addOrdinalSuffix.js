@@ -1,24 +1,6 @@
 'use strict';
 
-function mod10(num) {
-  return num % 10;
-}
-
-function mod100(num) {
-  return num % 100;
-}
-
-function isFirst(num) {
-  return mod10(num) === 1 && mod100(num) !== 11;
-}
-
-function isSecond(num) {
-  return mod10(num) === 2 && mod100(num) !== 12;
-}
-
-function isThird(num) {
-  return mod10(num) === 3 && mod100(num) !== 13;
-}
+const SUFFIXES = { 1: 'st', 2: 'nd', 3: 'rd' };
 
 /**
  * add ordinal after a number
@@ -27,18 +9,15 @@ function isThird(num) {
  * @return {string}
  */
 module.exports = function (num) {
+  const lastTwoDigits = num % 100;
+
   // if no number is supplied, pass through string
   if (num === '' || isNaN(num)) { // will check numbers and (numbers in) strings
-    return new String(num); // will convert to a string if it's a different type
-  } else if (isFirst(num)) {
-    return `${num}st`;
-  } else if (isSecond(num)) {
-    return `${num}nd`;
-  } else if (isThird(num)) {
-    return `${num}rd`;
-  } else {
-    return `${num}th`;
+    return String(num); // will convert to a string if it's a different type
   }
+
+  // 11th, 12th and 13th are the exceptions to 1st, 2nd and 3rd
+  return `${num}${lastTwoDigits >= 11 && lastTwoDigits <= 13 ? 'th' : SUFFIXES[num % 10] || 'th'}`;
 };
 
 module.exports.example = {

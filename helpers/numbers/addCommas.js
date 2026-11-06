@@ -1,5 +1,4 @@
 'use strict';
-const comma = require('comma-it');
 
 /**
  * add commas to numbers.
@@ -11,12 +10,22 @@ const comma = require('comma-it');
  */
 module.exports = function (num) {
   const str = num.toString(),
-    precision = str.split('.') && str.split('.')[1] && str.split('.')[1].length || 0;
+    [whole, decimals] = str.split('.');
+  let sign = '', digits = whole;
 
-  // if the number has a decimal, set the precision to the amount of decimal places,
-  // otherwise set the precision to zero (for intergers)
+  if (str.length === 0) {
+    return '0.00';
+  }
 
-  return comma(str, { precision: precision, thousandSeperator: ',', decimalSeperator: '.' });
+  if (digits.startsWith('-')) {
+    sign = '-';
+    digits = digits.slice(1);
+  }
+
+  // groups of three digits, counted from the end of the whole part
+  digits = digits.split('').reverse().join('').replace(/(\d{3}(?!$))/g, '$1,').split('').reverse().join('');
+
+  return sign + digits + (decimals ? '.' + decimals : '');
 };
 
 module.exports.example = {

@@ -1,17 +1,20 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ slugToSiteName a }}');
 
 describe(name, function () {
   it('returns site name from slug', function () {
-    expect(tpl({a: 'scienceofus'})).to.equal('Science of Us');
+    assert.equal(tpl({a: 'scienceofus'}), 'Science of Us');
   });
 
   it('returns comma-separated site names from comma-separated slugs', function () {
-    expect(tpl({a: 'di, thecut, vulture'})).to.equal('Daily Intelligencer, The Cut, Vulture');
+    assert.equal(tpl({a: 'di, thecut, vulture'}), 'Daily Intelligencer, The Cut, Vulture');
   });
 
   it('returns empty string if no site is passed in', function () {
-    expect(tpl({a: ''})).to.equal('');
+    assert.equal(tpl({a: ''}), '');
   });
 });

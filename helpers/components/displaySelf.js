@@ -1,5 +1,5 @@
 'use strict';
-const _filter = require('lodash/filter');
+const { toList } = require('../../lib/collection');
 
 /**
  * Return the first component (from a list of components) with a truthy `displaySelf` property. Used by Spaces.
@@ -7,14 +7,9 @@ const _filter = require('lodash/filter');
  * @return {object} first component with `displaySelf: true`
  */
 module.exports = function (components) {
-  var limitReached = false;
+  const first = toList(components).find(item => item.displaySelf);
 
-  return _filter(components, function (item) {
-    if (item.displaySelf && !limitReached) {
-      limitReached = true;
-      return item;
-    }
-  });
+  return first ? [first] : [];
 };
 
 module.exports.example = {

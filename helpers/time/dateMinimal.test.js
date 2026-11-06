@@ -1,5 +1,8 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   timeOnly = /^\d+:\d+ [ap]\.m\./,
   timeAgoSec = /1 second ago/,
   timeAgoSecs = /([12]?\d|30) seconds ago/,
@@ -10,99 +13,92 @@ const name = getName(__filename),
 
 describe(name, function () {
   function addDays(date, days) {
-    var result = new Date(date);
+    const result = new Date(date);
 
     result.setDate(date.getDate() + days);
     return result;
   }
 
   function matchMinutes(date, minutes) {
-    var result = new Date(date);
+    const result = new Date(date);
 
     result.setMinutes(date.getMinutes() + minutes);
     return result;
   }
 
   function matchSeconds(date, seconds) {
-    var result = new Date(date);
+    const result = new Date(date);
 
     result.setSeconds(date.getSeconds() + seconds);
     return result;
   }
 
   it('should return empty string if given an invalid date', function () {
-    var result = tpl({a: [2015, 25, 35]});
+    const result = tpl({a: [2015, 25, 35]});
 
-    expect(result).to.equal('');
+    assert.equal(result, '');
   });
 
   it('should match the ocluded frame', function () {
-    var result = tpl({a: new Date()});
+    const result = tpl({a: new Date()});
 
-    expect(result).to.match(timeAgoSecs);
+    assert.match(result, timeAgoSecs);
   });
 
   it('should show a time ago in seconds if article is created 1 second ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = matchSeconds(date, -1);
-    result = tpl({a: date});
-    expect(result).to.match(timeAgoSec);
+    const result = tpl({a: date});
+    assert.match(result, timeAgoSec);
   });
 
   it('should show a time ago in seconds if article is created < 1 minute ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = matchSeconds(date, -30);
-    result = tpl({a: date});
-    expect(result).to.match(timeAgoSecs);
+    const result = tpl({a: date});
+    assert.match(result, timeAgoSecs);
   });
 
   it('should show a time ago in minutes if article is created < 30 minutes ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = matchMinutes(date, -5);
-    result = tpl({a: date});
-    expect(result).to.match(timeAgoMins);
+    const result = tpl({a: date});
+    assert.match(result, timeAgoMins);
   });
 
   it('should match h:mm if article is created > 30 minutes ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = matchMinutes(date, -35);
-    result = tpl({a: date});
-    expect(result).to.match(timeOnly);
+    const result = tpl({a: date});
+    assert.match(result, timeOnly);
   });
 
   it('should match one day ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = addDays(date, -1);
-    result = tpl({a: date});
-    expect(result).to.match(yesterday);
+    const result = tpl({a: date});
+    assert.match(result, yesterday);
   });
 
   it('should match two days ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = addDays(date, -2);
-    result = tpl({a: date});
-    expect(result).to.match(dateAtTime);
+    const result = tpl({a: date});
+    assert.match(result, dateAtTime);
   });
 
   it('should match one week ago', function () {
-    var date = new Date(),
-      result;
+    let date = new Date();
 
     date = addDays(date, -7);
-    result = tpl({a: date});
-    expect(result).to.match(dateAtTime);
+    const result = tpl({a: date});
+    assert.match(result, dateAtTime);
   });
 
 });

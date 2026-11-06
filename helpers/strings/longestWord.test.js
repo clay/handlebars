@@ -1,5 +1,8 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ longestWord a }}');
 
 describe(name, function () {
@@ -8,14 +11,14 @@ describe(name, function () {
       return tpl();
     };
 
-    expect(result).to.throw(Error);
+    assert.throws(result, Error);
   });
 
   it('returns 0 if there are no words', function () {
-    expect(tpl({a: '   '})).to.equal('0');
+    assert.equal(tpl({a: '   '}), '0');
   });
 
   it('returns length of longest word', function () {
-    expect(tpl({a: 'Foo Ba b'})).to.equal('3');
+    assert.equal(tpl({a: 'Foo Ba b'}), '3');
   });
 });

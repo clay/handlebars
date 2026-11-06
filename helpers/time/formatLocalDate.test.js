@@ -1,36 +1,31 @@
 'use strict';
-var filterName = __filename.split('/').pop().split('.').shift(),
-  filter = require('./' + filterName),
-  expect = require('chai').expect,
-  dateFormat = require('date-fns/format'),
-  sinon = require('sinon');
+const { describe, it, afterEach, mock } = require('node:test');
+const assert = require('node:assert/strict');
+const filterName = __filename.split('/').pop().split('.').shift(),
+  filter = require('./' + filterName);
 
 describe('Filters: ' + filterName, function () {
-  let sandbox;
+  // dates are built from local-time parts, so the expected strings hold in any time zone
+  const date = new Date(2020, 2, 4, 15, 5, 9);
 
-  beforeEach(function () {
-    sandbox = sinon.sandbox.create();
-    sandbox.useFakeTimers();
-  });
   afterEach(function () {
-    sandbox.restore();
+    mock.timers.reset();
   });
 
   it('formats with default format', function () {
-    var date = (new Date(0)).toString();
-
-    expect(filter(date)).to.equal(dateFormat(date, 'M/D/YYYY [at] h:mm a'));
+    assert.equal(filter(date), '3/4/2020 at 3:05 pm');
   });
 
   it('formats with given format', function () {
-    var format = 'MM/DD/YYYY',
-      date = (new Date(0)).toString();
+    assert.equal(filter(date, 'MM/DD/YYYY'), '03/04/2020');
+  });
 
-    expect(filter(date, format)).to.equal(dateFormat(date, format));
+  it('accepts a date string', function () {
+    assert.equal(filter('2020-03-04T15:05:09', 'M/D/YYYY h:mm a'), '3/4/2020 3:05 pm');
   });
 
   it('if date is set to "now," uses current time', function () {
-    sandbox.clock.tick(1);
-    expect(filter('now', 'x')).to.equal(sandbox.clock.now.toString());
+    mock.timers.enable({ apis: ['Date'], now: 1234 });
+    assert.equal(filter('now', 'x'), '1234');
   });
 });

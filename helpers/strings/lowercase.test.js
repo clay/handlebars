@@ -1,18 +1,21 @@
 'use strict';
-const name = getName(__filename),
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
+const { hbs } = require('../../test/env');
+const name = __filename.split('/').pop().replace('.test.js', ''),
   tpl = hbs.compile('{{ lowercase a }}');
 
 describe(name, function () {
   it('returns emptystring if undefined', function () {
-    expect(tpl()).to.equal('');
-    expect(tpl({})).to.equal('');
+    assert.equal(tpl(), '');
+    assert.equal(tpl({}), '');
   });
 
   it('returns emptystring if non-string passed in', function () {
-    expect(tpl({a: 123})).to.equal('');
+    assert.equal(tpl({a: 123}), '');
   });
 
   it('lower cases a string', function () {
-    expect(tpl({a: 'Per un Pugno di Dollari'})).to.equal('per un pugno di dollari');
+    assert.equal(tpl({a: 'Per un Pugno di Dollari'}), 'per un pugno di dollari');
   });
 });

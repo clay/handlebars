@@ -20,10 +20,9 @@ const operators = {
  * @return {string} if inline, otherwise calls block functions
  */
 module.exports = function (left, operator, right, options) {
-  let result;
 
   if (arguments.length < 3) { // options is always passed in
-    throw new Error('Handlerbars Helper "compare" needs 2 parameters');
+    throw new Error('Handlebars Helper "compare" needs 2 parameters');
   }
 
   if (options === undefined) {
@@ -32,11 +31,11 @@ module.exports = function (left, operator, right, options) {
     operator = '===';
   }
 
-  if (!operators[operator]) {
-    throw new Error(`Handlerbars Helper "compare" doesn't know the operator ${operator}`);
+  if (!Object.prototype.hasOwnProperty.call(operators, operator)) { // not `operators[operator]`: 'constructor' and 'toString' are not operators
+    throw new Error(`Handlebars Helper "compare" doesn't know the operator ${operator}`);
   }
 
-  result = operators[operator](left, right);
+  const result = operators[operator](left, right);
 
   // if used as a block helper, this will have options.fn and options.inverse
   // if used inline, simply return true/emptystring

@@ -1,5 +1,4 @@
 'use strict';
-const _isArray = require('lodash/isArray');
 
 /**
  * join all elements of array into a string, optionally using a given separator
@@ -8,12 +7,11 @@ const _isArray = require('lodash/isArray');
  * @return {string}
  */
 module.exports = function (array, sep) {
-  if (!_isArray(array)) {
+  if (!Array.isArray(array)) {
     return '';
   }
 
-  sep = typeof sep !== 'string' ? ', ' : sep;
-  return array.join(sep);
+  return array.join(typeof sep !== 'string' ? ', ' : sep);
 };
 
 module.exports.example = {

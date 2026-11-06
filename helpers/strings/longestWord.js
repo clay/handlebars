@@ -1,18 +1,16 @@
 'use strict';
-const _isString = require('lodash/isString'),
-  _words = require('lodash/words');
-
 /**
  * returns the number of characters in the longest word of a string. Punctuation is NOT ignored.
  * @param  {string} str string to search through
  * @return {number} of letters in the longest word
  */
 module.exports = function (str) {
-  if (!_isString(str)) {
+  if (!(typeof str === 'string' || str instanceof String)) {
     throw new Error('longestWord requires a string argument!');
   }
 
-  return _words(str).reduce(function (prev, curr) {
+  // lodash is loaded the first time this helper runs: it tells words apart (camelCase, numbers, accents) better than a regex can
+  return require('lodash/words')(str).reduce(function (prev, curr) {
     if (curr.length > prev.length) {
       return curr;
     } else {
