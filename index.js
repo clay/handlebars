@@ -44,7 +44,7 @@ module.exports = function (env) {
     try {
       return read(filename);
     } catch (error) {
-      log('error', `Failure to read ${filename}.`, { error });
+      log('warn', `Failure to read ${filename}.`, { error });
     }
   });
 
